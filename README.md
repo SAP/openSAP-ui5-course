@@ -6,11 +6,12 @@ What's in here?
 ---------------
 
 In the master branch you can find:
-* Solutions to all the course exercises (w3u4 = week 3 unit 4)
 * A folder with mock data for running the application project without a backend service connection
+* Solutions to all the course exercises (each unit in a separate folder: w3u4 = week 3 unit 4)
  
 In the gh-pages branch you can find:
 * The code validator tool that helps you to verify the exercise coding and score bonus points
+* Instructions on how to use it in your application project
 
 Contributions
 -------------
