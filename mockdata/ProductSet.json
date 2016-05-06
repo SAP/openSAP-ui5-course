@@ -1,0 +1,591 @@
+[
+  {
+    "ProductID": "HT-1001",
+    "TypeCode": "PR",
+    "Category": "Notebooks",
+    "Name": "Notebook Basic 17",
+    "NameLanguage": "EN",
+    "Description": "Notebook Basic 17 with 2,80 GHz quad core, 17\" LCD, 4 GB DDR3 RAM, 500 GB Hard Disc, Windows 8 Pro",
+    "DescriptionLanguage": "EN",
+    "SupplierID": "0100000001",
+    "SupplierName": "Becker Berlin",
+    "TaxTarifCode": 1,
+    "MeasureUnit": "EA",
+    "WeightMeasure": "4.500",
+    "WeightUnit": "KG",
+    "CurrencyCode": "EUR",
+    "Price": "1249.00",
+    "Width": "29.000",
+    "Depth": "17.000",
+    "Height": "3.100",
+    "DimUnit": "CM",
+    "CreatedAt": "/Date(1458513044000)/",
+    "ChangedAt": "/Date(1458513044000)/",
+    "ToSupplier": {
+      "__deferred": {
+        "uri": "https://SAPES4.SAPDEVCENTER.COM:443/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/ProductSet('HT-1001')/ToSupplier"
+      }
+    }
+  },
+  {
+    "ProductID": "HT-1100",
+    "TypeCode": "PR",
+    "Category": "Software",
+    "Name": "Smart Office",
+    "NameLanguage": "EN",
+    "Description": "Complete package, 1 User, Office Applications (word processing, spreadsheet, presentations)",
+    "DescriptionLanguage": "EN",
+    "SupplierID": "0100000001",
+    "SupplierName": "Becker Berlin",
+    "TaxTarifCode": 1,
+    "MeasureUnit": "EA",
+    "WeightMeasure": "1.200",
+    "WeightUnit": "KG",
+    "CurrencyCode": "EUR",
+    "Price": "89.90",
+    "Width": "15.000",
+    "Depth": "6.500",
+    "Height": "2.100",
+    "DimUnit": "CM",
+    "CreatedAt": "/Date(1458513044000)/",
+    "ChangedAt": "/Date(1458513044000)/",
+    "ToSupplier": {
+      "__deferred": {
+        "uri": "https://SAPES4.SAPDEVCENTER.COM:443/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/ProductSet('HT-1100')/ToSupplier"
+      }
+    }
+  },
+  {
+    "ProductID": "HT-2025",
+    "TypeCode": "PR",
+    "Category": "Computer System Accessories",
+    "Name": "CD/DVD case: 264 sleeves",
+    "NameLanguage": "EN",
+    "Description": "Organizer and protective case for 264 CDs and DVDs",
+    "DescriptionLanguage": "EN",
+    "SupplierID": "0100000001",
+    "SupplierName": "Becker Berlin",
+    "TaxTarifCode": 1,
+    "MeasureUnit": "EA",
+    "WeightMeasure": "0.650",
+    "WeightUnit": "KG",
+    "CurrencyCode": "EUR",
+    "Price": "44.99",
+    "Width": "13.000",
+    "Depth": "13.000",
+    "Height": "20.000",
+    "DimUnit": "CM",
+    "CreatedAt": "/Date(1458513044000)/",
+    "ChangedAt": "/Date(1458513044000)/",
+    "ToSupplier": {
+      "__deferred": {
+        "uri": "https://SAPES4.SAPDEVCENTER.COM:443/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/ProductSet('HT-2025')/ToSupplier"
+      }
+    }
+    
+  },
+  {
+    "ProductID": "HT-1002",
+    "TypeCode": "PR",
+    "Category": "Notebooks",
+    "Name": "Notebook Basic 18",
+    "NameLanguage": "EN",
+    "Description": "Notebook Basic 18 with 2,80 GHz quad core, 18\" LCD, 8 GB DDR3 RAM, 1000 GB Hard Disc, Windows 8 Pro",
+    "DescriptionLanguage": "EN",
+    "SupplierID": "0100000002",
+    "SupplierName": "DelBont Industries",
+    "TaxTarifCode": 1,
+    "MeasureUnit": "EA",
+    "WeightMeasure": "4.200",
+    "WeightUnit": "KG",
+    "CurrencyCode": "USD",
+    "Price": "1570.00",
+    "Width": "28.000",
+    "Depth": "19.000",
+    "Height": "2.500",
+    "DimUnit": "CM",
+    "CreatedAt": "/Date(1458513044000)/",
+    "ChangedAt": "/Date(1458513044000)/",
+    "ToSupplier": {
+      "__deferred": {
+        "uri": "https://SAPES4.SAPDEVCENTER.COM:443/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/ProductSet('HT-1002')/ToSupplier"
+      }
+    }
+  },
+  {
+    "ProductID": "HT-1101",
+    "TypeCode": "PR",
+    "Category": "Software",
+    "Name": "Smart Design",
+    "NameLanguage": "EN",
+    "Description": "Complete package, 1 User, Image editing, processing",
+    "DescriptionLanguage": "EN",
+    "SupplierID": "0100000002",
+    "SupplierName": "DelBont Industries",
+    "TaxTarifCode": 1,
+    "MeasureUnit": "EA",
+    "WeightMeasure": "0.800",
+    "WeightUnit": "KG",
+    "CurrencyCode": "USD",
+    "Price": "79.90",
+    "Width": "14.000",
+    "Depth": "6.700",
+    "Height": "24.000",
+    "DimUnit": "CM",
+    "CreatedAt": "/Date(1458513044000)/",
+    "ChangedAt": "/Date(1458513044000)/",
+    "ToSupplier": {
+      "__deferred": {
+        "uri": "https://SAPES4.SAPDEVCENTER.COM:443/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/ProductSet('HT-1101')/ToSupplier"
+      }
+    }
+  },
+  {
+    "ProductID": "HT-2001",
+    "TypeCode": "PR",
+    "Category": "Portable Players",
+    "Name": "10\" Portable DVD player",
+    "NameLanguage": "EN",
+    "Description": "10\" LCD Screen, storage battery holds up to 8 hours",
+    "DescriptionLanguage": "EN",
+    "SupplierID": "0100000002",
+    "SupplierName": "DelBont Industries",
+    "TaxTarifCode": 1,
+    "MeasureUnit": "EA",
+    "WeightMeasure": "0.840",
+    "WeightUnit": "KG",
+    "CurrencyCode": "USD",
+    "Price": "449.99",
+    "Width": "24.000",
+    "Depth": "19.500",
+    "Height": "29.000",
+    "DimUnit": "CM",
+    "CreatedAt": "/Date(1458513044000)/",
+    "ChangedAt": "/Date(1458513044000)/",
+    "ToSupplier": {
+      "__deferred": {
+        "uri": "https://SAPES4.SAPDEVCENTER.COM:443/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/ProductSet('HT-2001')/ToSupplier"
+      }
+    }
+  },
+  {
+    "ProductID": "HT-1003",
+    "TypeCode": "PR",
+    "Category": "Notebooks",
+    "Name": "Notebook Basic 19",
+    "NameLanguage": "EN",
+    "Description": "Notebook Basic 19 with 2,80 GHz quad core, 19\" LCD, 8 GB DDR3 RAM, 1000 GB Hard Disc, Windows 8 Pro",
+    "DescriptionLanguage": "EN",
+    "SupplierID": "0100000003",
+    "SupplierName": "Talpa",
+    "TaxTarifCode": 1,
+    "MeasureUnit": "EA",
+    "WeightMeasure": "4.200",
+    "WeightUnit": "KG",
+    "CurrencyCode": "EUR",
+    "Price": "1650.00",
+    "Width": "32.000",
+    "Depth": "21.000",
+    "Height": "4.000",
+    "DimUnit": "CM",
+    "CreatedAt": "/Date(1458513044000)/",
+    "ChangedAt": "/Date(1458513044000)/",
+    "ToSupplier": {
+      "__deferred": {
+        "uri": "https://SAPES4.SAPDEVCENTER.COM:443/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/ProductSet('HT-1003')/ToSupplier"
+      }
+    }
+  },
+  {
+    "ProductID": "HT-1102",
+    "TypeCode": "PR",
+    "Category": "Software",
+    "Name": "Smart Network",
+    "NameLanguage": "EN",
+    "Description": "Complete package, 1 User, Network Software Utilities, Useful Applications and Documentation",
+    "DescriptionLanguage": "EN",
+    "SupplierID": "0100000003",
+    "SupplierName": "Talpa",
+    "TaxTarifCode": 1,
+    "MeasureUnit": "EA",
+    "WeightMeasure": "0.800",
+    "WeightUnit": "KG",
+    "CurrencyCode": "EUR",
+    "Price": "69.00",
+    "Width": "16.000",
+    "Depth": "6.000",
+    "Height": "27.000",
+    "DimUnit": "CM",
+    "CreatedAt": "/Date(1458513044000)/",
+    "ChangedAt": "/Date(1458513044000)/",
+    "ToSupplier": {
+      "__deferred": {
+        "uri": "https://SAPES4.SAPDEVCENTER.COM:443/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/ProductSet('HT-1102')/ToSupplier"
+      }
+    }
+  },
+  {
+    "ProductID": "HT-2000",
+    "TypeCode": "PR",
+    "Category": "Portable Players",
+    "Name": "7\" Widescreen Portable DVD Player w MP3",
+    "NameLanguage": "EN",
+    "Description": "7\" LCD Screen, storage battery holds up to 6 hours!",
+    "DescriptionLanguage": "EN",
+    "SupplierID": "0100000003",
+    "SupplierName": "Talpa",
+    "TaxTarifCode": 1,
+    "MeasureUnit": "EA",
+    "WeightMeasure": "0.790",
+    "WeightUnit": "KG",
+    "CurrencyCode": "EUR",
+    "Price": "249.99",
+    "Width": "21.400",
+    "Depth": "19.000",
+    "Height": "27.600",
+    "DimUnit": "CM",
+    "CreatedAt": "/Date(1458513044000)/",
+    "ChangedAt": "/Date(1458513044000)/",
+    "ToSupplier": {
+      "__deferred": {
+       "uri": "https://SAPES4.SAPDEVCENTER.COM:443/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/ProductSet('HT-2000')/ToSupplier"
+     }
+    }
+  },
+  {
+    "ProductID": "HT-1007",
+    "TypeCode": "PR",
+    "Category": "PDAs & Organizers",
+    "Name": "ITelO Vault",
+    "NameLanguage": "EN",
+    "Description": "Digital Organizer with State-of-the-Art Storage Encryption",
+    "DescriptionLanguage": "EN",
+    "SupplierID": "0100000004",
+    "SupplierName": "Panorama Studios",
+    "TaxTarifCode": 1,
+    "MeasureUnit": "EA",
+    "WeightMeasure": "0.200",
+    "WeightUnit": "KG",
+    "CurrencyCode": "USD",
+    "Price": "299.00",
+    "Width": "32.000",
+    "Depth": "22.000",
+    "Height": "3.000",
+    "DimUnit": "CM",
+    "CreatedAt": "/Date(1458513044000)/",
+    "ChangedAt": "/Date(1458513044000)/",
+	"ToSupplier": {
+	 "__deferred": {
+	   "uri": "https://SAPES4.SAPDEVCENTER.COM:443/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/ProductSet('HT-1007')/ToSupplier"
+	 }
+	}
+  },
+  {
+    "ProductID": "HT-1103",
+    "TypeCode": "PR",
+    "Category": "Software",
+    "Name": "Smart Multimedia",
+    "NameLanguage": "EN",
+    "Description": "Complete package, 1 User, different Multimedia applications, playing music, watching DVDs, only with this Smart package",
+    "DescriptionLanguage": "EN",
+    "SupplierID": "0100000004",
+    "SupplierName": "Panorama Studios",
+    "TaxTarifCode": 1,
+    "MeasureUnit": "EA",
+    "WeightMeasure": "0.800",
+    "WeightUnit": "KG",
+    "CurrencyCode": "USD",
+    "Price": "77.00",
+    "Width": "11.000",
+    "Depth": "3.400",
+    "Height": "22.000",
+    "DimUnit": "CM",
+    "CreatedAt": "/Date(1458513044000)/",
+    "ChangedAt": "/Date(1458513044000)/",
+	"ToSupplier": {
+	 "__deferred": {
+	   "uri": "https://SAPES4.SAPDEVCENTER.COM:443/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/ProductSet('HT-1103')/ToSupplier"
+	 }
+	}
+  },
+  {
+    "ProductID": "HT-1603",
+    "TypeCode": "PR",
+    "Category": "PCs",
+    "Name": "Gaming Monster Pro",
+    "NameLanguage": "EN",
+    "Description": "3,4 Ghz quad core, 16 GB DDR3 SDRAM, 4000 GB Hard Disc, Graphic Card: Hurricane GX, Windows 8",
+    "DescriptionLanguage": "EN",
+    "SupplierID": "0100000004",
+    "SupplierName": "Panorama Studios",
+    "TaxTarifCode": 1,
+    "MeasureUnit": "EA",
+    "WeightMeasure": "6.800",
+    "WeightUnit": "KG",
+    "CurrencyCode": "USD",
+    "Price": "1700.00",
+    "Width": "27.000",
+    "Depth": "28.000",
+    "Height": "42.000",
+    "DimUnit": "CM",
+    "CreatedAt": "/Date(1458513044000)/",
+    "ChangedAt": "/Date(1458513044000)/",
+	"ToSupplier": {
+	 "__deferred": {
+	   "uri": "https://SAPES4.SAPDEVCENTER.COM:443/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/ProductSet('HT-1603')/ToSupplier"
+	 }
+	}
+  },
+  {
+    "ProductID": "HT-1010",
+    "TypeCode": "PR",
+    "Category": "Notebooks",
+    "Name": "Notebook Professional 15",
+    "NameLanguage": "EN",
+    "Description": "Notebook Professional 15 with 2,80 GHz quad core, 15\" Multitouch LCD, 8 GB DDR3 RAM, 500 GB SSD - DVD-Writer (DVD-R/+R/-RW/-RAM),Windows 8 Pro",
+    "DescriptionLanguage": "EN",
+    "SupplierID": "0100000005",
+    "SupplierName": "TECUM",
+    "TaxTarifCode": 1,
+    "MeasureUnit": "EA",
+    "WeightMeasure": "4.300",
+    "WeightUnit": "KG",
+    "CurrencyCode": "EUR",
+    "Price": "1999.00",
+    "Width": "33.000",
+    "Depth": "20.000",
+    "Height": "3.000",
+    "DimUnit": "CM",
+    "CreatedAt": "/Date(1458513044000)/",
+    "ChangedAt": "/Date(1458513044000)/",
+	"ToSupplier": {
+	 "__deferred": {
+	   "uri": "https://SAPES4.SAPDEVCENTER.COM:443/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/ProductSet('HT-1010')/ToSupplier"
+	 }
+	}
+  },
+  {
+    "ProductID": "HT-1104",
+    "TypeCode": "PR",
+    "Category": "Software",
+    "Name": "Smart Games",
+    "NameLanguage": "EN",
+    "Description": "Complete package, 1 User, various games for amusement, logic, action, jump&run",
+    "DescriptionLanguage": "EN",
+    "SupplierID": "0100000005",
+    "SupplierName": "TECUM",
+    "TaxTarifCode": 1,
+    "MeasureUnit": "EA",
+    "WeightMeasure": "1.100",
+    "WeightUnit": "KG",
+    "CurrencyCode": "EUR",
+    "Price": "55.00",
+    "Width": "10.000",
+    "Depth": "3.000",
+    "Height": "30.000",
+    "DimUnit": "CM",
+    "CreatedAt": "/Date(1458513044000)/",
+    "ChangedAt": "/Date(1458513044000)/",
+	"ToSupplier": {
+	 "__deferred": {
+	   "uri": "https://SAPES4.SAPDEVCENTER.COM:443/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/ProductSet('HT-1104')/ToSupplier"
+	 }
+	}
+  },
+  {
+    "ProductID": "HT-1602",
+    "TypeCode": "PR",
+    "Category": "PCs",
+    "Name": "Gaming Monster",
+    "NameLanguage": "EN",
+    "Description": "3,4 Ghz quad core, 8 GB DDR3 SDRAM, 2000 GB Hard Disc, Graphic Card: Gladiator MX, Windows 8",
+    "DescriptionLanguage": "EN",
+    "SupplierID": "0100000005",
+    "SupplierName": "TECUM",
+    "TaxTarifCode": 1,
+    "MeasureUnit": "EA",
+    "WeightMeasure": "5.900",
+    "WeightUnit": "KG",
+    "CurrencyCode": "EUR",
+    "Price": "1200.00",
+    "Width": "26.500",
+    "Depth": "34.000",
+    "Height": "47.000",
+    "DimUnit": "CM",
+    "CreatedAt": "/Date(1458513044000)/",
+    "ChangedAt": "/Date(1458513044000)/",
+	"ToSupplier": {
+	 "__deferred": {
+	   "uri": "https://SAPES4.SAPDEVCENTER.COM:443/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/ProductSet('HT-1602')/ToSupplier"
+	 }
+	}
+  },
+  {
+    "ProductID": "HT-1011",
+    "TypeCode": "PR",
+    "Category": "Notebooks",
+    "Name": "Notebook Professional 17",
+    "NameLanguage": "EN",
+    "Description": "Notebook Professional 17 with 2,80 GHz quad core, 17\" Multitouch LCD, 8 GB DDR3 RAM, 500 GB SSD - DVD-Writer (DVD-R/+R/-RW/-RAM),Windows 8 Pro",
+    "DescriptionLanguage": "EN",
+    "SupplierID": "0100000006",
+    "SupplierName": "Asia High tech",
+    "TaxTarifCode": 1,
+    "MeasureUnit": "EA",
+    "WeightMeasure": "4.100",
+    "WeightUnit": "KG",
+    "CurrencyCode": "JPY",
+    "Price": "229900",
+    "Width": "33.000",
+    "Depth": "23.000",
+    "Height": "2.000",
+    "DimUnit": "CM",
+    "CreatedAt": "/Date(1458513044000)/",
+    "ChangedAt": "/Date(1458513044000)/",
+	"ToSupplier": {
+	 "__deferred": {
+	   "uri": "https://SAPES4.SAPDEVCENTER.COM:443/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/ProductSet('HT-1011')/ToSupplier"
+	 }
+	}
+  },
+  {
+    "ProductID": "HT-1105",
+    "TypeCode": "PR",
+    "Category": "Software",
+    "Name": "Smart Internet Antivirus",
+    "NameLanguage": "EN",
+    "Description": "Complete package, 1 User, highly recommended for internet users as anti-virus protection",
+    "DescriptionLanguage": "EN",
+    "SupplierID": "0100000006",
+    "SupplierName": "Asia High tech",
+    "TaxTarifCode": 1,
+    "MeasureUnit": "EA",
+    "WeightMeasure": "0.700",
+    "WeightUnit": "KG",
+    "CurrencyCode": "JPY",
+    "Price": "2900",
+    "Width": "16.000",
+    "Depth": "4.000",
+    "Height": "21.000",
+    "DimUnit": "CM",
+    "CreatedAt": "/Date(1458513044000)/",
+    "ChangedAt": "/Date(1458513044000)/",
+	"ToSupplier": {
+	 "__deferred": {
+	   "uri": "https://SAPES4.SAPDEVCENTER.COM:443/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/ProductSet('HT-1105')/ToSupplier"
+	 }
+	}
+  },
+  {
+    "ProductID": "HT-1601",
+    "TypeCode": "PR",
+    "Category": "PCs",
+    "Name": "Family PC Pro",
+    "NameLanguage": "EN",
+    "Description": "2,8 Ghz dual core, 4 GB DDR3 SDRAM, 1000 GB Hard Disc, Graphic Card: Gladiator MX, Windows 8",
+    "DescriptionLanguage": "EN",
+    "SupplierID": "0100000006",
+    "SupplierName": "Asia High tech",
+    "TaxTarifCode": 1,
+    "MeasureUnit": "EA",
+    "WeightMeasure": "5.300",
+    "WeightUnit": "KG",
+    "CurrencyCode": "JPY",
+    "Price": "90000",
+    "Width": "25.000",
+    "Depth": "31.700",
+    "Height": "40.200",
+    "DimUnit": "CM",
+    "CreatedAt": "/Date(1458513044000)/",
+    "ChangedAt": "/Date(1458513044000)/",
+	"ToSupplier": {
+	 "__deferred": {
+	   "uri": "https://SAPES4.SAPDEVCENTER.COM:443/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/ProductSet('HT-1601')/ToSupplier"
+	 }
+	}
+  },
+  {
+    "ProductID": "HT-1020",
+    "TypeCode": "PR",
+    "Category": "PDAs & Organizers",
+    "Name": "ITelO Vault Net",
+    "NameLanguage": "EN",
+    "Description": "Digital Organizer with State-of-the-Art Encryption for Storage and Network Communications",
+    "DescriptionLanguage": "EN",
+    "SupplierID": "0100000007",
+    "SupplierName": "Laurent",
+    "TaxTarifCode": 1,
+    "MeasureUnit": "EA",
+    "WeightMeasure": "0.160",
+    "WeightUnit": "KG",
+    "CurrencyCode": "EUR",
+    "Price": "459.00",
+    "Width": "10.000",
+    "Depth": "1.800",
+    "Height": "17.000",
+    "DimUnit": "CM",
+    "CreatedAt": "/Date(1458513044000)/",
+    "ChangedAt": "/Date(1458513044000)/",
+	"ToSupplier": {
+	 "__deferred": {
+	   "uri": "https://SAPES4.SAPDEVCENTER.COM:443/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/ProductSet('HT-1020')/ToSupplier"
+	 }
+	}
+  },
+  {
+    "ProductID": "HT-1106",
+    "TypeCode": "PR",
+    "Category": "Software",
+    "Name": "Smart Firewall",
+    "NameLanguage": "EN",
+    "Description": "Complete package, 1 User, recommended for internet users, protect your PC against cyber-crime",
+    "DescriptionLanguage": "EN",
+    "SupplierID": "0100000007",
+    "SupplierName": "Laurent",
+    "TaxTarifCode": 1,
+    "MeasureUnit": "EA",
+    "WeightMeasure": "0.900",
+    "WeightUnit": "KG",
+    "CurrencyCode": "EUR",
+    "Price": "34.00",
+    "Width": "17.900",
+    "Depth": "4.200",
+    "Height": "23.100",
+    "DimUnit": "CM",
+    "CreatedAt": "/Date(1458513044000)/",
+    "ChangedAt": "/Date(1458513044000)/",
+	"ToSupplier": {
+	 "__deferred": {
+	   "uri": "https://SAPES4.SAPDEVCENTER.COM:443/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/ProductSet('HT-1106')/ToSupplier"
+	 }
+	}
+  },
+  {
+    "ProductID": "HT-1600",
+    "TypeCode": "PR",
+    "Category": "PCs",
+    "Name": "Family PC Basic",
+    "NameLanguage": "EN",
+    "Description": "2,8 Ghz dual core, 4 GB DDR3 SDRAM, 500 GB Hard Disc, Graphic Card: Proctra X, Windows 8",
+    "DescriptionLanguage": "EN",
+    "SupplierID": "0100000007",
+    "SupplierName": "Laurent",
+    "TaxTarifCode": 1,
+    "MeasureUnit": "EA",
+    "WeightMeasure": "4.800",
+    "WeightUnit": "KG",
+    "CurrencyCode": "EUR",
+    "Price": "600.00",
+    "Width": "21.400",
+    "Depth": "29.000",
+    "Height": "38.000",
+    "DimUnit": "CM",
+    "CreatedAt": "/Date(1458513044000)/",
+    "ChangedAt": "/Date(1458513044000)/",
+	"ToSupplier": {
+	 "__deferred": {
+	   "uri": "https://SAPES4.SAPDEVCENTER.COM:443/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/ProductSet('HT-1600')/ToSupplier"
+	 }
+	}
+  }
+]
