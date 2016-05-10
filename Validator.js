@@ -2128,7 +2128,7 @@ sap.ui.require([
 
 					opaTest("Check the worklist table", function (Given, When, Then, assert) {
 						Then.waitFor({
-							controlType: "sap.m.Table",
+							//controlType: "sap.m.Table",
 							id: 'table',
 							viewNamespace: sViewNamespace,
 							viewName: sViewName,
@@ -2159,7 +2159,8 @@ sap.ui.require([
 					opaTest("Check the table columns", function (Given, When, Then, assert) {
 						// click on header here
 						Then.waitFor({
-							controlType: "sap.m.Table",
+							//controlType: "sap.m.Table",
+							id: 'table',
 							viewNamespace: sViewNamespace,
 							viewName: sViewName,
 							success: function (aTables) {
@@ -2807,7 +2808,7 @@ sap.ui.require([
 							sViewName = "Worklist";
 
 						When.waitFor({
-							controlType: "sap.m.Button",
+							//controlType: "sap.m.Button",
 							viewNamespace: sViewNamespace,
 							viewName: sViewName,
 							id: "addButton",
@@ -2857,7 +2858,7 @@ sap.ui.require([
 							sViewName = "Worklist";
 
 						When.waitFor({
-							controlType: "sap.m.Button",
+							//controlType: "sap.m.Button",
 							viewNamespace: sViewNamespace,
 							viewName: sViewName,
 							id: "addButton",
@@ -2896,7 +2897,8 @@ sap.ui.require([
 							sViewName = "Add";
 
 						Then.waitFor({
-							controlType: "sap.ui.comp.smartform.SmartForm",
+							//controlType: "sap.ui.comp.smartform.SmartForm",
+							id: 'form',
 							viewNamespace: sViewNamespace,
 							viewName: sViewName,
 							success: function (aSmartForms) {
@@ -2911,7 +2913,7 @@ sap.ui.require([
 
 										this.waitFor({
 											id: aInputs[0].getId(),
-											controlType: "sap.m.Input",
+											//controlType: "sap.m.Input",
 											matchers: new Ancestor(oSmartForm),
 											actions: new EnterText({
 												text: oProperties.Name
@@ -2926,7 +2928,7 @@ sap.ui.require([
 
 										this.waitFor({
 											id: aInputs[1].getId(),
-											controlType: "sap.m.Input",
+											//controlType: "sap.m.Input",
 											matchers: new Ancestor(oSmartForm),
 											actions: new EnterText({
 												text: oProperties.Category
@@ -2941,7 +2943,7 @@ sap.ui.require([
 
 										this.waitFor({
 											id: aInputs[2].getId(),
-											controlType: "sap.m.Input",
+											//controlType: "sap.m.Input",
 											matchers: new Ancestor(oSmartForm),
 											actions: new EnterText({
 												text: oProperties.SupplierID
@@ -2956,7 +2958,7 @@ sap.ui.require([
 
 										this.waitFor({
 											id: aInputs[3].getId(),
-											controlType: "sap.m.Input",
+											//controlType: "sap.m.Input",
 											matchers: new Ancestor(oSmartForm),
 											actions: new EnterText({
 												text: oProperties.Price
