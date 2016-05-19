@@ -8,7 +8,7 @@ Running the Validator
 The validator script in this folder checks the exercises of the openSAP course "Developing Web Apps with SAPUI5".
 To use it inside your application project add the following line to your index.html or mockServer.html file:
 
-<script src="https://SAP.github.io/openSAP-ui5-course/Validator.js"></script>
+```<script src="https://SAP.github.io/openSAP-ui5-course/Validator.js"></script>```
 
 This will inject a validation button in the lower left area of your app that you can press to trigger the tests.
 To score points for the two bonus exercises of the course you will need to pass the validator tests successfully.
