@@ -21,7 +21,6 @@
 	<script>
 		sap.ui.getCore().attachInit(function () {
 			// workaround begin: start a mock server
-			/*
 			jQuery.sap.require("sap.ui.core.util.MockServer");
 			var oMockServer = new sap.ui.core.util.MockServer({
 				rootUri: "/destinations/ES4/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/"
@@ -30,7 +29,6 @@
 				bGenerateMissingMockData: true
 			});
 			oMockServer.start();
-			*/
 			// workaround end
 
 			new sap.ui.core.ComponentContainer({
