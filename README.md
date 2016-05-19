@@ -8,7 +8,8 @@ Why is it still empty?
 
 Right now, the course did not start yet, so there is only a demo app and the mockdata for the service.
 
-We will publish the solution exercises fore each course week once it has been unlocked on the openSAP platform. ** Next repository update will be on 24th of May 2016 with the week 1 content. **
+We will publish the solution exercises fore each course week once it has been unlocked on the openSAP platform. **Next repository update will be on 24th of May 2016 with the week 1 content.**
+
 You can find all solution exercises in this public repository as the course advances. Later on, when the course will be in archive mode you can browse all exercises here and branch them for your needs.
 
 What's in here?
