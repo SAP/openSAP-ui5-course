@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0"
+	xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+	xmlns:sap="http://www.sap.com/Protocols/SAPData">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema 
+			xmlns="http://schemas.microsoft.com/ado/2008/09/edm"
+			Namespace="/IWBEP/GWSAMPLE_BASIC"
+			xml:lang="en"
+			sap:schema-version="1">
+			<EntityType Name="Product">
+				<Key>
+					<PropertyRef Name="ProductID"/>
+				</Key>
+				<Property Name="ProductID" Type="Edm.String" Nullable="false" MaxLength="10"/>
+				<Property Name="TypeCode" Type="Edm.String" Nullable="false" MaxLength="2"/>
+				<Property Name="Category" Type="Edm.String" Nullable="false" MaxLength="40"/>
+				<Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="255"/>
+				<Property Name="NameLanguage" Type="Edm.String" MaxLength="2"/>
+				<Property Name="Description" Type="Edm.String" MaxLength="255"/>
+				<Property Name="DescriptionLanguage" Type="Edm.String" MaxLength="2"/>
+				<Property Name="SupplierID" Type="Edm.String" Nullable="false" MaxLength="10"/>
+				<Property Name="SupplierName" Type="Edm.String" MaxLength="80"/>
+				<Property Name="TaxTarifCode" Type="Edm.Byte" Nullable="false"/>
+				<Property Name="MeasureUnit" Type="Edm.String" Nullable="false" MaxLength="3"/>
+				<Property Name="WeightMeasure" Type="Edm.Decimal" Precision="13" Scale="3"/>
+				<Property Name="WeightUnit" Type="Edm.String" MaxLength="3"/>
+				<Property Name="CurrencyCode" Type="Edm.String" Nullable="false" MaxLength="5"/>
+				<Property Name="Price" Type="Edm.Decimal" Precision="16" Scale="3"/>
+				<Property Name="Width" Type="Edm.Decimal" Precision="13" Scale="3"/>
+				<Property Name="Depth" Type="Edm.Decimal" Precision="13" Scale="3"/>
+				<Property Name="Height" Type="Edm.Decimal" Precision="13" Scale="3"/>
+				<Property Name="DimUnit" Type="Edm.String" MaxLength="3" sap:label="Dimension Unit"/>
+				<Property Name="CreatedAt" Type="Edm.DateTime" Precision="7"/>
+				<Property Name="ChangedAt" Type="Edm.DateTime" Precision="7" ConcurrencyMode="Fixed"/>
+			</EntityType>
+			<EntityContainer Name="/IWBEP/GWSAMPLE_BASIC_Entities" m:IsDefaultEntityContainer="true">
+				<EntitySet Name="ProductSet" EntityType="/IWBEP/GWSAMPLE_BASIC.Product"/>
+			</EntityContainer>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
