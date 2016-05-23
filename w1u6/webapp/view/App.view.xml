@@ -1,0 +1,84 @@
+<mvc:View
+	displayBlock="true"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns="sap.m"
+	controllerName="opensap.myapp.controller.App">
+	<App>
+		<pages>
+			<Page title="openSAP - Developing Web Apps with SAPUI5">
+				<content>
+					<IconTabBar
+						id="idTopLevelIconTabBar"
+						class="sapUiResponsiveContentPadding">
+						<items>
+							<IconTabFilter id="start" text="{i18n>gettingStartedFilter}">
+								<Carousel>
+									<pages>
+										<Image
+											src="https://upload.wikimedia.org/wikipedia/commons/9/9f/GEO_Globe.jpg"
+											height="600px"/>
+										<Image
+											src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Wikipedia_Hello_World_Graphic.svg/2000px-Wikipedia_Hello_World_Graphic.svg.png"
+											height="600px"/>
+									</pages>
+								</Carousel>
+								<Button
+									text="{i18n>showHelloButtonText}"
+									press="onShowHello"/>
+								<Input
+									value="{helloPanel>/recipient/name}"
+									description="Hello {helloPanel>/recipient/name}"
+									valueLiveUpdate="true"
+									width="60%"/>
+							</IconTabFilter>
+							<IconTabFilter id="layouts" text="{i18n>layoutFilter}">
+								<MessageStrip
+									type="Information"
+									showIcon="true"
+									text="Here's a Form Layout inside an Icon Tab Bar. The labels on the right hand-side are aligned to the right, while the input fields are aligned to the left. The icons of 'Publish' and 'Save Draft' button are taken from the UI5 icon library. You can find them in the icon explorer by their names 'save' and 'outbox'. Finally, please note the usage of predefined margins to create a space below this MessageStrip control and above the Toolbar control."/>
+								<f:SimpleForm id="simpleFormChange"
+									title="Address"
+									editable="true"
+									class="editableForm sapUiSmallMarginTopBottom">
+									<f:content>
+										<Label text="{i18n>layoutFormName}"/>
+										<Input value="{address>/Name}"/>
+										<Label text="{i18n>layoutFormStreet}"/>
+										<Input value="{address>/Street}"/>
+										<Label text="{i18n>layoutFormHouseNumber}"/>
+										<Input value="{address>/HouseNumber}"/>
+										<Label text="{i18n>layoutFormZIPCode}"/>
+										<Input value="{address>/ZIPCode}"/>
+										<Label text="{i18n>layoutFormCity}"/>
+										<Input value="{address>/City}" />
+										<Label text="{i18n>layoutFormCountry}"/>
+										<Select>
+											<items>
+												<core:Item text="{i18n>layoutCountryGermany}"/>
+												<core:Item text="{i18n>layoutCountryUSA}"/>
+												<core:Item text="{i18n>layoutCountryEngland}"/>
+											</items>
+										</Select>
+									</f:content>
+								</f:SimpleForm>
+								<Toolbar>
+									<ToolbarSpacer/>
+									<Button
+										text="{i18n>layoutPublishButton}"
+										icon="sap-icon://outbox"
+										type="Accept"/>
+									<Button
+										text="{i18n>layoutDraftButton}"
+										icon="sap-icon://save" />
+								</Toolbar>
+							</IconTabFilter>
+						</items>
+					</IconTabBar>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
