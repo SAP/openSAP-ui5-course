@@ -1035,7 +1035,6 @@ sap.ui.require([
 									oButton = aButtons[1];
 
 									this.waitFor({
-										controlType: "sap.m.Button",
 										id: oButton.getId(),
 										actions: new Press(),
 										success: function () {
