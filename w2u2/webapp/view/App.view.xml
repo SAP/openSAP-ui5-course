@@ -2,7 +2,6 @@
 	displayBlock="true"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:core="sap.ui.core"
-	xmlns:l="sap.ui.layout"
 	xmlns:f="sap.ui.layout.form"
 	xmlns="sap.m"
 	controllerName="opensap.myapp.controller.App">
@@ -11,6 +10,7 @@
 			<Page title="openSAP - Developing Web Apps with SAPUI5">
 				<content>
 					<IconTabBar
+						selectedKey="db"
 						id="idTopLevelIconTabBar"
 						class="sapUiResponsiveContentPadding">
 						<items>
@@ -42,7 +42,7 @@
 								<f:SimpleForm id="simpleFormChange"
 									title="Address"
 									editable="true"
-									class="sapUiSmallMarginTopBottom">
+									class="editableForm sapUiSmallMarginTopBottom">
 									<f:content>
 										<Label text="{i18n>layoutFormName}"/>
 										<Input value="{address>/Name}"/>
@@ -74,6 +74,33 @@
 										text="{i18n>layoutDraftButton}"
 										icon="sap-icon://save" />
 								</Toolbar>
+							</IconTabFilter>
+							<IconTabFilter
+								text="{i18n>dataBindingFilter}" key="db">
+								<content>
+									<List
+										headerText="{i18n>productListTitle}"
+										items="{/ProductSet}">
+										<items>
+											<ObjectListItem
+												title="{Name}"
+												number="{Price}"
+												numberUnit="{CurrencyCode}"
+												numberState="{= ${Price} > 500 ? 'Error' : 'Success'}"
+												intro="{ProductID}">
+												<firstStatus>
+													<ObjectStatus text="{
+														parts: [
+															{path: 'WeightUnit'},
+															{path: 'WeightMeasure'}
+														],
+														formatter : '.formatter.delivery'
+													}"/>
+												</firstStatus>
+											</ObjectListItem>
+										</items>
+									</List>
+								</content>
 							</IconTabFilter>
 						</items>
 					</IconTabBar>

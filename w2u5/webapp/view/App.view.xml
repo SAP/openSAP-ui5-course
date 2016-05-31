@@ -2,8 +2,8 @@
 	displayBlock="true"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:core="sap.ui.core"
-	xmlns:l="sap.ui.layout"
 	xmlns:f="sap.ui.layout.form"
+	xmlns:l="sap.ui.layout"
 	xmlns="sap.m"
 	controllerName="opensap.myapp.controller.App">
 	<App>
@@ -11,6 +11,7 @@
 			<Page title="openSAP - Developing Web Apps with SAPUI5">
 				<content>
 					<IconTabBar
+						selectedKey="db"
 						id="idTopLevelIconTabBar"
 						class="sapUiResponsiveContentPadding">
 						<items>
@@ -29,7 +30,12 @@
 									text="{i18n>showHelloButtonText}"
 									press="onShowHello"/>
 								<Input
-									value="{helloPanel>/recipient/name}"
+									value="{
+										path: 'helloPanel>/recipient/amount',
+										type: 'sap.ui.model.type.Float',
+										formatOptions: {minFractionDigits: 2},
+										constraints: {maximum : 3000}
+									}"
 									description="Hello {helloPanel>/recipient/name}"
 									valueLiveUpdate="true"
 									width="60%"/>
@@ -42,7 +48,7 @@
 								<f:SimpleForm id="simpleFormChange"
 									title="Address"
 									editable="true"
-									class="sapUiSmallMarginTopBottom">
+									class="editableForm sapUiSmallMarginTopBottom">
 									<f:content>
 										<Label text="{i18n>layoutFormName}"/>
 										<Input value="{address>/Name}"/>
@@ -74,6 +80,73 @@
 										text="{i18n>layoutDraftButton}"
 										icon="sap-icon://save" />
 								</Toolbar>
+							</IconTabFilter>
+							<IconTabFilter
+								text="{i18n>dataBindingFilter}" key="db">
+								<content>
+									<List
+										id="productsList"
+										items="{
+											path : '/ProductSet',
+											sorter : {
+												path : 'Category',
+												group : true
+											}
+										}"
+										growing="true"
+										growingThreshold="5"
+										growingScrollToLoad="false"
+										mode="SingleSelectMaster"
+										selectionChange="onItemSelected">
+										<headerToolbar>
+											<Toolbar>
+												<Title text="{i18n>productListTitle}"/>
+												<ToolbarSpacer/>
+												<SearchField
+													width="50%"
+													search="onFilterProducts"
+													selectOnFocus="false" />
+											</Toolbar>
+										</headerToolbar>
+										<items>
+											<ObjectListItem
+												title="{Name}"
+												number="{
+													parts: [
+														{path: 'Price'},
+														{path: 'CurrencyCode'}
+													],
+													type: 'sap.ui.model.type.Currency',
+													formatOptions: {
+														showMeasure: false
+													}
+												}"
+												numberUnit="{CurrencyCode}"
+												numberState="{= ${Price} > 500 ? 'Error' : 'Success'}"
+												intro="{ProductID}">
+												<firstStatus>
+													<ObjectStatus text="{
+														parts: [
+															{path: 'WeightUnit'},
+															{path: 'WeightMeasure'}
+														],
+														formatter : '.formatter.delivery'
+													}"/>
+												</firstStatus>
+											</ObjectListItem>
+										</items>
+									</List>
+									<Panel id="productDetailsPanel"
+										headerText="{i18n>productDetailPanelHeader}"
+										visible="false">
+										<l:Grid defaultSpan="L3 M6 S12">
+											<Text text="{i18n>productDetailPanelID}: {ProductID}"/>
+											<Text text="{i18n>productDetailPanelName}: {Name}"/>
+											<Text text="{i18n>productDetailPanelDescription}:\n {Description}"/>
+											<Text text="{i18n>productDetailPanelPrice}: {Price}"/>
+										</l:Grid>
+									</Panel>
+								</content>
 							</IconTabFilter>
 						</items>
 					</IconTabBar>
