@@ -1458,7 +1458,7 @@ sap.ui.require([
 								if (oObjectListItem.getNumberUnit()) {
 									assert.ok("The numberUnit is set to '" + oObjectListItem.getNumberUnit() + "' for the product '" + oObjectListItem.getTitle() + "'");
 								} else {
-									assert.notOk("The numberUnit is not set for the product '" + oObjectListItem.getTitle() + "'");
+									assert.ok("The numberUnit is not set for the product '" + oObjectListItem.getTitle() + "'");
 								}
 
 								if (oObjectListItem.getBinding("number") && oObjectListItem.getBinding("number").getType()) {
@@ -1476,7 +1476,11 @@ sap.ui.require([
 								if (oObjectListItem.getBinding("number").getType().oFormatOptions.showMeasure === false) {
 									assert.ok("The format option 'showMeasure' is set to 'false' for the 'Currency' type");
 								} else {
-									assert.notOk("The format option 'showMeasure' is not set to 'false' for the 'Currency' type");
+									if (oObjectListItem.getBinding("number").getType().oFormatOptions.currencyCode === false) {
+										assert.ok("The format option 'currencyCode' is set to 'false' for the 'Currency' type");
+									} else {
+										assert.notOk("The format option 'showMeasure' or 'currencyCode' is not set to 'false' for the 'Currency' type");
+									}
 								}
 
 							},
@@ -1788,7 +1792,7 @@ sap.ui.require([
 					opensap.reuse.onMyApp.checkDataBindingTable();
 
 					opaTest("Paging is active on the table", function (Given, When, Then, assert) {
-					// Actions (click on db tab)
+						// Actions (click on db tab)
 						Then.waitFor({
 							controlType: 'sap.m.List',
 							success : function (oLists) {
@@ -1857,7 +1861,7 @@ sap.ui.require([
 							}
 						});
 					});
-					},
+				},
 				"w2u6": function () {
 					opensap.reuse.onMyApp.goToTab("db");
 					opensap.reuse.onMyApp.checkDataBindingTable();
@@ -2227,7 +2231,7 @@ sap.ui.require([
 							success: function (aColumnListItems) {
 								var oColumnListItem = aColumnListItems[0],
 									aCells = oColumnListItem.getCells();
-								
+
 								if (aCells[iSupplierColumnIndex] instanceof sap.m.Text) {
 									assert.ok("The supplier cell is a sap.m.Text control");
 
