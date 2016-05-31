@@ -42,7 +42,7 @@
 								<f:SimpleForm id="simpleFormChange"
 									title="Address"
 									editable="true"
-									class="editableForm sapUiSmallMarginTopBottom">
+									class="sapUiSmallMarginTopBottom">
 									<f:content>
 										<Label text="{i18n>layoutFormName}"/>
 										<Input value="{address>/Name}"/>
