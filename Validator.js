@@ -2053,6 +2053,8 @@ sap.ui.require([
 											assert.notOk("Could not find an image");
 										}
 									});
+								} else {
+									assert.notOk("Did not find a formatter with the name 'formatMapUrl'");
 								}
 							},
 							error: function () {
