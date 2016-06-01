@@ -2014,7 +2014,7 @@ sap.ui.require([
 							controlType: "sap.ui.core.mvc.View",
 							success: function (aViews) {
 								var oView = aViews[0],
-									fnFormatter = oView.getController().formatter.formatMapUrl;
+									fnFormatter = oView.getController().formatMapUrl || oView.getController().formatter.formatMapUrl;
 
 								if (fnFormatter) {
 									assert.ok("Found a formatter with the name 'formatMapUrl'");
