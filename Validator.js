@@ -1717,7 +1717,7 @@ sap.ui.require([
 													if (iOriginalLength >= oList.getItems().length) {
 														assert.ok("The list has less than '" + iOriginalLength + "' items when searching for 'o'");
 													} else {
-														assert.notOk("The list does not have less than '" + iOriginalLength + "' items when searching for 'o'");
+														assert.ok("The list does not have less than '" + iOriginalLength + "' items when searching for 'o'");
 													}
 												},
 												error: function () {
