@@ -2046,7 +2046,13 @@ sap.ui.require([
 											if (sResult.search("Address") >= 0) {
 												assert.ok("Image URL contains parts of the address");
 											} else {
-												assert.notOk("Image URL does not contain parts of the address");
+												// try object syntax
+												sResult = fnFormatter.apply(oImage, [{Name: "Address", Street: "can", City: "be", ZIPCode: "in", Country: "any", HouseNumber: "format"}]);
+												if (sResult.search("Address") >= 0) {
+													assert.ok("Image URL contains parts of the address");
+												} else {
+													assert.notOk("Image URL does not contain parts of the address");
+												}
 											}
 										},
 										error: function () {
