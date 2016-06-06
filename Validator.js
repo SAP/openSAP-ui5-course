@@ -1992,7 +1992,7 @@ sap.ui.require([
 											assert.notOk("Image URL does not contain the 'staticmap' API");
 										}
 
-										if (oImage.getSrc().search("&markers") >= 0) {
+										if (oImage.getSrc().search("markers") >= 0) {
 											assert.ok("Image URL contains the 'markers' parameter");
 										} else {
 											assert.notOk("Image URL does not contain the 'markers' parameter");
