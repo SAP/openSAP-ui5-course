@@ -2175,9 +2175,8 @@ sap.ui.require([
 							id: 'table',
 							viewNamespace: sViewNamespace,
 							viewName: sViewName,
-							success: function (aTables) {
+							success: function (oTable) {
 								var i,
-									oTable = aTables[0],
 									aColumns = oTable.getColumns(),
 									oSupplierColumn,
 									oWebColumn;
@@ -2346,7 +2345,7 @@ sap.ui.require([
 											aItems = oTable.getItems().filter(function(oItem) {
 												return oItem.getBindingContext().getObject().Price >= 100;
 											});
-										return !aItems.length && oTable.getItems().length < iOriginalLength;
+										return aItems.length && oTable.getItems().length <= iOriginalLength;
 									},
 									matchers: [
 										new Ancestor(oIconTabBar)
@@ -2389,7 +2388,7 @@ sap.ui.require([
 											aItems = oTable.getItems().filter(function(oItem) {
 												return oItem.getBindingContext().getObject().Price < 100 || oItem.getBindingContext().getObject().Price > 1000;
 											});
-										return !aItems.length && oTable.getItems().length < iOriginalLength;
+										return aItems.length && oTable.getItems().length <= iOriginalLength;
 									},
 									matchers: [
 										new Ancestor(oIconTabBar)
@@ -2433,7 +2432,7 @@ sap.ui.require([
 											aItems = oTable.getItems().filter(function(oItem) {
 												return oItem.getBindingContext().getObject().Price <= 1000;
 											});
-										return !aItems.length && oTable.getItems().length < iOriginalLength;
+										return aItems.length && oTable.getItems().length < iOriginalLength;
 									},
 									matchers: [
 										new Ancestor(oIconTabBar)
@@ -2572,32 +2571,32 @@ sap.ui.require([
 									assert.notOk("The second panel is expanded but should be closed on phone devices");
 								}
 
-								Then.waitFor({
-									controlType: 'sap.m.List',
-									matchers: [
-										new AggregationFilled({name: "items"}),
-										new Ancestor(oPanel)
-									],
-									success: function (aLists) {
-										var oList = aLists[0],
-											aItems;
+								/*Then.waitFor({
+								 controlType: 'sap.m.List',
+								 matchers: [
+								 new AggregationFilled({name: "items"}),
+								 new Ancestor(oPanel)
+								 ],
+								 success: function (aLists) {
+								 var oList = aLists[0],
+								 aItems;
 
-										assert.ok("There is a non-empty 'sap.m.List' inside the second panel");
+								 assert.ok("There is a non-empty 'sap.m.List' inside the second panel");
 
-										aItems = oList.getItems().filter(function (oItem) {
-											return oItem.aCustomStyleClasses && oItem.aCustomStyleClasses[0].search("sapUiVisibleOnlyOnDesktop") >= 0;
-										});
+								 aItems = oList.getItems().filter(function (oItem) {
+								 return oItem.aCustomStyleClasses && oItem.aCustomStyleClasses[0].search("sapUiVisibleOnlyOnDesktop") >= 0;
+								 });
 
-										if (aItems.length > 0) {
-											assert.ok("There is a list item with the class 'sapUiVisibleOnlyOnDesktop' in the list");
-										} else {
-											assert.notOk("There is no list item with the class 'sapUiVisibleOnlyOnDesktop' in the list");
-										}
-									},
-									error: function () {
-										assert.notOk("Could not find a non-empty 'sap.m.List' inside the second panel");
-									}
-								});
+								 if (aItems.length > 0) {
+								 assert.ok("There is a list item with the class 'sapUiVisibleOnlyOnDesktop' in the list");
+								 } else {
+								 assert.notOk("There is no list item with the class 'sapUiVisibleOnlyOnDesktop' in the list");
+								 }
+								 },
+								 error: function () {
+								 assert.notOk("Could not find a non-empty 'sap.m.List' inside the second panel");
+								 }
+								 });*/
 							},
 							error: function () {
 								assert.notOk("Could not find any sap.m.Panel controls on the 'Object' view");
@@ -2671,11 +2670,11 @@ sap.ui.require([
 
 					opaTest("Find a nested view on the detail page", function (Given, When, Then, assert) {
 						Then.waitFor({
-							controlType : 'sap.m.semantic.FullscreenPage',
+							//controlType : 'sap.m.semantic.FullscreenPage',
+							id: 'page',
 							viewNamespace: sViewNamespace,
 							viewName: sViewName,
-							success : function(aPages){
-								var oPage = aPages[0];
+							success : function(oPage){
 								this.waitFor({
 									controlType: 'sap.ui.core.mvc.View',
 									matchers: [
@@ -2697,14 +2696,15 @@ sap.ui.require([
 
 					opaTest("Find the fragment content in the object view", function (Given, When, Then, assert) {
 						Then.waitFor({
-							controlType : 'sap.m.semantic.FullscreenPage',
+							//controlType : 'sap.m.semantic.FullscreenPage',
+							id: 'page',
 							viewNamespace: sViewNamespace,
 							viewName: sViewName,
-							success : function(aPages){
+							success : function(oPage){
 								this.waitFor({
 									controlType: "sap.m.Panel",
 									matchers : [
-										new Ancestor(aPages[0])
+										new Ancestor(oPage)
 									],
 									success : function(aPanels){
 										if(aPanels.length===3){
