@@ -6,9 +6,9 @@ The free course will start at 24th of May 2016 and you can enroll using the link
 Why isn't all course material published yet?
 --------------------------------------------
 
-Right now, the course is in the middle of week 2. So there is the mockdata for the service and the solutions for the first two week's exercises published.
+Right now, the course is in the middle of week 3. So there is the mockdata for the service and the solutions for the first three week's exercises published.
 
-We will publish the solution exercises fore each course week once it has been unlocked on the openSAP platform. **Next repository update will be on 7th of June 2016 with the week 3 content and the solution for the week 2 bonus exercise.**
+We will publish the solution exercises fore each course week once it has been unlocked on the openSAP platform. **Next repository update will be on 8th of June 2016 the solution for the week 2 bonus exercise.**
 
 You can find all solution exercises in this public repository as the course advances. Later on, when the course will be in archive mode you can browse all exercises here and branch them for your needs.
 
