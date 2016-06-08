@@ -8,7 +8,7 @@ Why isn't all course material published yet?
 
 Right now, the course is in the middle of week 3. So there is the mockdata for the service and the solutions for the first three week's exercises published.
 
-We will publish the solution exercises fore each course week once it has been unlocked on the openSAP platform. **Next repository update will be on 8th of June 2016 the solution for the week 2 bonus exercise.**
+We will publish the solution exercises fore each course week once it has been unlocked on the openSAP platform. **Next repository update will be on 14th of June 2016 with the solutions for week 4.**
 
 You can find all solution exercises in this public repository as the course advances. Later on, when the course will be in archive mode you can browse all exercises here and branch them for your needs.
 
