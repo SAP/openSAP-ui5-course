@@ -3417,13 +3417,8 @@ sap.ui.require([
 					opaTest("Check if the product has been deleted", function (Given, When, Then, assert) {
 						Then.waitFor({
 							controlType: "sap.m.ColumnListItem",
-							matchers: function (aItems) {
-								for (var i = 0; i < aItems.length; i++) {
-									if (aItems[i].getBindingContextPath() === sBindingPath) {
-										return true;
-									}
-								}
-								return false;
+							matchers: function (oItem) {
+								return oItem.getBindingContextPath() === sBindingPath;
 							},
 							success: function () {
 								assert.ok("The product with the binding path '" + sBindingPath + "' is deleted");
