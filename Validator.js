@@ -3088,39 +3088,46 @@ sap.ui.require([
 								jQuery.sap.require("sap.ui.thirdparty.sinon");
 								jQuery.sap.require("sap.ui.thirdparty.sinon-qunit");
 
+								sinon.config.injectIntoThis= true;
 								// create spies
-								var oSandbox = sinon.sandbox.create();
-								var fnQUnitModuleSpy = oSandbox.spy(QUnit, "module");
-								var fnQUnitTestSpy = oSandbox.spy(QUnit, "test");
+								sinon.test(function () {
+									var fnQUnitModuleSpy = this.spy(QUnit, "module");
+									var fnQUnitTestSpy = this.spy(QUnit, "test");
 
-								// load and run unit tests
-								jQuery.sap.registerModulePath("test.unit", "../test/unit");
-								jQuery.sap.require("opensap.manageproducts.test.unit.model.formatter");
+									// load and run unit tests
+									jQuery.sap.registerModulePath("test.unit", "./test/unit");
 
-								// trigger assertions
-								if (fnQUnitModuleSpy.callCount >= 2) {
-									assert.ok("There are at least two QUnit modules defined");
-								} else {
-									assert.notOk("There is only one QUnit module defined");
-								}
+									try {
+										jQuery.sap.require("opensap.manageproducts.test.unit.model.formatter");
 
-								var aDeliveryCalls = fnQUnitModuleSpy.getCalls().filter(function (oDeliveryCall) {
-									return oDeliveryCall.args[0].toLowerCase().search("delivery") >= 0;
-								});
-								if (aDeliveryCalls.length > 0) {
-									assert.ok("There is a 'delivery' QUnit module");
-								} else {
-									assert.notOk("There is no 'delivery' QUnit module");
-								}
+										// trigger assertions
+										if (fnQUnitModuleSpy.callCount >= 2) {
+											assert.ok("There are at least two QUnit modules defined");
+										} else {
+											assert.notOk("There is only one QUnit module defined");
+										}
 
-								if (fnQUnitTestSpy.callCount > 5) {
-									assert.ok("There are " + (fnQUnitTestSpy.callCount - 4) + " QUnit tests for the 'delivery' formatter");
-								} else {
-									assert.notOk("There are no QUnit tests for the 'delivery' formatter");
-								}
+										var aDeliveryCalls = fnQUnitModuleSpy.getCalls().filter(function (oDeliveryCall) {
+											return oDeliveryCall.args[0].toLowerCase().search("delivery") >= 0;
+										});
+										if (aDeliveryCalls.length > 0) {
+											assert.ok("There is a 'delivery' QUnit module");
+										} else {
+											assert.notOk("There is no 'delivery' QUnit module");
+										}
 
-								oSandbox.restore();
-								jQuery.sap.unloadResources("opensap/manageproducts/test/unit/model/formatter.js", false, true);
+										if (fnQUnitTestSpy.callCount > 5) {
+											assert.ok("There are " + (fnQUnitTestSpy.callCount - 4) + " QUnit tests for the 'delivery' formatter");
+										} else {
+											assert.notOk("There are no QUnit tests for the 'delivery' formatter");
+										}
+									} catch (e) {
+										throw e;
+									} finally {
+										jQuery.sap.unloadResources("opensap/manageproducts/test/unit/model/formatter.js", false, true);
+									}
+								})();
+								sinon.config.injectIntoThis= false;
 							},
 							error: function () {
 								assert.notOk("Could not find the 'Object' view");
