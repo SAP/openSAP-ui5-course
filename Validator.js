@@ -3042,8 +3042,9 @@ sap.ui.require([
 					opaTest("Check the delivery formatter logic", function (Given, When, Then, assert) {
 						Then.waitFor({
 							controlType: "sap.ui.core.mvc.View",
-							viewNamespace: sViewNamespace,
-							viewName: sViewName,
+							matchers: function (oView) {
+								return oView.getViewName() === sViewNamespace + sViewName;
+							},
 							success: function (aViews) {
 								var oView = aViews[0],
 									fnFormatter = oView.getController().formatter.delivery,
