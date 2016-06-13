@@ -3190,9 +3190,10 @@ sap.ui.require([
 					// fake: due to the dynamic dependency of the opaTest method we cannot spy on it
 					opaTest("Check for new OPA tests", function (Given, When, Then, assert) {
 						Then.waitFor({
-							viewNamespace: sViewNamespace,
-							viewName: "Add",
 							controlType: "sap.ui.core.mvc.View",
+							matchers: function (oView) {
+								return oView.getViewName() === sViewNamespace + "Add";
+							},
 							success: function () {
 								assert.ok("There are new OPA tests defined");
 							},
