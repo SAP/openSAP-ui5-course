@@ -13,7 +13,7 @@ We will publish the solution exercises fore each course week once it has been un
 You can find all solution exercises in this public repository as the course advances. Later on, when the course will be in archive mode you can browse all exercises here and branch them for your needs.
 
 What's in here?
----------------
+-----------------
 
 In the master branch you can find:
 * A folder with mock data for running the application project without a backend service connection
@@ -36,5 +36,3 @@ If you spot any issues with the code or found a bug, please create an issue or a
 Thank you,
 
 The ui51 course team
-
-
