@@ -2856,9 +2856,9 @@ sap.ui.require([
 				},
 				"w4u2" : function () {
 					var oProperties = {
-						Name: "Binford Toolmaster 3000",
-						Category: "0100000000",
-						SupplierID: "08154711",
+						Name: "Validator Test Product",
+						Category: "Notebooks",
+						SupplierID: "0100000000",
 						Price: "2342"
 					};
 
@@ -2987,7 +2987,6 @@ sap.ui.require([
 											id: "save-button",
 											viewNamespace: sViewNamespace,
 											viewName: sViewName,
-											controlType: "sap.m.Input",
 											actions: new Press(),
 											success: function () {
 												assert.ok("Pressed the 'save' button'");
@@ -3021,6 +3020,7 @@ sap.ui.require([
 						});
 					});
 				},
+
 				"w4u3" : function () {
 					var sViewNamespace = "opensap.manageproducts.view.",
 						sViewName = "Object";
