@@ -3146,7 +3146,6 @@ sap.ui.require([
 
 
 						When.waitFor({
-							controlType: "sap.m.Button",
 							viewNamespace: sViewNamespace,
 							viewName: "Worklist",
 							id: "addButton",
