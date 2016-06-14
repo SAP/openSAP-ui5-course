@@ -1,0 +1,38 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:form="sap.ui.layout.form">
+	<Panel
+		class="sapUiResponsiveMargin"
+		width="auto"
+		headerText="{i18n>supplierTitle}"
+		expandable="{device>/system/phone}"
+		expanded="false">
+		<content>
+			<List id="supplierList">
+				<items>
+					<StandardListItem icon="sap-icon://building" title="{ToSupplier/CompanyName}"/>
+					<StandardListItem icon="sap-icon://email" title="{ToSupplier/EmailAddress}"/>
+					<StandardListItem icon="sap-icon://world" title="{ToSupplier/WebAddress}"/>
+					<StandardListItem icon="sap-icon://phone" title="{ToSupplier/PhoneNumber}"/>
+					<StandardListItem icon="sap-icon://map" title="{ToSupplier/Address/City}"/>
+				</items>
+			</List>
+		</content>
+	</Panel>
+
+	<Panel
+		class="sapUiResponsiveMargin sapUiHideOnPhone"
+		width="auto"
+		headerText="{i18n>mapTitle}">
+		<Image src="{
+			parts: [
+				'ToSupplier/Address/Street',
+				'ToSupplier/Address/PostalCode',
+				'ToSupplier/Address/City',
+				'ToSupplier/Address/Country'
+			],
+			formatter: '.formatter.formatMapUrl'
+		}" />
+	</Panel>
+</core:FragmentDefinition>
