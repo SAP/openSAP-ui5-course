@@ -1,0 +1,52 @@
+<mvc:View
+	controllerName="opensap.manageproducts.controller.Object"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.m.semantic">
+
+	<semantic:FullscreenPage
+		id="page"
+		navButtonPress="onNavBack"
+		showNavButton="true"
+		title="{i18n>objectTitle}"
+		busy="{objectView>/busy}"
+		busyIndicatorDelay="{objectView>/delay}">
+
+		<semantic:content>
+			<ObjectHeader
+				id="objectHeader"
+				title="{ProductID}"
+				titleActive="true"
+				titlePress="onShowDetailPopover"
+				responsive="true"
+				number="{
+					path: 'Price',
+					formatter: '.formatter.numberUnit'
+				}"
+				numberUnit="{CurrencyCode}">
+				<attributes>
+					<ObjectAttribute text="{Name}"/>
+				</attributes>
+				<statuses>
+					<ObjectStatus text="{
+						parts: [
+							{path: 'WeightUnit'},
+							{path: 'WeightMeasure'}
+						],
+						formatter : '.formatter.delivery'
+					}"/>
+				</statuses>
+			</ObjectHeader>
+
+		    <mvc:XMLView viewName="opensap.manageproducts.view.ProductDetails"/>
+		    <core:Fragment fragmentName="opensap.manageproducts.view.SupplierInfo" type="XML"/>
+ 		</semantic:content>
+
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
+		</semantic:sendEmailAction>
+
+	</semantic:FullscreenPage>
+
+</mvc:View>

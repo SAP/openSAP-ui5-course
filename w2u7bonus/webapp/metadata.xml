@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0"
+	xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+	xmlns:sap="http://www.sap.com/Protocols/SAPData">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema
+			xmlns="http://schemas.microsoft.com/ado/2008/09/edm"
+			Namespace="/IWBEP/GWSAMPLE_BASIC"
+			xml:lang="en"
+			sap:schema-version="1">
+			<EntityType Name="BusinessPartner" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="BusinessPartnerID"/>
+				</Key>
+				<Property Name="Address" Type="/IWBEP/GWSAMPLE_BASIC.CT_Address" Nullable="false"/>
+				<Property Name="BusinessPartnerID" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Geschäftspartner-ID" sap:creatable="false" sap:updatable="false"/>
+				<Property Name="CompanyName" Type="Edm.String" Nullable="false" MaxLength="80" sap:label="Firma"/>
+				<Property Name="WebAddress" Type="Edm.String" sap:sortable="false" sap:filterable="false" sap:semantics="url"/>
+				<Property Name="EmailAddress" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="E-Mail" sap:semantics="email"/>
+				<Property Name="PhoneNumber" Type="Edm.String" MaxLength="30" sap:label="Telefonnr." sap:semantics="tel"/>
+				<Property Name="FaxNumber" Type="Edm.String" MaxLength="30"/>
+				<Property Name="LegalForm" Type="Edm.String" MaxLength="10" sap:label="Rechtsform"/>
+				<Property Name="CurrencyCode" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Währungscode" sap:semantics="currency-code"/>
+				<Property Name="BusinessPartnerRole" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="GeschPartnRolle"/>
+				<Property Name="CreatedAt" Type="Edm.DateTime" Precision="7" sap:label="Zeitstempel" sap:creatable="false" sap:updatable="false"/>
+				<Property Name="ChangedAt" Type="Edm.DateTime" Precision="7" ConcurrencyMode="Fixed" sap:label="Zeitstempel" sap:creatable="false" sap:updatable="false"/>
+			</EntityType>
+			<EntityType Name="Product">
+				<Key>
+					<PropertyRef Name="ProductID"/>
+				</Key>
+				<Property Name="ProductID" Type="Edm.String" Nullable="false" MaxLength="10"/>
+				<Property Name="TypeCode" Type="Edm.String" Nullable="false" MaxLength="2"/>
+				<Property Name="Category" Type="Edm.String" Nullable="false" MaxLength="40"/>
+				<Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="255"/>
+				<Property Name="NameLanguage" Type="Edm.String" MaxLength="2"/>
+				<Property Name="Description" Type="Edm.String" MaxLength="255"/>
+				<Property Name="DescriptionLanguage" Type="Edm.String" MaxLength="2"/>
+				<Property Name="SupplierID" Type="Edm.String" Nullable="false" MaxLength="10"/>
+				<Property Name="SupplierName" Type="Edm.String" MaxLength="80"/>
+				<Property Name="TaxTarifCode" Type="Edm.Byte" Nullable="false"/>
+				<Property Name="MeasureUnit" Type="Edm.String" Nullable="false" MaxLength="3"/>
+				<Property Name="WeightMeasure" Type="Edm.Decimal" Precision="13" Scale="3"/>
+				<Property Name="WeightUnit" Type="Edm.String" MaxLength="3"/>
+				<Property Name="CurrencyCode" Type="Edm.String" Nullable="false" MaxLength="5"/>
+				<Property Name="Price" Type="Edm.Decimal" Precision="16" Scale="3"/>
+				<Property Name="Width" Type="Edm.Decimal" Precision="13" Scale="3"/>
+				<Property Name="Depth" Type="Edm.Decimal" Precision="13" Scale="3"/>
+				<Property Name="Height" Type="Edm.Decimal" Precision="13" Scale="3"/>
+				<Property Name="DimUnit" Type="Edm.String" MaxLength="3" sap:label="Dimension Unit"/>
+				<Property Name="CreatedAt" Type="Edm.DateTime" Precision="7"/>
+				<Property Name="ChangedAt" Type="Edm.DateTime" Precision="7" ConcurrencyMode="Fixed"/>
+				<NavigationProperty Name="ToSupplier" Relationship="/IWBEP/GWSAMPLE_BASIC.Assoc_Products_BusinessPartner" FromRole="FromRole_Assoc_Products_BusinessPartner" ToRole="ToRole_Assoc_Products_BusinessPartner"/>
+			</EntityType>
+			<EntityContainer Name="/IWBEP/GWSAMPLE_BASIC_Entities" m:IsDefaultEntityContainer="true">
+				<EntitySet Name="BusinessPartnerSet" EntityType="/IWBEP/GWSAMPLE_BASIC.BusinessPartner" sap:content-version="1"/>
+				<EntitySet Name="ProductSet" EntityType="/IWBEP/GWSAMPLE_BASIC.Product"/>
+				<Association Name="Assoc_Products_BusinessPartner" sap:content-version="1">
+					<End Type="/IWBEP/GWSAMPLE_BASIC.BusinessPartner" Multiplicity="1" Role="FromRole_Assoc_BusinessPartner_Products"/>
+					<End Type="/IWBEP/GWSAMPLE_BASIC.Product" Multiplicity="*" Role="ToRole_Assoc_BusinessPartner_Products"/>
+					<ReferentialConstraint>
+						<Principal Role="FromRole_Assoc_Products_BusinessPartner">
+							<PropertyRef Name="SupplierID"/>
+						</Principal>
+						<Dependent Role="ToRole_Assoc_Products_BusinessPartner">
+							<PropertyRef Name="BusinessPartnerID"/>
+						</Dependent>
+					</ReferentialConstraint>
+				</Association>
+				<AssociationSet Name="Assoc_Products_BusinessPartner_AssocSet" Association="/IWBEP/GWSAMPLE_BASIC.Assoc_Products_BusinessPartner" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+					<End EntitySet="ProductSet" Role="FromRole_Assoc_Products_BusinessPartner"/>
+					<End EntitySet="BusinessPartnerSet" Role="ToRole_Assoc_Products_BusinessPartner"/>
+				</AssociationSet>
+			</EntityContainer>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

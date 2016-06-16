@@ -1,0 +1,12 @@
+{
+    "Name": "SAP SE",
+    "Street": "Dietmar-Hopp-Allee",
+    "HouseNumber": "16",
+    "ZIPCode": "69190",
+    "City": "Walldorf",
+    "Country": "Germany",
+    "Url": "http://www.sap.com",
+    "Twitter": "@sap",
+    "Tel" : "+49 6227 747474",
+    "Email" : "info@sap.com"
+}

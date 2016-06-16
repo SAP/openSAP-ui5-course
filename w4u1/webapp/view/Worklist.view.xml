@@ -1,0 +1,162 @@
+<mvc:View
+	controllerName="opensap.manageproducts.controller.Worklist"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.m.semantic">
+
+	<semantic:FullscreenPage
+		id="page"
+		navButtonPress="onNavBack"
+		showNavButton="true"
+		title="{i18n>worklistViewTitle}">
+		<semantic:content>
+			<IconTabBar
+				id="iconTabBar"
+				select="onQuickFilter"
+				expandable="false">
+				<items>
+					<IconTabFilter
+						key="all"
+						showAll="true"
+						count="{i18n>worklistFilterProductsAllCount}"
+						text="{i18n>worklistFilterProductsAll}"/>
+					<IconTabSeparator/>
+					<IconTabFilter
+						key="cheap"
+						icon="sap-icon://waiver"
+						iconColor="Positive"
+						count="{worklistView>/cheap}"
+						text="{i18n>worklistFilterCheap}"/>
+					<IconTabFilter
+						key="moderate"
+						icon="sap-icon://loan"
+						iconColor="Critical"
+						count="{worklistView>/moderate}"
+						text="{i18n>worklistFilterModerate}"/>
+					<IconTabFilter
+						key="expensive"
+						icon="sap-icon://money-bills"
+						iconColor="Negative"
+						count="{worklistView>/expensive}"
+						text="{i18n>worklistFilterExpensive}"/>
+				</items>
+				<content>
+					<Table
+						id="table"
+						width="auto"
+						items="{
+							path: '/ProductSet',
+							sorter: {
+								path: 'ProductID',
+								descending: false
+							},
+							parameters: {
+								expand: 'ToSupplier'
+							}
+						}"
+						noDataText="{worklistView>/tableNoDataText}"
+						busyIndicatorDelay="{worklistView>/tableBusyDelay}"
+						growing="true"
+						growingScrollToLoad="true"
+						updateFinished="onUpdateFinished">
+
+						<headerToolbar>
+							<Toolbar>
+								<Title id="tableHeader" text="{worklistView>/worklistTableTitle}"/>
+								<ToolbarSpacer />
+								<SearchField
+									id="searchField"
+									tooltip="{i18n>worklistSearchTooltip}"
+									search="onSearch"
+									width="auto">
+								</SearchField>
+								<Button id="addButton" icon="sap-icon://add" press="onAdd" />
+							</Toolbar>
+						</headerToolbar>
+
+						<columns>
+							<Column id="nameColumn">
+								<Text text="{i18n>tableNameColumnTitle}" id="nameColumnTitle"/>
+							</Column>
+							<Column 
+								id="supplierNameColumn"
+								demandPopin="true"
+								minScreenWidth="Tablet">
+								<Text text="{i18n>tableSupplierColumnTitle}"/>
+							</Column>
+							<Column id="webAddressColumn"
+								demandPopin="false"
+								minScreenWidth="Tablet">
+								<Text text="{i18n>tableSupplierWebAddressColumnTitle}"/>
+							</Column>
+							<Column id="unitNumberColumn" hAlign="End">
+								<Text text="{i18n>tableUnitNumberColumnTitle}" id="unitNumberColumnTitle"/>
+							</Column>
+						</columns>
+
+						<items>
+							<ColumnListItem
+								type="Navigation"
+								press="onPress">
+								<cells>
+									<ObjectIdentifier
+										title="{ProductID}"
+										text="{Name}"
+										titleActive="true"
+										titlePress="onShowDetailPopover"/>
+									<Text text="{SupplierName}"/>
+									<Link
+										text="{ToSupplier/WebAddress}"
+										href="{ToSupplier/WebAddress}"
+										target="_blank"/>
+									<ObjectNumber
+										number="{
+											path: 'Price',
+											formatter: '.formatter.numberUnit'
+										}"
+										unit="{CurrencyCode}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</IconTabBar> 
+		</semantic:content>
+
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
+		</semantic:sendEmailAction>
+
+		<!-- we instantiate the fragment in the controller now
+		<semantic:dependents>
+			<ResponsivePopover title="{i18n>dimensionsTitle}"
+				class="sapUiPopupWithPadding"
+				id="dimensionsPopover">
+				<content>
+					<l:Grid>
+						<l:content>
+							<Text text="{i18n>productWidth}: {
+									path: 'Width',
+									formatter: '.formatter.numberUnit'
+								} {DimUnit}" />
+							<Text text="{i18n>productDepth}: {
+									path: 'Depth',
+									formatter: '.formatter.numberUnit'
+								} {DimUnit}" />
+							<Text text="{i18n>productHeight}: {
+									path: 'Height',
+									formatter: '.formatter.numberUnit'
+								} {DimUnit}" />
+							<Text text="{i18n>productWeight}: {
+									path: 'WeightMeasure',
+									formatter: '.formatter.numberUnit'
+								} {WeightUnit}" />
+						</l:content>
+					</l:Grid>
+				</content>
+			</ResponsivePopover>
+		</semantic:dependents>-->
+
+	</semantic:FullscreenPage>
+
+</mvc:View>
