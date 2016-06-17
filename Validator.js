@@ -3406,8 +3406,7 @@ sap.ui.require([
 													"The item will not be removed from the List/Server but you did a good job in the exercise!\n" +
 													"We decided to skip the deletion of items by the validator.",{
 													duration: 10000,
-													my: "CenterTop",
-													at: "CenterTop"
+													at: "center top"
 												})
 											});
 										},
