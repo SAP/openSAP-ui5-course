@@ -3359,10 +3359,17 @@ sap.ui.require([
 				/*** week 4 bonus ***/
 
 				"w4u7bonus" : function () {
+					$.sap.require("sap/ui/thirdparty/sinon");
 					var sBindingPath = "",
-						sProductName = "";
+						sProductName = "",
+						oDeleteStub;
 
 					opensap.reuse.onAnyPage.goToWorklist();
+
+					// if there was somehow a stub that is still active
+					if(sap.ui.model.odata.v2.ODataModel.prototype.remove.restore) {
+						sap.ui.model.odata.v2.ODataModel.prototype.remove.restore();
+					}
 
 					opaTest("Delete the first product in the table", function (Given, When, Then, assert) {
 						When.waitFor({
@@ -3394,7 +3401,15 @@ sap.ui.require([
 												assert.notOk("The button does not have a 'delete' icon");
 											}
 
-											assert.ok("Pressed the delete button");
+											oDeleteStub = sinon.stub(sap.ui.model.odata.v2.ODataModel.prototype, "remove", function (sPath) {
+												sap.m.MessageToast.show("The application deleted the item with the path '" + sPath + "'.\n" +
+													"The item will not be removed from the List/Server but you did a good job in the exercise!\n" +
+													"We decided to skip the deletion of items by the validator.",{
+													duration: 10000,
+													my: "CenterTop",
+													at: "CenterTop"
+												})
+											});
 										},
 										error: function () {
 											assert.notOk("No button was found inside the table item");
@@ -3409,6 +3424,9 @@ sap.ui.require([
 											assert.ok("Pressed the delete button");
 										},
 										error: function () {
+											if (oDeleteStub) {
+												oDeleteStub.restore();
+											}
 											assert.notOk("No button was found inside the table item");
 										}
 									});
@@ -3424,14 +3442,33 @@ sap.ui.require([
 
 					opaTest("Check if the product has been deleted", function (Given, When, Then, assert) {
 						Then.waitFor({
-							controlType: "sap.m.ColumnListItem",
-							matchers: function (oItem) {
-								return oItem.getBindingContextPath() === sBindingPath;
-							},
 							success: function () {
-								assert.ok("The product with the binding path '" + sBindingPath + "' is deleted");
+								if (oDeleteStub.callCount === 0) {
+									assert.notOk("The function https://openui5.hana.ondemand.com/#docs/api/symbols/sap.ui.model.odata.v2.ODataModel.html#remove was not called");
+									return;
+								}
+								if (oDeleteStub.callCount > 1) {
+									assert.notOk("The function https://openui5.hana.ondemand.com/#docs/api/symbols/sap.ui.model.odata.v2.ODataModel.html#remove was calle " + oDeleteStub.callCount + " times should only be called once!");
+									return;
+								}
+								var aArgs = oDeleteStub.getCall(0).args;
+
+								if (sBindingPath !== aArgs[0]) {
+									assert.notOk("Removed the wrong binding path expected '" + sBindingPath + "' but got '" + aArgs[0] + "'");
+									return;
+								}
+
+								if ($.isFunction(aArgs[1] && aArgs[1].success)) {
+									aArgs[1].success();
+								}
+
+								oDeleteStub.restore();
+								assert.ok("Product was deleted");
 							},
 							error: function () {
+								if (oDeleteStub) {
+									oDeleteStub.restore();
+								}
 								assert.notOk("The product with the binding path '" + sBindingPath + "' was not deleted");
 							}
 						});
