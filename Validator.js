@@ -784,6 +784,16 @@ sap.ui.require([
 					When.waitFor({
 						controlType: "sap.m.Page",
 						actions: function (oPage) {
+							var oParent = oPage.getParent();
+
+							while (oParent) {
+								if (oParent.getViewName && oParent.getViewName().toLowerCase().indexOf("worklist") !== -1) {
+									// don't press the back button on the worklist seems to have side effects
+									return;
+								}
+								oParent = oParent.getParent();
+							}
+
 							if (oPage.$().find("button").length) {
 								jQuery(oPage.$().find("button")[0]).trigger("tap");
 							} else if (oPage.$().find("a").length) {
