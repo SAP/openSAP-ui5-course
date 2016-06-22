@@ -1,7 +1,8 @@
 # openSAP-ui5-course
 
 This repository contains related material for the openSAP course "Developing Web Apps with SAPUI5" (https://open.sap.com/courses/ui51). 
-The free course will start at 24th of May 2016 and you can enroll using the link above.
+The free online course was held from 24th of May 2016 until 29th of June 2016 and is now in archive mode.
+You still access the content and enroll for the course using the link above.
 
 What's in here?
 -----------------
