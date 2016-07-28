@@ -37,7 +37,7 @@
 										constraints: {maximum : 3000}
 									}"
 									description="Hello {helloPanel>/recipient/name}"
-									valueLiveUpdate="true"
+									valueLiveUpdate="false"
 									width="60%"/>
 							</IconTabFilter>
 							<IconTabFilter id="layouts" key="layouts" text="{i18n>layoutFilter}">
