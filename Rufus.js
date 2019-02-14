@@ -564,7 +564,7 @@ sap.ui.require([
 					});
 					opaTest("Checking the calendar's id", function (Given, When, Then, assert) {
 						When.waitFor({
-							id: "container-movies---app--calendar", // TODO check view id here only
+							id: "container-movies---App--calendar", // TODO check view id here only
 							success: function () {
 								assert.ok("The planning calendar has the id 'calendar'");
 							},
@@ -579,7 +579,7 @@ sap.ui.require([
 						When.waitFor({
 							controlType: "sap.m.Button",
 							success: function (aButtons) {
-								if (aButtons[1].getId() === "__component0---app--calendar-Today") {
+								if (aButtons[1].getId() === "__component0---App--calendar-Today") {
 									this.waitFor({
 										id: aButtons[1].getId(),
 										actions: new Press(),
