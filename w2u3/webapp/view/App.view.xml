@@ -1,125 +1,90 @@
 <mvc:View
+	controllerName="opensap.movies.controller.App"
 	displayBlock="true"
+	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:core="sap.ui.core"
 	xmlns:f="sap.ui.layout.form"
-	xmlns="sap.m"
-	controllerName="opensap.myapp.controller.App">
-	<App>
-		<pages>
-			<Page title="openSAP - Developing Web Apps with SAPUI5">
-				<content>
-					<IconTabBar
-						selectedKey="db"
-						id="idTopLevelIconTabBar"
-						class="sapUiResponsiveContentPadding">
-						<items>
-							<IconTabFilter id="start" text="{i18n>gettingStartedFilter}">
-								<Carousel>
-									<pages>
-										<Image
-											src="https://upload.wikimedia.org/wikipedia/commons/9/9f/GEO_Globe.jpg"
-											height="600px"/>
-										<Image
-											src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Wikipedia_Hello_World_Graphic.svg/2000px-Wikipedia_Hello_World_Graphic.svg.png"
-											height="600px"/>
-									</pages>
-								</Carousel>
-								<Button
-									text="{i18n>showHelloButtonText}"
-									press="onShowHello"/>
-								<Input
-									value="{
-										path: 'helloPanel>/recipient/amount',
-										type: 'sap.ui.model.type.Float',
-										formatOptions: {minFractionDigits: 2},
-										constraints: {maximum : 3000}
-									}"
-									description="Hello {helloPanel>/recipient/name}"
-									valueLiveUpdate="false"
-									width="60%"/>
-							</IconTabFilter>
-							<IconTabFilter id="layouts" text="{i18n>layoutFilter}">
-								<MessageStrip
-									type="Information"
-									showIcon="true"
-									text="Here's a Form Layout inside an Icon Tab Bar. The labels on the right hand-side are aligned to the right, while the input fields are aligned to the left. The icons of 'Publish' and 'Save Draft' button are taken from the UI5 icon library. You can find them in the icon explorer by their names 'save' and 'outbox'. Finally, please note the usage of predefined margins to create a space below this MessageStrip control and above the Toolbar control."/>
-								<f:SimpleForm id="simpleFormChange"
-									title="Address"
-									editable="true"
-									class="sapUiSmallMarginTopBottom">
-									<f:content>
-										<Label text="{i18n>layoutFormName}"/>
-										<Input value="{address>/Name}"/>
-										<Label text="{i18n>layoutFormStreet}"/>
-										<Input value="{address>/Street}"/>
-										<Label text="{i18n>layoutFormHouseNumber}"/>
-										<Input value="{address>/HouseNumber}"/>
-										<Label text="{i18n>layoutFormZIPCode}"/>
-										<Input value="{address>/ZIPCode}"/>
-										<Label text="{i18n>layoutFormCity}"/>
-										<Input value="{address>/City}" />
-										<Label text="{i18n>layoutFormCountry}"/>
-										<Select>
-											<items>
-												<core:Item text="{i18n>layoutCountryGermany}"/>
-												<core:Item text="{i18n>layoutCountryUSA}"/>
-												<core:Item text="{i18n>layoutCountryEngland}"/>
-											</items>
-										</Select>
-									</f:content>
-								</f:SimpleForm>
-								<Toolbar>
-									<ToolbarSpacer/>
-									<Button
-										text="{i18n>layoutPublishButton}"
-										icon="sap-icon://outbox"
-										type="Accept"/>
-									<Button
-										text="{i18n>layoutDraftButton}"
-										icon="sap-icon://save" />
-								</Toolbar>
-							</IconTabFilter>
-							<IconTabFilter
-								text="{i18n>dataBindingFilter}" key="db">
-								<content>
-									<List
-										headerText="{i18n>productListTitle}"
-										items="{/ProductSet}">
-										<items>
-											<ObjectListItem
-												title="{Name}"
-												number="{
-													parts: [
-														{path: 'Price'},
-														{path: 'CurrencyCode'}
-													],
-													type: 'sap.ui.model.type.Currency',
-													formatOptions: {
-														showMeasure: false
-													}
-												}"
-												numberUnit="{CurrencyCode}"
-												numberState="{= ${Price} > 500 ? 'Error' : 'Success'}"
-												intro="{ProductID}">
-												<firstStatus>
-													<ObjectStatus text="{
-														parts: [
-															{path: 'WeightUnit'},
-															{path: 'WeightMeasure'}
-														],
-														formatter : '.formatter.delivery'
-													}"/>
-												</firstStatus>
-											</ObjectListItem>
-										</items>
-									</List>
-								</content>
-							</IconTabFilter>
-						</items>
-					</IconTabBar>
-				</content>
+	xmlns:unified="sap.ui.unified">
+	<Shell>
+		<App id="app">
+			<Page title="{i18n>title}">
+				<Image
+					visible="{= !${device>/system/phone} }"
+					src="images/MoviesHeader.png"
+					width="100%"
+					tooltip="{i18n>imageTooltip}"
+					press="sap.m.MessageToast.show(${i18n>messageToast})"/>
+				<f:SimpleForm
+					id="form"
+					editable="true"
+					layout="ColumnLayout"
+					title="{i18n>titleForm}"
+					columnsM="2"
+					columnsL="3"
+					columnsXL="3">
+					<f:content>
+						<Label
+							text="{i18n>labelCity}"
+							labelFor="city"/>
+						<SearchField
+							id="city"
+							width="100%"
+							showSearchButton="false"
+							placeholder="{i18n>cityPlaceholder}"/>
+						<Label
+							text="{i18n>labelGenre}"
+							labelFor="genre"/>
+						<Select
+							id="genre"
+							width="100%">
+							<core:ListItem icon="sap-icon://video" key="" text="{i18n>genreAll}"/>
+							<core:ListItem icon="sap-icon://physical-activity" key="Action" text="{i18n>genreAction}"/>
+							<core:ListItem icon="sap-icon://electrocardiogram" key="Horror" text="{i18n>genreHorror}"/>
+							<core:ListItem icon="sap-icon://paper-plane" key="SienceFiction" text="{i18n>genreScienceFiction}"/>
+						</Select>
+						<Label/>
+						<Button
+							type="Emphasized"
+							text="{i18n>buttonMovieSearch}"
+							class="sapUiSmallMarginTop"
+							press=".onPress('for movies!')"/>
+					</f:content>
+				</f:SimpleForm>
+				<PlanningCalendar
+					id="calendar"
+					startDate="{path: 'movies>/initDate', formatter: '.formatter.formatDate'}"
+					rows="{movies>/movies}"
+					appointmentsVisualization="Filled">
+					<toolbarContent>
+						<Title text="{i18n>calendarTitle}" titleStyle="H2"/>
+					</toolbarContent>
+					<rows>
+						<PlanningCalendarRow
+							title="{movies>name}"
+							text="{movies>genre}"
+							appointments="{path : 'movies>appointments', templateShareable: 'true'}">
+							<appointments>
+								<unified:CalendarAppointment
+									startDate="{path: 'movies>startDate', formatter: '.formatter.formatDate'}"
+									endDate="{path: 'movies>endDate', formatter: '.formatter.formatDate'}"
+									title="{movies>info}"
+									text="{movies>cinemaName}"
+									icon="{movies>icon}"
+									type="{movies>type}">
+								</unified:CalendarAppointment>
+							</appointments>
+						</PlanningCalendarRow>
+					</rows>
+				</PlanningCalendar>
+				<footer>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<Link emphasized="true" target="_blank" href="https://www.imdb.com/" text="{i18n>footerLink}"/>
+						<ToolbarSpacer/>
+					</Toolbar>
+				</footer>
 			</Page>
-		</pages>
-	</App>
+		</App>
+	</Shell>
 </mvc:View>

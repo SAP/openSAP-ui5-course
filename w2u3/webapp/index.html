@@ -1,41 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta charset="utf-8">
-	<title>openSAP - Developing Web Apps with SAPUI5</title>
-	<script
-		id="sap-ui-bootstrap"
-		src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
-		data-sap-ui-theme="sap_bluecrystal"
-		data-sap-ui-libs="sap.m"
-		data-sap-ui-compatVersion="edge"
-		data-sap-ui-preload="async"
-		data-sap-ui-resourceroots='{
-			"opensap.myapp": "./"
-		}'>
-	</script>
-	<script>
-		sap.ui.getCore().attachInit(function () {
-			// workaround begin: start a mock server
-			/*
-			jQuery.sap.require("sap.ui.core.util.MockServer");
-			var oMockServer = new sap.ui.core.util.MockServer({
-				rootUri: "/destinations/ES4/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/"
-			});
-			oMockServer.simulate("metadata.xml", {
-				bGenerateMissingMockData: true
-			});
-			oMockServer.start();
-			*/
-			// workaround end
-
-			new sap.ui.core.ComponentContainer({
-				name : "opensap.myapp"
-			}).placeAt("content");
-		});
-	</script>
-</head>
-<body class="sapUiBody" id="content">
-</body>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>movies</title>
+		<script id="sap-ui-bootstrap"
+			src="../../../resources/sap-ui-core.js"
+			data-sap-ui-theme="sap_belize"
+			data-sap-ui-resourceroots='{"opensap.movies": "./"}'
+			data-sap-ui-compatVersion="edge"
+			data-sap-ui-oninit="module:sap/ui/core/ComponentSupport"
+			data-sap-ui-async="true"
+			data-sap-ui-frameOptions="trusted">
+		</script>
+	</head>
+	<body class="sapUiBody">
+		<div data-sap-ui-component data-name="opensap.movies" data-id="container" data-settings='{"id" : "movies"}'></div>
+	</body>
 </html>

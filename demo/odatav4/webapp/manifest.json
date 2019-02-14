@@ -1,7 +1,7 @@
 {
 	"_version": "1.8.0",
 	"sap.app": {
-		"id": "opensap.movies",
+		"id": "sap.ui.demo.odataV4",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
 		"applicationVersion": {
@@ -9,9 +9,20 @@
 		},
 		"title": "{{appTitle}}",
 		"description": "{{appDescription}}",
+		"resources": "resources.json",
+		"ach": "ach",
 		"sourceTemplate": {
 			"id": "ui5template.basicSAPUI5ApplicationProject",
 			"version": "1.40.12"
+		},
+		"dataSources": {
+			"default": {
+				"uri": "/destinations/odataorg/TripPinRESTierService/(S(id))/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "4.0"
+				}
+			}
 		}
 	},
 
@@ -29,21 +40,23 @@
 			"desktop": true,
 			"tablet": true,
 			"phone": true
-		}
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+
+		]
 	},
 
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "opensap.movies.view.App",
-			"type": "XML",
-			"async": true,
-			"id": "App"
+			"viewName": "sap.ui.demo.odataV4.view.App",
+			"type": "XML"
 		},
 		"dependencies": {
 			"minUI5Version": "1.60.1",
 			"libs": {
 				"sap.ui.layout": {},
-				"sap.ui.unified": {},
 				"sap.ui.core": {},
 				"sap.m": {}
 			}
@@ -52,16 +65,22 @@
 			"compact": true,
 			"cozy": true
 		},
+		"handleValidation": true,
 		"models": {
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
-					"bundleName": "opensap.movies.i18n.i18n"
+					"bundleName": "sap.ui.demo.odataV4.i18n.i18n"
 				}
 			},
-			"movies": {
-				"type": "sap.ui.model.json.JSONModel",
-				"uri": "model/Movies.json"
+			"": {
+				"dataSource": "default",
+				"settings": {
+					"autoExpandSelect": true,
+					"operationMode": "Server",
+					"groupId": "$auto",
+					"synchronizationMode": "None"
+				}
 			}
 		},
 		"resources": {
@@ -74,9 +93,9 @@
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
 				"async": true,
-				"viewPath": "opensap.movies.view",
+				"viewPath": "sap.ui.demo.odataV4.view",
 				"controlAggregation": "pages",
-				"controlId": "app",
+				"controlId": "idAppControl",
 				"clearControlAggregation": false
 			},
 			"routes": [{
@@ -89,7 +108,6 @@
 					"viewType": "XML",
 					"transition": "slide",
 					"clearControlAggregation": false,
-					"viewId": "App",
 					"viewName": "App"
 				}
 			}
