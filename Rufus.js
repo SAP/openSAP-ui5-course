@@ -18,6 +18,12 @@ sap.ui.require([
 	// reduce global timeout to 5s
 	Opa.config.timeout = 5;
 
+	// testing
+	// var sPath = "../../validator/";
+
+	// live
+	var sPath = "https://Michadelic.github.io/openSAP-ui5-course/";
+
 	sap.ui.base.Object.extend("opensap.Validator", {
 		init: function () {
 			this.bPressBlocker = false;
@@ -32,8 +38,8 @@ sap.ui.require([
 		// injects a simple testing button in the lower left area of the current app
 		injectTestButton: function () {
 			var statusPilot = {
-				neutral: "../../validator/neutral.png",
-				failure: "../../validator/failure.png",
+				neutral: sPath + "neutral.png",
+				failure: sPath + "failure.png",
 		};
 
 			$("body").append('<div id="rufus"/>');
