@@ -1,0 +1,23 @@
+{
+  "name": "ui52",
+  "version": "1.0.0",
+  "author": "SAP SE",
+  "description": "openSAP course ui52 solution repository",
+  "private": true,
+  "scripts": {
+    "start": "ui5 serve --open index.html"
+  },
+  "dependencies": {
+    "@openui5/sap.m": "^1",
+    "@openui5/sap.f": "^1",
+    "@openui5/sap.tnt": "^1",
+    "@openui5/sap.uxap": "^1",
+    "@openui5/sap.ui.core": "^1",
+    "@openui5/sap.ui.layout": "^1",
+    "@openui5/themelib_sap_belize": "^1"
+  },
+  "devDependencies": {
+    "@ui5/cli": "^0.2.0",
+    "eslint": "^4.19.1"
+  }
+}

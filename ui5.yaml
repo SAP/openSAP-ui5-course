@@ -1,0 +1,8 @@
+specVersion: '0.1'
+metadata:
+  name: ui52
+type: application
+resources:
+  configuration:
+    paths:
+      webapp: .
