@@ -18,11 +18,11 @@ sap.ui.require([
 	// reduce global timeout to 5s
 	Opa.config.timeout = 5;
 
-	// testing
+	// only for local testing
 	// var sPath = "../../validator/";
 
-	// live
-	var sPath = "https://Michadelic.github.io/openSAP-ui5-course/";
+	// live from gh-pages branch
+	var sPath = "https://sap.github.io/openSAP-ui5-course/";
 
 	sap.ui.base.Object.extend("opensap.Validator", {
 		init: function () {
@@ -40,6 +40,7 @@ sap.ui.require([
 			var statusPilot = {
 				neutral: sPath + "neutral.png",
 				failure: sPath + "failure.png",
+				success: sPath + "success.png",
 		};
 
 			$("body").append('<div id="rufus"/>');
@@ -183,7 +184,7 @@ sap.ui.require([
 				// creates the popover for the validator button
 				this._oPopover = new sap.m.Popover("validatePopover", {
 					beforeClose: function(oEvent){
-						this._oValidateButton.setSrc("../../validator/neutral.png");
+						this._oValidateButton.setSrc(statusPilot.neutral);
 					}.bind(this),
 					customHeader:
 							new sap.m.Text({text: "Validating..."}).addEventDelegate({
@@ -357,10 +358,10 @@ sap.ui.require([
 			if (bStatus !== undefined) {
 				if (bStatus) {
 					oTitle.$().css("color", "#007833");
-					oButton.setSrc("../../validator/success.png");
+					oButton.setSrc(statusPilot.success);
 				} else {
 					oTitle.$().css("color", "#cc1919");
-					oButton.setSrc("../../validator/failure.png");
+					oButton.setSrc(statusPilot.failure);
 				}
 			} else {
 				oTitle.$().css("color", "");
