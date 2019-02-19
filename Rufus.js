@@ -10,9 +10,11 @@ sap.ui.require([
 	"sap/ui/test/matchers/Properties",
 	"sap/ui/test/matchers/Ancestor",
 	"sap/ui/test/matchers/BindingPath",
+	"sap/ui/base/Object",
 	"sap/m/Button",
+	"sap/m/Image",
 	"sap/ui/core/Icon"
-], function (Opa, Opa5, Press, EnterText, AggregationFilled, PropertyStrictEquals, Properties, Ancestor, BindingPath, Button, Icon) {
+], function (Opa, Opa5, Press, EnterText, AggregationFilled, PropertyStrictEquals, Properties, Ancestor, BindingPath, Object, Button, Image, Icon) {
 	"use strict";
 
 	// reduce global timeout to 5s
@@ -24,7 +26,13 @@ sap.ui.require([
 	// live from gh-pages branch
 	var sPath = "https://sap.github.io/openSAP-ui5-course/";
 
-	sap.ui.base.Object.extend("opensap.Validator", {
+	var statusPilot = {
+		neutral: sPath + "neutral.png",
+		failure: sPath + "failure.png",
+		success: sPath + "success.png",
+	};
+
+	Object.extend("opensap.Validator", {
 		init: function () {
 			this.bPressBlocker = false;
 			opensap.reuse = {};
@@ -37,14 +45,8 @@ sap.ui.require([
 
 		// injects a simple testing button in the lower left area of the current app
 		injectTestButton: function () {
-			var statusPilot = {
-				neutral: sPath + "neutral.png",
-				failure: sPath + "failure.png",
-				success: sPath + "success.png",
-		};
-
 			$("body").append('<div id="rufus"/>');
-			this._oValidateButton = new sap.m.Image("validate", {
+			this._oValidateButton = new Image("validate", {
 				src: statusPilot.neutral,
 				tooltip: "Click here or press F9 to execute the tests for this exercise",
 				press: function () {
