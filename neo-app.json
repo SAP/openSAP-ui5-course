@@ -485,6 +485,14 @@
 				"name": "ES5"
 			},
 			"description": "ES5 Demo Service"
+		},
+		{
+			"path": "/destinations/odataorg",
+			"target": {
+				"type": "destination",
+				"name": "odataorg"
+			},
+			"description": "OData.org Service"
 		}
 	]
 }
