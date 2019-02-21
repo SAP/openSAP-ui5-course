@@ -1,0 +1,491 @@
+<html>
+<head>
+	<title>Evolved Web Apps with SAPUI5 - Exercise Solutions</title>
+	<script id="sap-ui-bootstrap"
+		src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+		data-sap-ui-theme="sap_belize"
+		data-sap-ui-compatVersion="edge"
+		data-sap-ui-async="true">
+	</script>
+	<script id="xmlView" type="text/xmldata">
+		<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" controllerName="indexController" displayBlock="true">
+			<SearchField
+				liveChange=".onSearch"/>
+			<List
+				id="units"
+				mode="SingleSelectMaster"
+				selectionChange=".onSelectUnit"
+				items="{
+					path: '/units',
+					sorter : {
+						path : 'category',
+						group : true
+					}
+				}"
+				class="sapUiSizeCompact">
+				<CustomListItem
+					type="Navigation">
+					<l:VerticalLayout width="100%" class="sapUiTinyMargin">
+						<l:HorizontalLayout>
+							<Title level="H4" titleStyle="H4" text="{title}" class="sapUiTinyMargin"/>
+							<RatingIndicator
+								value="1"
+								visible="{= ${challenge} === true }"
+								iconSize="1rem"
+								maxValue="1"
+								editable="false"/>
+						</l:HorizontalLayout>
+						<Tokenizer
+							width="100%"
+							tokens="{
+								path: 'keywords',
+								templateShareable: true
+							}"
+							editable="false"
+							class="wrapTags">
+							<Token
+								text="{}"/>
+						</Tokenizer>
+					</l:VerticalLayout>
+				</CustomListItem>
+			</List>
+	</mvc:View>
+	</script>
+	<script>
+		sap.ui.require([
+			'sap/ui/core/mvc/Controller',
+			'sap/ui/model/json/JSONModel',
+			'sap/ui/core/mvc/XMLView',
+			'sap/ui/model/Filter',
+			'sap/ui/model/FilterOperator',
+			'sap/m/library',
+			'sap/m/MessageStrip'
+		], function (Controller, JSONModel, XMLView, Filter, FilterOperator, mobileLibrary, MessageStrip) {
+			Controller.extend("indexController", {
+
+				onInit: function() {
+					var model = new JSONModel();
+					model.setData({
+						units: [
+							{
+								category: "Week 1",
+								key: "w1u1",
+								title: "Unit 1: Welcome to the Course",
+								url: "w1u1/README.md",
+								keywords: [
+									"Introduction",
+									"Course overview",
+									"Target audience",
+									"Key learnings"
+								]
+							},
+							{
+								category: "Week 1",
+								key: "w1u2a",
+								title: "Unit 2a: Developing in the Cloud with SAP Web IDE - Set up",
+								url: "w1u2/webapp/index.html",
+								keywords: [
+									"Setup",
+									"SAP Web IDE",
+									"SAP Cloud Platform",
+									"SAP Fiori Launchpad",
+									"Development Environment",
+									"ES5 Destination"
+								]
+							},
+							{
+								category: "Week 1",
+								key: "w1u3",
+								title: "Unit 3: Local Setup with the UI5 Tooling",
+								url: "w1u3/README.md",
+								keywords: [
+									"UI5 Tooling",
+									"Local Development",
+									"node.js",
+									"proxy"
+								]
+							},
+							{
+								category: "Week 1",
+								key: "w1u4",
+								title: "Unit 4: Unleashing Your UI5 Skills",
+								url: "w1u4/webapp/index.html",
+								keywords: [
+									"Learning Resources",
+									"Demo Kit",
+									"OpenUI5.org",
+									"Community"
+								]
+							},
+							{
+								category: "Week 1",
+								key: "w1u5",
+								title: "Unit 5: Introducing Smart Little Helpers",
+								url: "w1u5/README.md",
+								keywords: [
+									"UI5 Inspector",
+									"Support Tools",
+									"Troubleshooting",
+									"ESlint"
+								]
+							},
+							{
+								category: "Week 1",
+								key: "w1u6",
+								title: "Unit 6: Getting Ready for the Course Exercises",
+								url: "w1u6/webapp/index.html",
+								keywords: [
+									"Course Exercises",
+									"Validator",
+									"Rufus",
+									"Solutions",
+									"Reset",
+									"GitHub"
+								]
+							},
+							{
+								category: "Week 2",
+								key: "w2u1",
+								title: "Unit 1: Starting Your Journey to Evolved Web Apps",
+								url: "w2u1/webapp/index.html",
+								challenge: true,
+								keywords: [
+									"Best Practices",
+									"Recommendations",
+									"Asynchronous loading",
+									"Templates",
+									"CSP",
+									"MVC",
+									"UI5 Evolution"
+								]
+							},
+							{
+								category: "Week 2",
+								key: "w2u2",
+								title: "Unit 2: Waking Up Your UI Controls with Events",
+								url: "w2u2/webapp/index.html",
+								keywords: [
+									"Control",
+									"Controller",
+									"Event",
+									"Event Parameters"
+								]
+							},
+							{
+								category: "Week 2",
+								key: "w2u3",
+								title: "Unit 3: Binding Data and Using Models",
+								url: "w2u3/webapp/index.html",
+								keywords: [
+									"Data Binding",
+									"Binding Syntax",
+									"Models",
+									"i18n",
+									"Resource Bundle",
+									"Device Model",
+									"Responsiveness",
+								]
+							},
+							{
+								category: "Week 2",
+								key: "w2u4",
+								title: "Unit 4: Adding Views and Configuring Navigation",
+								url: "w2u4/webapp/index.html",
+								challenge: true,
+								keywords: [
+									"Navigation",
+									"Routing",
+									"Router",
+									"Targets",
+									"Not Found",
+									"bypassed"
+								]
+							},
+							{
+								category: "Week 2",
+								key: "w2u5",
+								title: "Unit 5: Discovering Enterprise-Grade Horizons\n",
+								url: "w2u5/webapp/index.html",
+								keywords: [
+									"Enterprise-Grade",
+									"User Experience",
+									"Consistency",
+									"Security",
+									"Accessibility",
+									"Translation"
+								]
+							},
+							{
+								category: "Week 3",
+								key: "w3u1",
+								title: "Unit 1: Kick-Start Apps with Templates",
+								url: "w3u1/webapp/index.html",
+								challenge: true,
+								keywords: [
+									"FlexibleColumnLayout",
+									"Master-Detail Template",
+									"Fiori Floorplan",
+									"Customization"
+								]
+							},
+							{
+								category: "Week 3",
+								key: "w3u2",
+								title: "Unit 2: Introducing the Power of OData",
+								url: "w3u2/webapp/index.html",
+								keywords: [
+									"OData Model",
+									"Service Metadata",
+									"OData V4",
+									"Expand"
+								]
+							},
+							{
+								category: "Week 3",
+								key: "odatav4",
+								title: "OData V4 Demo",
+								url: "demo/odatav4/webapp/index.html",
+								keywords: [
+									"OData V4",
+									"Filtered Expand",
+									"OData.org"
+								]
+							},
+							{
+								category: "Week 3",
+								key: "w3u3",
+								title: "Unit 3: Increasing Developer Productivity with SAP Web IDE",
+								url: "w3u3/webapp/index.html",
+								keywords: [
+									"SAP Web IDE",
+									"Storyboard editor",
+									"Layout Editor",
+									"Auto-fix",
+									"Developer Productivity"
+								]
+							},
+							{
+								category: "Week 3",
+								key: "w3u4",
+								title: "Unit 4: Spicing Up Your Scenario with Feature-Rich Controls",
+								url: "w3u4/webapp/index.html",
+								challenge: true,
+								keywords: [
+									"Control Library",
+									"Feature-rich controls",
+									"Object Page",
+									"Formatting",
+									"Layouting",
+									"Indicators"
+								]
+							},
+							{
+								category: "Week 3",
+								key: "w3u5",
+								title: "Unit 5: Scaling Up with UI Reuse Patterns",
+								url: "w3u5/webapp/index.html",
+								keywords: [
+									"UI Reuse",
+									"Control",
+									"View",
+									"Fragement",
+									"Custom Control",
+									"XML Composite"
+								]
+							},
+							{
+								category: "Week 4",
+								key: "w4u1",
+								title: "Unit 1: Creating Items and Validating User Input",
+								url: "w4u1/webapp/index.html",
+								keywords: [
+									"Create",
+									"Input Validation",
+									"Data Types",
+									"Constraints"
+								]
+							},
+							{
+								category: "Week 4",
+								key: "w4u2",
+								title: "Unit 2: Improving User Experience with Drag and Drop",
+								url: "w4u2/webapp/index.html",
+								challenge: true,
+								keywords: [
+									"Drag and Drop",
+									"User Experience",
+									"Enhancement",
+									"Reorder"
+								]
+							},
+							{
+								category: "Week 4",
+								key: "w4u3",
+								title: "Unit 3: Testing Application Logic with QUnit and Karma",
+								url: "w4u1/webapp/index.html",
+								keywords: [
+									"Testing Pyramid",
+									"Unit Tests",
+									"QUnit",
+									"Karma",
+									"Formatter"
+								]
+							},
+							{
+								category: "Week 4",
+								key: "w4u4",
+								title: "Unit 4: Writing Integration Tests with OPA5 and MockServer",
+								url: "w4u1/webapp/index.html",
+								keywords: [
+									"Create",
+									"Input Validation",
+									"Data Types",
+									"Constraints"
+								]
+							},
+							{
+								category: "Week 4",
+								key: "w4u5",
+								title: "Unit 1: Building and Deploying Your App",
+								url: "w4u5/webapp/index.html",
+								challenge: true,
+								keywords: [
+									"UI5 Tooling",
+									"Self-contained Build",
+									"Register FLP tile",
+									"Deployment"
+								]
+							},
+							{
+								category: "Week 5",
+								key: "w5u1",
+								title: "Unit 1: Generating Apps with SAP Fiori Elements",
+								url: "w5u1/webapp/test/flpSandbox.html",
+								keywords: [
+									"SAP Fiori Elements",
+									"List Report",
+									"CDS"
+								]
+							},
+							{
+								category: "Week 5",
+								key: "w5u2",
+								title: "Unit 2: Creating Annotation-Driven UIs for SAP Fiori Elements",
+								url: "w5u2/webapp/test/flpSandbox.html",
+								challenge: true,
+								keywords: [
+									"SAP Fiori Elements",
+									"Annotaton Modeller",
+									"OData Annotations",
+									"Customizing"
+								]
+							},
+							{
+								category: "Week 5",
+								key: "w5u3",
+								title: "Unit 3: Tuning SAP Fiori Elements with Flexibility Changes",
+								url: "w5u3/webapp/test/flpSandbox.html",
+								keywords: [
+									"SAP Fiori Elements",
+									"SAPUI5 Flexibility",
+									"Visual Editor",
+									"UI Changes"
+								]
+							},
+							{
+								category: "Week 5",
+								key: "w5u4",
+								title: "Unit 4: Extending Your SAP Fiori Launchpad with Plugins",
+								url: "w5u4/webapp/Component.js",
+								keywords: [
+									"SAP Fiori launchpad",
+									"Bookmark Service",
+									"Plugin"
+								]
+							},
+							{
+								category: "Week 5",
+								key: "w5u5",
+								title: "Unit 5: Adapting Running Apps with SAPUI5 Flexibility",
+								url: "w5u5/webapp/test/flpSandboxMock.html",
+								keywords: [
+									"SAPUI5 Flexibility",
+									"Key User Adaptation",
+									"Customizing"
+								]
+							},
+							{
+								category: "Week 5",
+								key: "w5u6",
+								title: "Unit 6: Extending Apps with Adaptation Projects",
+								url: "w5u1/webapp/test/flpSandbox.html",
+								challenge: true,
+								keywords: [
+									"SAPUI5 Flexibility",
+									"Adaptation Project",
+									"Code Extension",
+									"Map"
+								]
+							}
+						]
+					});
+
+					// convert keywords to one searchable string for easy filtering
+					model.getData().units.forEach(function (oItem) {
+						oItem.search = oItem.keywords.join(" ");
+					});
+					this.getView().setModel(model);
+				},
+
+				onSearch: function(oEvent) {
+					var oListBinding = this.byId("units").getBinding("items");
+					var sQuery = oEvent.getParameter("newValue");
+					var oFilterTitle = new Filter("title", FilterOperator.Contains, sQuery);
+					var oFilterKeywords = new Filter("search", FilterOperator.Contains, sQuery);
+					oListBinding.filter(new Filter ({
+						filters: [oFilterTitle, oFilterKeywords],
+						and: false
+					}));
+				},
+
+				onSelectUnit: function (oEvent) {
+					var sURL = oEvent.getParameter("listItem").getBindingContext().getProperty("url");
+					mobileLibrary.URLHelper.redirect(sURL, true);
+				}
+			});
+
+			XMLView.create({
+				id: "indexView",
+				definition: jQuery('#xmlView').html()
+			}).then(function (oView) {
+				oView.placeAt("content");
+			}.bind(this));
+
+			new MessageStrip({
+				text: "We recommend to browse this repository in SAP Web IDE - most units require a backend destination or SAPUI5 modules and will not run in a local development environment or when browsing from GitHub.",
+				type: "Information",
+				showCloseButton: true,
+				showIcon: true
+			}).addStyleClass("sapUiSmallMarginBottom").placeAt("note");
+		});
+	</script>
+	<style>
+		/* wrap tokens in list */
+		.wrapTags {
+			white-space: pre-line !important;
+		}
+		/* increase group header text size */
+		.sapMGHLITitle {
+			font-size: 1.125rem;
+			font-weight: bold;
+			color:  rgb(19, 102, 162);
+		}
+	</style>
+</head>
+<body class="sapUiBody sapUiMediumMargin sapUiForceWidthAuto">
+	<h1>Evolved Web Apps with SAPUI5 - Exercise Solutions</h1>
+
+	<div id="note"></div>
+	<div id="content"></div>
+</body>
+</html>
