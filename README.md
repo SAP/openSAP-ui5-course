@@ -32,7 +32,9 @@ You can import this repository to SAP Web IDE or run it standalone. Choose the s
 
 4. A folder `openSAP-ui5-course` is added to your workspace.
 
-5. In the `webapp` folder for the unit your choice (e.g. `w2u3\webapp`), right-click on the `index.html` or `mockServer.html` file, and choose **Run > Run as Web Application** to browse the course exercises.
+5. Open the index.html file to get a searchable list of course exercises
+
+6. In the `webapp` folder for the unit your choice (e.g. `w2u3\webapp`), right-click on the `index.html` or `mockServer.html` file, and choose **Run > Run as Web Application** to browse the course exercises.
 
 ### Local Installation
 
