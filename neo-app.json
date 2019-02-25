@@ -479,6 +479,33 @@
 			"description": "SAPUI5 Test Resources"
 		},
 		{
+			"path": "/demo",
+			"target": {
+				"type": "service",
+				"name": "sapui5",
+				"entryPath": "/resources"
+			},
+			"description": "SAPUI5 Resources"
+		},
+		{
+			"path": "/demo/odatav4",
+			"target": {
+				"type": "service",
+				"name": "sapui5",
+				"entryPath": "/resources"
+			},
+			"description": "SAPUI5 Resources"
+		},
+		{
+			"path": "/demo/odatav4/webapp",
+			"target": {
+				"type": "service",
+				"name": "sapui5",
+				"entryPath": "/resources"
+			},
+			"description": "SAPUI5 Resources"
+		},
+		{
 			"path": "/destinations/ES5",
 			"target": {
 				"type": "destination",
