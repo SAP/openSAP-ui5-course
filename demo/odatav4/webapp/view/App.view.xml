@@ -16,7 +16,7 @@
 								<content>
 									<Title text="{i18n>peopleListTitle}" />
 									<ToolbarSpacer/>
-									<OverflowToolbarToggleButton icon="sap-icon://filter" press="onFilter" />
+									<OverflowToolbarToggleButton icon="sap-icon://filter" press=".onFilter" />
 								</content>
 							</OverflowToolbar>
 						</headerToolbar>
