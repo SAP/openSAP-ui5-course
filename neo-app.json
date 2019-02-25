@@ -479,13 +479,22 @@
 			"description": "SAPUI5 Test Resources"
 		},
 		{
-			"path": "/demo/odatav4/webapp",
+			"path": "/demo/odatav4/webapp/resources",
 			"target": {
 				"type": "service",
 				"name": "sapui5",
 				"entryPath": "/resources"
 			},
 			"description": "SAPUI5 Resources"
+		},
+		{
+			"path": "/demo/odatav4/webapp/test-resources",
+			"target": {
+				"type": "service",
+				"name": "sapui5",
+				"entryPath": "/test-resources"
+			},
+			"description": "SAPUI5 Test Resources"
 		},
 		{
 			"path": "/destinations/ES5",
