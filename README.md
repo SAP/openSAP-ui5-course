@@ -59,7 +59,7 @@ npm install
 *Rufus*, your personal assistant, will join you on your learning journey. He can help you complete the coding exercises and find errors in your code.
 To onboard him, add the following line to your index.html or mockServer.html file:
 
-![Rufus](validator/success.png)
+![Rufus](https://github.com/SAP/openSAP-ui5-course/blob/gh-pages/success.png?raw=true)
 
 ``` js
 <script src="https://SAP.github.io/openSAP-ui5-course/Rufus.js"></script>`
