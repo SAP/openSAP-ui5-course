@@ -1039,9 +1039,26 @@ sap.ui.require([
 						When.waitFor({
 							controlType: "sap.m.Button",
 							success: function (aButtons) {
+								const VALIDATE_BUTTON_ID = "validate";
+
+								function sortButtons(aButtons){
+									for(let i = 0; i < aButtons.length; i++){
+    										if (aButtons[i].getId() === VALIDATE_BUTTON_ID) {
+        										let tmp = aButtons[0];
+        										aButtons[0] = aButtons[i];
+        										aButtons[i] = tmp;
+											break;
+    										}
+									}
+
+									return aButtons;
+								}
+
+								aButtons = sortButtons(aButtons);
+								
 								var oButton = aButtons[0];
 
-								if (oButton && oButton.getId() === "validate") {
+								if (oButton && oButton.getId() === VALIDATE_BUTTON_ID) {
 									oButton = aButtons[1];
 
 									this.waitFor({
