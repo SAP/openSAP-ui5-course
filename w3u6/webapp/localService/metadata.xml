@@ -560,9 +560,9 @@
                     <Parameter Name="SalesOrderID" Type="Edm.String" Mode="In" MaxLength="10"/>
                 </FunctionImport>
             </EntityContainer>
-            <atom:link rel="self" href="https://SAPES4.SAPDEVCENTER.COM:443/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/$metadata"
+            <atom:link rel="self" href="https://SAPES5.SAPDEVCENTER.COM:443/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/$metadata"
                        xmlns:atom="http://www.w3.org/2005/Atom"/>
-            <atom:link rel="latest-version" href="https://SAPES4.SAPDEVCENTER.COM:443/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/$metadata"
+            <atom:link rel="latest-version" href="https://SAPES5.SAPDEVCENTER.COM:443/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/$metadata"
                        xmlns:atom="http://www.w3.org/2005/Atom"/>
         </Schema>
     </edmx:DataServices>

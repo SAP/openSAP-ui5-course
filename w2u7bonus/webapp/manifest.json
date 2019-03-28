@@ -11,8 +11,8 @@
 			"version": "1.0.0"
 		},
 		"dataSources": {
-			"ES4": {
-				"uri": "/destinations/ES4/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/",
+			"ES5": {
+				"uri": "/destinations/ES5/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0"
@@ -71,7 +71,7 @@
 				"uri": "model/Address.json"
 			},
 			"": {
-				"dataSource" : "ES4"
+				"dataSource" : "ES5"
 			}
 		},
 		"contentDensities": {
