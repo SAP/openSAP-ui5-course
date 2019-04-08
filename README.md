@@ -62,7 +62,7 @@ To onboard him, add the following line to your index.html or mockServer.html fil
 ![Rufus](https://github.com/SAP/openSAP-ui5-course/blob/gh-pages/success.png?raw=true)
 
 ``` js
-<script src="https://SAP.github.io/openSAP-ui5-course/Rufus.js"></script>`
+<script src="https://SAP.github.io/openSAP-ui5-course/Rufus.js"></script>
 ```
 
 You will see *Rufus* in the the lower left area of your app. Activate him, and select a course unit you would like to check.
