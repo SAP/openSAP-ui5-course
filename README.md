@@ -57,7 +57,7 @@ npm install
 ## Checking Your Code Exercises
 
 *Rufus*, your personal assistant, will join you on your learning journey. He can help you complete the coding exercises and find errors in your code.
-To onboard him, add the following line to your index.html or mockServer.html file:
+To onboard him, add the following line to your HTML entry point (e.g. index.html, mockServer.html, flpSandbox.html) at the end of the `<head>` tag:
 
 ![Rufus](https://github.com/SAP/openSAP-ui5-course/blob/gh-pages/success.png?raw=true)
 
