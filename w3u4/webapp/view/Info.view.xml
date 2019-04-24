@@ -1,0 +1,124 @@
+<mvc:View
+	controllerName="opensap.orders.controller.Info"
+	height="100%"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:uxap="sap.uxap"
+	xmlns:f="sap.f"
+	xmlns:l="sap.ui.layout"
+	xmlns:form="sap.ui.layout.form">
+	<uxap:ObjectPageLayout
+		id="objectPageLayout"
+		showTitleInHeaderContent="true"
+		alwaysShowContentHeader="false"
+		preserveHeaderStateOnScroll="false"
+		headerContentPinnable="true"
+		isChildPage="true"
+		enableLazyLoading="false">
+
+		<uxap:headerTitle>
+			<uxap:ObjectPageDynamicHeaderTitle>
+				<uxap:breadcrumbs>
+					<Breadcrumbs>
+						<Link text='{SalesOrderID}'/>
+						<Link text='{ItemPosition}'/>
+					</Breadcrumbs>
+				</uxap:breadcrumbs>
+
+				<uxap:expandedHeading>
+					<FlexBox wrap="Wrap" fitContainer="true" alignItems="Center">
+						<Title text="{ProductID}" wrapping="true" class="sapUiTinyMarginEnd sapUiTinyMarginTop"/>
+						<FlexBox wrap="NoWrap" fitContainer="true" alignItems="Center" class="sapUiTinyMarginEnd">
+							<ObjectMarker type="Favorite" class="sapUiTinyMarginEnd"/>
+							<ObjectMarker type="Flagged"/>
+						</FlexBox>
+					</FlexBox>
+				</uxap:expandedHeading>
+
+				<uxap:snappedHeading>
+					<FlexBox wrap="Wrap" fitContainer="true" alignItems="Center">
+						<FlexBox wrap="NoWrap" fitContainer="true" alignItems="Center" class="sapUiTinyMarginEnd">
+							<f:Avatar
+								src="sap-icon://product"
+								displaySize="S"
+								class="sapUiTinyMarginEnd"/>
+							<Title text="{ProductID}" wrapping="true" class="sapUiTinyMarginEnd"/>
+						</FlexBox>
+						<FlexBox wrap="NoWrap" fitContainer="true" alignItems="Center" class="sapUiTinyMarginEnd">
+							<ObjectMarker type="Favorite" class="sapUiTinyMarginEnd"/>
+							<ObjectMarker type="Flagged"/>
+						</FlexBox>
+					</FlexBox>
+				</uxap:snappedHeading>
+
+				<uxap:expandedContent>
+					<Text text="{ToHeader/CustomerName}"/>
+				</uxap:expandedContent>
+
+				<uxap:snappedContent>
+					<Text text="{ToHeader/CustomerName}"/>
+				</uxap:snappedContent>
+
+			</uxap:ObjectPageDynamicHeaderTitle>
+		</uxap:headerTitle>
+
+		<uxap:headerContent>
+			<FlexBox wrap="Wrap" fitContainer="true" alignItems="Stretch">
+				<f:Avatar class="sapUiSmallMarginEnd sapUiSmallMarginTop"
+					src="sap-icon://product"
+					displaySize="L"/>
+
+				<l:VerticalLayout class="sapUiSmallMarginEnd sapUiSmallMarginTop">
+					<Label text="{i18n>infoItemDescription}"/>
+					<Text text="{ToHeader/Note}"/>
+				</l:VerticalLayout>
+
+				<l:VerticalLayout class="sapUiSmallMarginEnd sapUiSmallMarginTop">
+					<Label text="{i18n>infoItemDescriptionLanguage}"/>
+					<Text text="{ToHeader/NoteLanguage}"/>
+				</l:VerticalLayout>
+
+			</FlexBox>
+		</uxap:headerContent>
+
+		<uxap:sections>
+
+			<uxap:ObjectPageSection title="{i18n>infoItemDetailsTitle}">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection>
+						<uxap:blocks>
+							<form:SimpleForm>
+								<Label text="{i18n>infoItemGrossPriceDescr}"/>
+								<ObjectNumber number="{GrossAmount}" unit="{CurrencyCode}"/>
+								<Label text="{i18n>infoItemNerPriceDescr}"/>
+								<ObjectNumber number="{NetAmount}" unit="{CurrencyCode}"/>
+								<Label text="{i18n>infoItemTaxDescr}"/>
+								<ObjectNumber number="{TaxAmount}" unit="{CurrencyCode}"/>
+								<Label text="{i18n>infoItemQuantityDescr}"/>
+								<ObjectNumber number="{Quantity}" unit="{QuantityUnit}"/>
+							</form:SimpleForm>
+						</uxap:blocks>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+			</uxap:ObjectPageSection>
+
+			<uxap:ObjectPageSection title="{i18n>infoItemDeliveryTitle}">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection>
+						<uxap:blocks>
+							<form:SimpleForm editable="true">
+								<Label text="{i18n>infoItemDeliveryDateDescr}"/>
+								<DatePicker
+									dateValue="{DeliveryDate}"
+									displayFormat="long"
+									editable="false"/>
+							</form:SimpleForm>
+						</uxap:blocks>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+			</uxap:ObjectPageSection>
+
+		</uxap:sections>
+
+	</uxap:ObjectPageLayout>
+</mvc:View>

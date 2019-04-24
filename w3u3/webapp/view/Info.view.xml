@@ -1,0 +1,29 @@
+<mvc:View
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	controllerName="opensap.orders.controller.Info"
+	xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<App>
+		<pages>
+			<Page title="{i18n>infoTitle}">
+				<content>
+					<List
+						noDataText="Drop list items here"
+						id="list0"
+						items="{path:'/SalesOrderLineItemSet',parameters:{select:'ProductID,Note'}}">
+						<items>
+							<StandardListItem
+								type="Navigation"
+								description="{Note}"
+								icon="sap-icon://picture"
+								id="item0"
+								title="{ProductID}"/>
+						</items>
+					</List>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

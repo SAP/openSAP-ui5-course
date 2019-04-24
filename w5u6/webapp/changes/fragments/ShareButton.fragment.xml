@@ -1,0 +1,4 @@
+<!-- Use stable and unique id's!-->
+<core:FragmentDefinition xmlns:core='sap.ui.core' xmlns='sap.m'>
+    <Button id="share" text="{i18n>SHARE_BY_EMAIL}" press=".extension.customer.opensap.manage.products.ListReport.onShare"></Button>
+</core:FragmentDefinition>

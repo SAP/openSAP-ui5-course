@@ -1,0 +1,249 @@
+{
+	"initDate": "05/19/2019/12:0:0",
+	"movies": [{
+		"name": "Parry Hotter and the Chamber of Mysteries",
+		"genre": "Action",
+		"appointments": [
+			{
+				"startDate": "05/19/2019/16:0:0",
+				"endDate": "05/19/2019/18:30:0",
+				"cinemaName": "Cine Castle",
+				"cinemaAddress": "Spree Strasse 110, Hamburg",
+				"special": "Sneak Preview with 1 ice cream cone for free.",
+				"icon": "sap-icon://activate",
+				"seats": "50 seats available",
+				"technicalDetails":"Laser projector for 2D and 3D shows in digital 4k quality. High-end audio system with 12 channels and special speaker arrangement for a breathtaking sound experience. Screen size: 22 x 27 m.",
+				"info": "Hamburg",
+				"type": "Type06",
+				"pic": "images/CinemaHamburg.png"
+			},
+			{
+				"startDate": "05/19/2019/18:0:0",
+				"endDate": "05/19/2019/20:0:0",
+				"cinemaName": "Starlight Show",
+				"cinemaAddress": "Hauptstrasse 55, Berlin",
+				"special": "Presentation on mysterious phenomena 1 hour before showtime.",
+				"icon": "sap-icon://display",
+				"seats": "30 seats available",
+				"technicalDetails":"Digital video projection with maximum screen resolution (8k). Sound mix: Tolpy Atoms. Screen size: 30 x 40 m. 3D glasses available at the entrance.",
+				"info": "Berlin",
+				"type": "Type03",
+				"pic": "images/CinemaBerlin.png"
+			},
+			{
+				"startDate": "05/19/2019/10:0:0",
+				"endDate": "05/19/2019/12:0:0",
+				"cinemaName": "Movie House",
+				"cinemaAddress": "Goethe Strasse 40, Munich",
+				"special": "Meet the author of the book after the movie.",
+				"icon": "sap-icon://picture",
+				"seats": "60 seats available",
+				"technicalDetails":"EyeMax movie theater and equipment.",
+				"info": "Munich",
+				"type": "Type01",
+				"pic": "images/CinemaMunich.png"
+			},
+			{
+				"startDate": "05/20/2019/10:0:0",
+				"endDate": "05/20/2019/12:0:0",
+				"cinemaName": "Movie House",
+				"cinemaAddress": "Goethe Strasse 40, Munich",
+				"special": "Standard show",
+				"icon": "sap-icon://picture",
+				"seats": "60 seats available",
+				"technicalDetails":"EyeMax movie theater and equipment.",
+				"info": "Munich",
+				"type": "Type01",
+				"pic": "images/CinemaMunich.png"
+			},
+			{
+				"startDate": "05/20/2019/18:0:0",
+				"endDate": "05/20/2019/20:0:0",
+				"cinemaName": "Starlight Show",
+				"cinemaAddress": "Hauptstrasse 55, Berlin",
+				"special": "Monday Evening Special with 1 medium popcorn for free.",
+				"icon": "sap-icon://display",
+				"seats": "30 seats available",
+				"technicalDetails":"Digital video projection with maximum screen resolution (8k). Sound mix: Tolpy Atoms. Screen size: 30 x 40 m. 3D glasses available at the entrance.",
+				"info": "Berlin",
+				"type": "Type03",
+				"pic": "images/CinemaBerlin.png"
+			},
+			{
+				"startDate": "05/21/2019/11:0:0",
+				"endDate": "05/21/2019/13:0:0",
+				"cinemaName": "Lighthouse",
+				"cinemaAddress": "Spree Strasse 50",
+				"special": "Normal presentation.",
+				"icon": "sap-icon://family-care",
+				"seats": "45 seats available",
+				"technicalDetails":"4K projector. Screen with 4th generation d-smooth coating technology. Audio system: 12 audio channels with 50,000 watts of power for a breathtaking sound experience.",
+				"info": "Berlin",
+				"type": "Type08",
+				"pic": "images/CinemaBerlin.png"
+			}
+		]
+	},
+		{
+			"name": "The Silence of the Sheep",
+			"genre": "Horror",
+			"appointments": [
+				{
+					"startDate": "05/19/2019/15:0:0",
+					"endDate": "05/19/2019/16:30:0",
+					"cinemaName": "Cine Castle",
+					"cinemaAddress": "Spree Strasse 110, Hamburg",
+					"special": "Presentation on murder psychology 1 hour before showtime.",
+					"icon": "sap-icon://activate",
+					"seats": "50 seats available",
+					"technicalDetails":"Laser projector for 2D and 3D shows in digital 4k quality. High-end audio system with 12 channels and special speaker arrangement for a breathtaking sound experience. Screen size: 22 x 27 m.",
+					"info": "Hamburg",
+					"type": "Type06",
+					"pic": "images/CinemaHamburg.png"
+				},
+				{
+					"startDate": "05/20/2019/15:0:0",
+					"endDate": "05/20/2019/17:0:0",
+					"cinemaName": "Movie House",
+					"cinemaAddress": "Goethe Strasse 40, Munich",
+					"special": "Sneak Preview with 1 ice cream cone for free.",
+					"icon": "sap-icon://picture",
+					"seats": "60 seats available",
+					"technicalDetails":"EyeMax movie theater and equipment.",
+					"info": "Munich",
+					"type": "Type01",
+					"pic": "images/CinemaMunich.png"
+				},
+				{
+					"startDate": "05/19/2019/14:0:0",
+					"endDate": "05/19/2019/16:0:0",
+					"cinemaName": "Lighthouse",
+					"cinemaAddress": "Hauptstrasse 55, Berlin",
+					"special": "Standard presentation.",
+					"icon": "sap-icon://family-care",
+					"seats": "45 seats available",
+					"technicalDetails":"4K projector. Screen with 4th generation d-smooth coating technology. Audio system: 12 audio channels with 50,000 watts of power for a breathtaking sound experience.",
+					"info": "Berlin",
+					"type": "Type08",
+					"pic": "images/CinemaBerlin.png"
+				}
+			]
+		},
+		{
+			"name": "Wars of Stars",
+			"genre": "ScienceFiction",
+			"appointments": [
+				{
+					"startDate": "05/19/2019/16:0:0",
+					"endDate": "05/19/2019/18:00:0",
+					"cinemaName": "Cine Castle",
+					"cinemaAddress": "Spree Strasse 110, Hamburg",
+					"special": "Half price if you're dressed up as Wars-of-Stars characters.",
+					"icon": "sap-icon://activate",
+					"seats": "50 seats available",
+					"technicalDetails":"Laser projector for 2D and 3D shows in digital 4k quality. High-end audio system with 12 channels and special speaker arrangement for a breathtaking sound experience. Screen size: 22 x 27 m.",
+					"info": "Hamburg",
+					"type": "Type06",
+					"pic": "images/CinemaHamburg.png"
+				},
+				{
+					"startDate": "05/20/2019/20:0:0",
+					"endDate": "05/20/2019/22:30:0",
+					"cinemaName": "Movie House",
+					"cinemaAddress": "Goethe Strasse 40, Munich",
+					"special": "Rare Wars-of-Stars items available in the cine shop",
+					"icon": "sap-icon://picture",
+					"seats": "60 seats available",
+					"technicalDetails":"EyeMax movie theater and equipment.",
+					"info": "Munich",
+					"type": "Type01",
+					"pic": "images/CinemaMunich.png"
+				},
+				{
+					"startDate": "05/19/2019/16:0:0",
+					"endDate": "05/19/2019/17:30:0",
+					"cinemaName": "Lighthouse",
+					"cinemaAddress": "Hauptstrasse 55, Berlin",
+					"special": "Standard presentation.",
+					"icon": "sap-icon://family-care",
+					"seats": "45 seats available",
+					"technicalDetails":"4K projector. Screen with 4th generation d-smooth coating technology. Audio system: 12 audio channels with 50,000 watts of power for a breathtaking sound experience.",
+					"info": "Berlin",
+					"type": "Type08",
+					"pic": "images/CinemaBerlin.png"
+				}
+			]
+		},
+		{
+			"name": "Mission Possible - Fall In",
+			"genre": "Action",
+			"appointments": [
+				{
+					"startDate": "05/19/2019/17:0:0",
+					"endDate": "05/19/2019/19:00:0",
+					"cinemaName": "Cine Castle",
+					"cinemaAddress": "Spree Strasse 110, Hamburg",
+					"special": "Standard presentation",
+					"icon": "sap-icon://activate",
+					"seats": "50 seats available",
+					"technicalDetails":"Laser projector for 2D and 3D shows in digital 4k quality. High-end audio system with 12 channels and special speaker arrangement for a breathtaking sound experience. Screen size: 22 x 27 m.",
+					"info": "Hamburg",
+					"type": "Type06",
+					"pic": "images/CinemaHamburg.png"
+				},
+				{
+					"startDate": "05/19/2019/15:0:0",
+					"endDate": "05/19/2019/17:0:0",
+					"cinemaName": "Movie House",
+					"cinemaAddress": "Goethe Strasse 40, Munich",
+					"special": "Meet the author of the book after the movie.",
+					"icon": "sap-icon://picture",
+					"seats": "60 seats available",
+					"technicalDetails":"EyeMax movie theater and equipment.",
+					"info": "Munich",
+					"type": "Type01",
+					"pic": "images/CinemaMunich.png"
+				},
+				{
+					"startDate": "05/20/2019/19:0:0",
+					"endDate": "05/20/2019/21:30:0",
+					"cinemaName": "Movie House",
+					"cinemaAddress": "Goethe Strasse 40, Munich",
+					"special": "Autograph session 1 hour before showtime: Tim Cruz is available just for you!",
+					"icon": "sap-icon://picture",
+					"seats": "60 seats available",
+					"technicalDetails":"EyeMax movie theater and equipment.",
+					"info": "Munich",
+					"type": "Type01",
+					"pic": "images/CinemaMunich.png"
+				},
+				{
+					"startDate": "05/19/2019/13:0:0",
+					"endDate": "05/19/2019/15:0:0",
+					"cinemaName": "Lighthouse",
+					"cinemaAddress": "Hauptstrasse 55, Berlin",
+					"special": "Standard presentation",
+					"icon": "sap-icon://family-care",
+					"seats": "45 seats available",
+					"technicalDetails":"4K projector. Screen with 4th generation d-smooth coating technology. Audio system: 12 audio channels with 50,000 watts of power for a breathtaking sound experience.",
+					"info": "Berlin",
+					"type": "Type08",
+					"pic": "images/CinemaBerlin.png"
+				},
+				{
+					"startDate": "05/19/2019/18:0:0",
+					"endDate": "05/19/2019/20:0:0",
+					"cinemaName": "Starlight Show",
+					"cinemaAddress": "Hauptstrasse 55, Berlin",
+					"special": "Presentation on human physiology and sports injuries 1 hour before showtime.",
+					"icon": "sap-icon://display",
+					"seats": "30 seats available",
+					"technicalDetails":"Digital video projection with maximum screen resolution (8k). Sound mix: Tolpy Atoms. Screen size: 30 x 40 m. 3D glasses available at the entrance.",
+					"info": "Berlin",
+					"type": "Type03",
+					"pic": "images/CinemaBerlin.png"
+				}
+			]
+		}
+	]
+}

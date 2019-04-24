@@ -1,0 +1,9 @@
+{
+	"applications": {},
+	"bootstrapPlugins": {
+		"bookmarkplugin": {
+			"component": "bookmarkplugin",
+			"url": "../../../../../webapp/"
+		}
+	}
+}

@@ -1,0 +1,71 @@
+[{
+	"AddressType": "AddressType 1",
+	"Shorttext": "Shorttext 1",
+	"__metadata": {
+		"uri": "VH_AddressTypeSet('AddressType%201')",
+		"type": "GWSAMPLE_BASIC.VH_AddressType"
+	}
+}, {
+	"AddressType": "AddressType 2",
+	"Shorttext": "Shorttext 2",
+	"__metadata": {
+		"uri": "VH_AddressTypeSet('AddressType%202')",
+		"type": "GWSAMPLE_BASIC.VH_AddressType"
+	}
+}, {
+	"AddressType": "AddressType 3",
+	"Shorttext": "Shorttext 3",
+	"__metadata": {
+		"uri": "VH_AddressTypeSet('AddressType%203')",
+		"type": "GWSAMPLE_BASIC.VH_AddressType"
+	}
+}, {
+	"AddressType": "AddressType 4",
+	"Shorttext": "Shorttext 4",
+	"__metadata": {
+		"uri": "VH_AddressTypeSet('AddressType%204')",
+		"type": "GWSAMPLE_BASIC.VH_AddressType"
+	}
+}, {
+	"AddressType": "AddressType 5",
+	"Shorttext": "Shorttext 5",
+	"__metadata": {
+		"uri": "VH_AddressTypeSet('AddressType%205')",
+		"type": "GWSAMPLE_BASIC.VH_AddressType"
+	}
+}, {
+	"AddressType": "AddressType 6",
+	"Shorttext": "Shorttext 6",
+	"__metadata": {
+		"uri": "VH_AddressTypeSet('AddressType%206')",
+		"type": "GWSAMPLE_BASIC.VH_AddressType"
+	}
+}, {
+	"AddressType": "AddressType 7",
+	"Shorttext": "Shorttext 7",
+	"__metadata": {
+		"uri": "VH_AddressTypeSet('AddressType%207')",
+		"type": "GWSAMPLE_BASIC.VH_AddressType"
+	}
+}, {
+	"AddressType": "AddressType 8",
+	"Shorttext": "Shorttext 8",
+	"__metadata": {
+		"uri": "VH_AddressTypeSet('AddressType%208')",
+		"type": "GWSAMPLE_BASIC.VH_AddressType"
+	}
+}, {
+	"AddressType": "AddressType 9",
+	"Shorttext": "Shorttext 9",
+	"__metadata": {
+		"uri": "VH_AddressTypeSet('AddressType%209')",
+		"type": "GWSAMPLE_BASIC.VH_AddressType"
+	}
+}, {
+	"AddressType": "AddressType 10",
+	"Shorttext": "Shorttext 10",
+	"__metadata": {
+		"uri": "VH_AddressTypeSet('AddressType%2010')",
+		"type": "GWSAMPLE_BASIC.VH_AddressType"
+	}
+}]

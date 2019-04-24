@@ -1,0 +1,133 @@
+<mvc:View
+	controllerName="opensap.orders.controller.Master"
+	xmlns="sap.m"
+	xmlns:f="sap.f"
+	xmlns:l="sap.ui.layout"
+	xmlns:semantic="sap.f.semantic"
+	xmlns:mvc="sap.ui.core.mvc">
+
+	<semantic:SemanticPage
+		id="masterPage"
+		preserveHeaderStateOnScroll="true"
+		toggleHeaderOnTitleClick="false">
+		<semantic:headerContent>
+			<Title
+				id="masterPageTitle"
+				text="{masterView>/title}"/>
+		</semantic:headerContent>
+		<semantic:titleHeading>
+			<l:HorizontalLayout>
+				<f:Avatar
+					src="sap-icon://sap-ui5"
+					displaySize="L"/>
+				<l:VerticalLayout class="sapUiSmallMargin">
+					<Title level="H1" titleStyle="H1" text="UI5 Air Cargo"/>
+					<Text text="You name it, we ship it!"/>
+				</l:VerticalLayout>
+			</l:HorizontalLayout>
+		</semantic:titleHeading>
+		<semantic:content>
+			<!-- For client side filtering add this to the items attribute: parameters: {operationMode: 'Client'}}" -->
+			<List
+				id="list"
+				width="auto"
+				class="sapFDynamicPageAlignContent"
+				items="{
+					path: '/SalesOrderSet',
+					sorter: {
+						path: 'CreatedAt',
+						descending: true
+					},
+					parameters: {
+						'expand': 'ToBusinessPartner'
+					},
+					groupHeaderFactory: '.createGroupHeader'
+				}"
+				busyIndicatorDelay="{masterView>/delay}"
+				noDataText="{masterView>/noDataText}"
+				mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}"
+				growing="true"
+				growingScrollToLoad="true"
+				updateFinished=".onUpdateFinished"
+				selectionChange=".onSelectionChange">
+				<infoToolbar>
+					<Toolbar
+						active="true"
+						id="filterBar"
+						visible="{masterView>/isFilterBarVisible}"
+						press=".onOpenViewSettings">
+						<Title
+							id="filterBarLabel"
+							text="{masterView>/filterBarLabel}"/>
+					</Toolbar>
+				</infoToolbar>
+				<headerToolbar>
+					<OverflowToolbar>
+						<SearchField
+							id="searchField"
+							showRefreshButton="true"
+							tooltip="{i18n>masterSearchTooltip}"
+							search=".onSearch"
+							width="auto">
+							<layoutData>
+								<OverflowToolbarLayoutData
+									minWidth="150px"
+									maxWidth="240px"
+									shrinkable="true"
+									priority="NeverOverflow"/>
+							</layoutData>
+						</SearchField>
+						<ToolbarSpacer/>
+						<Button
+							id="sortButton"
+							press=".onOpenViewSettings"
+							icon="sap-icon://sort"
+							type="Transparent"/>
+						<Button
+							id="filterButton"
+							press=".onOpenViewSettings"
+							icon="sap-icon://filter"
+							type="Transparent"/>
+						<Button
+							id="groupButton"
+							press=".onOpenViewSettings"
+							icon="sap-icon://group-2"
+							type="Transparent"/>
+					</OverflowToolbar>
+				</headerToolbar>
+				<items>
+					<ObjectListItem
+						type="Navigation"
+						press=".onSelectionChange"
+						title="{CustomerName}"
+						number="{
+							path: 'NetAmount',
+							formatter: '.formatter.currencyValue'
+						}"
+						numberUnit="{CurrencyCode}">
+						<ObjectAttribute text="{
+							path: 'CreatedAt',
+							type: 'sap.ui.model.type.Date',
+							formatOptions: {
+								style: 'short'
+							}
+						}"/>
+						<ObjectAttribute text="{ToBusinessPartner/BusinessPartnerID}"/>
+						<firstStatus>
+							<ObjectStatus
+								title ="{ToBusinessPartner/Address/Country}"
+								text="{ToBusinessPartner/Address/City}"/>
+						</firstStatus>
+						<markers>
+							<ObjectMarker type="{=
+								${ToBusinessPartner/Address/Country} === 'MX' &amp;&amp;
+								${ToBusinessPartner/Address/City} ==='Mexiko City'
+							 	? 'Favorite' : 'Flagged'
+							 }"/>
+						</markers>
+					</ObjectListItem>
+				</items>
+			</List>
+		</semantic:content>
+	</semantic:SemanticPage>
+</mvc:View>

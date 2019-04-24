@@ -1,0 +1,123 @@
+<mvc:View
+	controllerName="opensap.orders.controller.Create"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:uxap="sap.uxap"
+	xmlns:form="sap.ui.layout.form">
+
+	<uxap:ObjectPageLayout
+		id="objectPageLayout"
+		alwaysShowContentHeader="true"
+		isChildPage="true"
+		showFooter="true">
+
+		<uxap:headerTitle>
+			<uxap:ObjectPageDynamicHeaderTitle>
+				<uxap:heading>
+					<Title text="{i18n>createItemTitle}"/>
+				</uxap:heading>
+			</uxap:ObjectPageDynamicHeaderTitle>
+		</uxap:headerTitle>
+
+		<uxap:sections>
+			<uxap:ObjectPageSection id="details" title="{i18n>createItemDetailsTitle}">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection>
+						<uxap:blocks>
+							<form:SimpleForm editable="true">
+								<Label text="{i18n>createItemProductID}"/>
+								<Input
+									id="productName"
+									required="true"
+									value="{
+										path: 'ProductID',
+										type: 'sap.ui.model.type.String',
+										constraints: {
+											search: '^HT-[0-9]{4}$'
+										}
+									}"
+									change=".onNameChange"/>
+								<Label text="{i18n>createItemDescription}"/>
+								<TextArea
+									value="{
+										path: 'Note',
+										type: 'sap.ui.model.type.String'
+									}"/>
+								<Label text="{i18n>createItemQuantityDescription}"/>
+								<Input
+									id="productQuantity"
+									required="true"
+									value="{
+										path: 'Quantity',
+										type: 'sap.ui.model.type.Decimal',
+										constraints: {
+											minimum: 1
+										},
+										formatOptions: {
+											source: {}
+										}
+									}">
+								</Input>
+							</form:SimpleForm>
+						</uxap:blocks>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+			</uxap:ObjectPageSection>
+
+			<uxap:ObjectPageSection title="{i18n>createItemDeliveryTitle}">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection>
+						<uxap:blocks>
+							<form:SimpleForm editable="true">
+								<Label text="{i18n>createItemDeliveryDate}"/>
+								<DatePicker
+									id="deliveryDate"
+									required="true"
+									displayFormat="long"
+									value="{
+										path: 'DeliveryDate',
+										type: 'sap.ui.model.type.DateTime'
+									}"/>
+							</form:SimpleForm>
+						</uxap:blocks>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+			</uxap:ObjectPageSection>
+
+		</uxap:sections>
+		<uxap:footer>
+			<OverflowToolbar>
+				<Button
+					id="messagePopoverButton"
+					icon="sap-icon://message-popup"
+					type="Emphasized"
+					text="{= ${message>/}.length }"
+					visible="{= !!${message>/}.length }"
+					press=".onOpenMessages"/>
+				<ToolbarSpacer/>
+				<Button
+					id="createButton"
+					type="Emphasized"
+					text="{i18n>createItemSaveButtonText}"
+					enabled="{= !${message>/}.length }"
+					press=".onCreate"/>
+				<Button
+					id="cancelButton"
+					text="{i18n>createItemCancelButtonText}"
+					press=".onCancel"/>
+			</OverflowToolbar>
+		</uxap:footer>
+
+		<uxap:dependents>
+			<MessagePopover
+				id="messages"
+				items="{message>/}">
+				<MessageItem
+					type="{message>type}"
+					title="{message>message}"
+					subtitle="{message>additionalText}"
+					description="{message>description}"/>
+			</MessagePopover>
+		</uxap:dependents>
+	</uxap:ObjectPageLayout>
+</mvc:View>

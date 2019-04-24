@@ -1,0 +1,59 @@
+<mvc:View
+	controllerName="opensap.movies.controller.Detail"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core">
+	<Page
+		title="{movies>cinemaName} - {
+			path: 'movies>startDate',
+			type: 'sap.ui.model.type.Date',
+			formatOptions: {
+				source: {
+					pattern: 'MM/dd/yyyy/hh:mm:ss'
+				},
+				relative: true,
+				relativeScale: 'auto'
+			}
+		}"
+		showNavButton="true"
+		class="sapUiResponsiveContentPadding"
+		navButtonPress=".onNavBack">
+		<landmarkInfo>
+			<PageAccessibleLandmarkInfo
+					rootRole="Main"
+					rootLabel="{i18n>landmarkDetailPage}"
+					contentRole="Region"
+					contentLabel="{i18n>landmarkContent}"
+					headerRole="Region"
+					headerLabel="{movies>cinemaName}"/>
+		</landmarkInfo>
+		<content>
+			<FlexBox wrap="Wrap">
+				<l:VerticalLayout
+					id="generalDetails"
+					class="sapUiMediumMarginEnd sapUiSmallMarginBottom">
+					<core:Icon
+						src="{movies>icon}"
+						size="3rem"
+						class="sapUiMediumMarginBottom"/>
+
+					<Label text="{i18n>cinemaAddress}" design="Bold"/>
+					<Text text="{movies>cinemaAddress}" class="sapUiMediumMarginBottom"/>
+
+					<Label text="{i18n>special}" design="Bold"/>
+					<Text text="{movies>special}" class="sapUiMediumMarginBottom"/>
+
+					<Label text="{i18n>seats}" design="Bold"/>
+					<Text text="{movies>seats}" class="sapUiMediumMarginBottom"/>
+
+					<Label text="{i18n>technicalDetails}" design="Bold"/>
+					<Text text="{movies>technicalDetails}" width="400px"/>
+				</l:VerticalLayout>
+				<Image
+					width="100%"
+					src="{movies>pic}"/>
+			</FlexBox>
+		</content>
+	</Page>
+</mvc:View>

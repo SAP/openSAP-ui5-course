@@ -1,0 +1,12 @@
+<mvc:View
+	controllerName="opensap.movies.controller.App"
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc">
+	<Shell>
+		<App id="app">
+			<pages>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

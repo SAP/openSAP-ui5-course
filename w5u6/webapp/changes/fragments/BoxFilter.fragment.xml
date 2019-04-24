@@ -1,0 +1,20 @@
+<!-- Use stable and unique id's!-->
+<core:FragmentDefinition xmlns:core='sap.ui.core' xmlns='sap.ui.comp.smartfilterbar' xmlns:m='sap.m'>
+	<ControlConfiguration
+	id="boxFilter"
+	key="boxFilter"
+	index="20"
+	label="{i18n>BOX_FILTER}"
+	groupId="_BASIC"
+	visibleInAdvancedArea="true"
+	filterType="multiple"
+	>
+		<customControl>
+			<m:ComboBox id="boxTypes">
+				<core:Item id="smallBox" key="small" text="{i18n>SMALL_BOX}" />
+				<core:Item id="mediumBox" key="medium" text="{i18n>MEDIUM_BOX}" />
+				<core:Item id="largeBox" key="large" text="{i18n>LARGE_BOX}" />
+			</m:ComboBox>
+		</customControl>
+	</ControlConfiguration>
+</core:FragmentDefinition>

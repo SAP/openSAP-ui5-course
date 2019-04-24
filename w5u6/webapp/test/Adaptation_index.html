@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+
+<html>
+
+	<!-- IMPORTANT
+			This HTML file is meant for testing the application/component standalone, outside the Unified Shell.
+			Some integration functionality, personalization etc. will not be available when running standalone.
+	-->
+
+<head>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+
+<title>OpenSAP Manage Products</title>
+
+<script id="sap-ui-bootstrap"
+		src="./../resources/sap-ui-core.js"
+		data-sap-ui-libs="sap.m, sap.me, sap.ui.table, sap.ui.layout, sap.ui.rta, sap.ui.dt, sap.viz, sap.ui.fl, sap.ui.comp, sap.suite.ui.generic.template"
+		data-sap-ui-theme="sap_belize"
+		data-sap-ui-xx-bindingSyntax="complex"
+		data-sap-ui-compatVersion="edge">
+</script>
+<!-- Change loading will be injected -->
+<script>
+	//Application launch configuration
+	sap.ui.getCore().attachInitEvent(function() {
+			var oData = jQuery.ajax("/sap/bc/ui2/app_index/ui5_app_info_json?id=nw.epm.refapps.st.prod.manage",{async:false}).responseJSON;
+			//Deleting the object Node from App_index because in case of NO_CHANGES in baseApp it never use to call loadchanges from lrep.
+			delete oData["nw.epm.refapps.st.prod.manage"].asyncHints.requests;
+		    var oComponentConfig = oData["nw.epm.refapps.st.prod.manage"];
+		    oComponentConfig.async = true;
+		    oComponentConfig.componentData = jQuery.extend(oComponentConfig.componentData, 
+		    	{
+		    		startupParameters : { //TODO should be technicalParameters soon
+					"sap-ui-fl-max-layer" : ["CUSTOMER_BASE"]
+		    	}
+					});
+			function getCacheBusterInfo(){
+			    return new Promise(function(resolve,reject){
+					var sCacheBusterFilePath = "/sap-ui-cachebuster-info.json";
+					$.ajax({
+					url: sCacheBusterFilePath,
+					type: "GET",
+					cache: false
+					}).then(function(oCachebusterContent){
+						var aProjectFilesPaths = Object.keys(oCachebusterContent);
+						var sManifestUrl = aProjectFilesPaths.filter(sFilePath => sFilePath.indexOf("/manifest.appdescr_variant") != -1);
+							if(sUrl!==""){
+							    var sUrl = "/" + sManifestUrl;
+								$.ajax({
+									url: sUrl,
+									type: "GET",
+									cache: false,
+									async: false
+								}).then(function(oAppDescVariantContent){
+									resolve(JSON.parse(oAppDescVariantContent));	
+								})
+							}
+							else{
+							console.log("manifest.appdescr_variant file is missing for the adaptation project");
+							}
+			     	});
+				});
+			}
+			Promise.all([sap.ui.component(oComponentConfig),getCacheBusterInfo()]).then(function(aResult){
+			    var aPromises = [];
+				var oComponent = aResult[0];
+				var aAppDescVariantJsonContent = aResult[1];
+				var aInlineChangeContent = aAppDescVariantJsonContent.content;
+				aInlineChangeContent.forEach(function(oInlineChange){
+				if(oInlineChange.changeType === "appdescr_ui5_addNewModelEnhanceWith"){
+					aPromises.push(oComponent.oModels[oInlineChange.content.modelId].enhance({bundleUrl:"/webapp/"+oInlineChange.texts.i18n}));
+					}
+				})
+				Promise.all(aPromises).catch(function(oError){
+					console.log("one or more resource model failed to enhance");
+				}).finally(function(){
+					new sap.m.Shell({
+					app: new sap.ui.core.ComponentContainer("oComponentContainer",{
+					height : "100%",
+					component : oComponent
+						})
+					}).placeAt("content");
+				});
+			});
+		});
+</script>
+</head>
+
+<!-- UI Content -->
+<body class="sapUiBody" id="content" role="application">
+</body>
+
+</html>

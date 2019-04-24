@@ -1,0 +1,35 @@
+{
+	"fileName": "manifest",
+	"layer": "CUSTOMER_BASE",
+	"fileType": "appdescr_variant",
+	"reference": "nw.epm.refapps.st.prod.manage",
+	"id": "customer.opensap.manage.products",
+	"namespace": "apps/nw.epm.refapps.st.prod.manage/appVariants/customer.opensap.manage.products/",
+	"content": [
+		{
+			"changeType": "appdescr_app_setTitle",
+			"content": {},
+			"texts": {
+				"i18n": "i18n/i18n.properties"
+			}
+		},
+		{
+			"changeType": "appdescr_ui5_addNewModelEnhanceWith",
+			"content": {
+				"modelId": "i18n|sap.suite.ui.generic.template.ListReport|SEPMRA_C_PD_Product"
+			},
+			"texts": {
+				"i18n": "i18n/ListReport/SEPMRA_C_PD_Product/i18n.properties"
+			}
+		},
+		{
+			"changeType": "appdescr_ui5_addNewModelEnhanceWith",
+			"content": {
+				"modelId": "i18n|sap.suite.ui.generic.template.ObjectPage|SEPMRA_C_PD_Product"
+			},
+			"texts": {
+				"i18n": "i18n/ObjectPage/SEPMRA_C_PD_Product/i18n.properties"
+			}
+		}
+	]
+}

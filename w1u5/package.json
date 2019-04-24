@@ -1,0 +1,20 @@
+{
+  "name": "openui5-basic-template-app",
+  "version": "0.1.0",
+  "description": "Best-practice starting point for building a freestyle app",
+  "private": true,
+  "scripts": {
+    "start": "ui5 serve",
+    "lint": "eslint webapp"
+  },
+  "dependencies": {
+    "@openui5/sap.m": "^1.52.5",
+    "@openui5/sap.ui.core": "^1.52.5",
+    "@openui5/sap.ui.layout": "^1.52.5",
+    "@openui5/themelib_sap_belize": "^1.52.5"
+  },
+  "devDependencies": {
+    "@ui5/cli": "^1.0.0",
+    "eslint": "^4.19.1"
+  }
+}

@@ -1,0 +1,48 @@
+<mvc:View controllerName="sap.ui.demo.odataV4.controller.App" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m">
+	<App id="idAppControl">
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+					<Table id="peopleList" growing="true" growingThreshold="10"
+						items="{ 
+							path: '/People',
+							parameters: {
+								$expand: 'Trips'
+							}
+						}">
+						<headerToolbar>
+							<OverflowToolbar>
+								<content>
+									<Title text="{i18n>peopleListTitle}" />
+									<ToolbarSpacer/>
+									<OverflowToolbarToggleButton icon="sap-icon://filter" press=".onFilter" />
+								</content>
+							</OverflowToolbar>
+						</headerToolbar>
+						<columns>
+							<Column id="userNameColumn">
+								<Text text="{i18n>userNameLabelText}"/>
+							</Column>
+							<Column id="firstNameColumn">
+								<Text text="{i18n>firstNameLabelText}"/>
+							</Column>
+							<Column id="lastNameColumn">
+								<Text text="{i18n>lastNameLabelText}"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<Text text="{UserName}"/>
+									<Text text="{FirstName}"/>
+									<Text text="{LastName}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

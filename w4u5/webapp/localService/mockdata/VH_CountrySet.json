@@ -1,0 +1,81 @@
+[{
+	"Land1": "Land1 1",
+	"Landx": "Landx 1",
+	"Natio": "Natio 1",
+	"__metadata": {
+		"uri": "VH_CountrySet('Land1%201')",
+		"type": "GWSAMPLE_BASIC.VH_Country"
+	}
+}, {
+	"Land1": "Land1 2",
+	"Landx": "Landx 2",
+	"Natio": "Natio 2",
+	"__metadata": {
+		"uri": "VH_CountrySet('Land1%202')",
+		"type": "GWSAMPLE_BASIC.VH_Country"
+	}
+}, {
+	"Land1": "Land1 3",
+	"Landx": "Landx 3",
+	"Natio": "Natio 3",
+	"__metadata": {
+		"uri": "VH_CountrySet('Land1%203')",
+		"type": "GWSAMPLE_BASIC.VH_Country"
+	}
+}, {
+	"Land1": "Land1 4",
+	"Landx": "Landx 4",
+	"Natio": "Natio 4",
+	"__metadata": {
+		"uri": "VH_CountrySet('Land1%204')",
+		"type": "GWSAMPLE_BASIC.VH_Country"
+	}
+}, {
+	"Land1": "Land1 5",
+	"Landx": "Landx 5",
+	"Natio": "Natio 5",
+	"__metadata": {
+		"uri": "VH_CountrySet('Land1%205')",
+		"type": "GWSAMPLE_BASIC.VH_Country"
+	}
+}, {
+	"Land1": "Land1 6",
+	"Landx": "Landx 6",
+	"Natio": "Natio 6",
+	"__metadata": {
+		"uri": "VH_CountrySet('Land1%206')",
+		"type": "GWSAMPLE_BASIC.VH_Country"
+	}
+}, {
+	"Land1": "Land1 7",
+	"Landx": "Landx 7",
+	"Natio": "Natio 7",
+	"__metadata": {
+		"uri": "VH_CountrySet('Land1%207')",
+		"type": "GWSAMPLE_BASIC.VH_Country"
+	}
+}, {
+	"Land1": "Land1 8",
+	"Landx": "Landx 8",
+	"Natio": "Natio 8",
+	"__metadata": {
+		"uri": "VH_CountrySet('Land1%208')",
+		"type": "GWSAMPLE_BASIC.VH_Country"
+	}
+}, {
+	"Land1": "Land1 9",
+	"Landx": "Landx 9",
+	"Natio": "Natio 9",
+	"__metadata": {
+		"uri": "VH_CountrySet('Land1%209')",
+		"type": "GWSAMPLE_BASIC.VH_Country"
+	}
+}, {
+	"Land1": "Land1 10",
+	"Landx": "Landx 10",
+	"Natio": "Natio 10",
+	"__metadata": {
+		"uri": "VH_CountrySet('Land1%2010')",
+		"type": "GWSAMPLE_BASIC.VH_Country"
+	}
+}]

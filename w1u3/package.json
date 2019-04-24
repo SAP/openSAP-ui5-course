@@ -1,0 +1,36 @@
+{
+  "name": "openui5-basic-template-app",
+  "version": "0.1.0",
+  "description": "Best-practice starting point for building a freestyle app",
+  "private": true,
+  "scripts": {
+    "start": "ui5 serve",
+    "lint": "eslint webapp",
+    "karma": "karma start",
+    "karma-ci": "karma start karma-ci.conf.js",
+    "watch": "start-server-and-test start http://localhost:8080 karma",
+    "test": "npm run lint && rimraf coverage && start-server-and-test start http://localhost:8080 karma-ci",
+    "build": "rimraf dist && ui5 build --a",
+    "proxy": "node proxy.js"
+  },
+  "dependencies": {
+    "@openui5/sap.m": "^1.52.5",
+    "@openui5/sap.ui.core": "^1.52.5",
+    "@openui5/sap.ui.layout": "^1.52.5",
+    "@openui5/themelib_sap_belize": "^1.52.5"
+  },
+  "devDependencies": {
+    "@ui5/cli": "^1.0.0",
+    "eslint": "^4.19.1",
+    "karma": "^2.0.2",
+    "karma-chrome-launcher": "^2.2.0",
+    "chrome-headless-launcher": "^0.1.5",
+    "karma-coverage": "^1.1.2",
+    "karma-openui5": "^0.2.3",
+    "karma-qunit": "^1.2.1",
+    "qunitjs": "^2.4.1",
+    "rimraf": "^2.6.2",
+    "start-server-and-test": "^1.4.1",
+    "cors-anywhere": "^0.4.1"
+  }
+}

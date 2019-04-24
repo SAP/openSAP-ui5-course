@@ -1,0 +1,20 @@
+<mvc:View
+	controllerName="opensap.orders.controller.BaseController"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc">
+
+	<MessagePage
+		id="page"
+		title="{i18n>detailTitle}"
+		text="{i18n>noObjectFoundText}"
+		icon="sap-icon://product"
+		description=""
+		showNavButton="{=
+			${device>/system/phone} ||
+			${device>/system/tablet} &amp;&amp;
+			${device>/orientation/portrait}
+		}"
+		navButtonPress=".onNavBack">
+	</MessagePage>
+
+</mvc:View>

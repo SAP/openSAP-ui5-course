@@ -1,0 +1,15 @@
+<mvc:View
+	controllerName="sap.ui.demo.basicTemplate.controller.Home"
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc">
+	<Page
+		id="page"
+		title="{i18n>title}">
+		<content>
+			<List headerText="Directions" items="{data>/Regions}">
+				<StandardListItem title="{data>RegionDescription}"/>
+			</List>
+		</content>
+	</Page>
+</mvc:View>

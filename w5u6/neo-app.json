@@ -1,0 +1,86 @@
+{
+  "welcomeFile": "/",
+  "routes": [
+    {
+      "path": "/sap/bc/ui5_ui5",
+      "target": {
+        "type": "destination",
+        "name": "ES5",
+        "entryPath": "/sap/bc/ui5_ui5"
+      },
+      "description": "Path to ABAP system"
+    },
+    {
+      "path": "/sap/bc/ui2/app_index",
+      "target": {
+        "type": "destination",
+        "name": "ES5",
+        "entryPath": "/sap/bc/ui2/app_index"
+      },
+      "description": "App index API"
+    },
+    {
+      "path": "/sap/opu/odata",
+      "target": {
+        "type": "destination",
+        "name": "ES5",
+        "entryPath": "/sap/opu/odata"
+      },
+      "description": "Route OData to app"
+    },
+    {
+      "path": "/sap/bc/lrep",
+      "target": {
+        "type": "destination",
+        "name": "ES5",
+        "entryPath": "/sap/bc/lrep"
+      },
+      "description": "Flex data from server"
+    },
+    {
+      "path": "/webapp/resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/resources"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/webapp/test-resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/test-resources"
+      },
+      "description": "SAPUI5 Test Resources"
+    },
+    {
+      "path": "/webapp/parent",
+      "target": {
+        "type": "destination",
+        "name": "ES5",
+        "entryPath": "/sap/bc/ui5_ui5/sap/zsample_prodman"
+      },
+      "description": "Path to the original app resources"
+    },
+    {
+      "path": "/resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/resources"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/test-resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/test-resources"
+      },
+      "description": "SAPUI5 Test Resources"
+    }
+  ]
+}

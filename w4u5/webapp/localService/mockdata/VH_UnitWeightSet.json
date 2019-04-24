@@ -1,0 +1,71 @@
+[{
+	"Msehi": "Msehi 1",
+	"Msehl": "Msehl 1",
+	"__metadata": {
+		"uri": "VH_UnitWeightSet('Msehi%201')",
+		"type": "GWSAMPLE_BASIC.VH_UnitWeight"
+	}
+}, {
+	"Msehi": "Msehi 2",
+	"Msehl": "Msehl 2",
+	"__metadata": {
+		"uri": "VH_UnitWeightSet('Msehi%202')",
+		"type": "GWSAMPLE_BASIC.VH_UnitWeight"
+	}
+}, {
+	"Msehi": "Msehi 3",
+	"Msehl": "Msehl 3",
+	"__metadata": {
+		"uri": "VH_UnitWeightSet('Msehi%203')",
+		"type": "GWSAMPLE_BASIC.VH_UnitWeight"
+	}
+}, {
+	"Msehi": "Msehi 4",
+	"Msehl": "Msehl 4",
+	"__metadata": {
+		"uri": "VH_UnitWeightSet('Msehi%204')",
+		"type": "GWSAMPLE_BASIC.VH_UnitWeight"
+	}
+}, {
+	"Msehi": "Msehi 5",
+	"Msehl": "Msehl 5",
+	"__metadata": {
+		"uri": "VH_UnitWeightSet('Msehi%205')",
+		"type": "GWSAMPLE_BASIC.VH_UnitWeight"
+	}
+}, {
+	"Msehi": "Msehi 6",
+	"Msehl": "Msehl 6",
+	"__metadata": {
+		"uri": "VH_UnitWeightSet('Msehi%206')",
+		"type": "GWSAMPLE_BASIC.VH_UnitWeight"
+	}
+}, {
+	"Msehi": "Msehi 7",
+	"Msehl": "Msehl 7",
+	"__metadata": {
+		"uri": "VH_UnitWeightSet('Msehi%207')",
+		"type": "GWSAMPLE_BASIC.VH_UnitWeight"
+	}
+}, {
+	"Msehi": "Msehi 8",
+	"Msehl": "Msehl 8",
+	"__metadata": {
+		"uri": "VH_UnitWeightSet('Msehi%208')",
+		"type": "GWSAMPLE_BASIC.VH_UnitWeight"
+	}
+}, {
+	"Msehi": "Msehi 9",
+	"Msehl": "Msehl 9",
+	"__metadata": {
+		"uri": "VH_UnitWeightSet('Msehi%209')",
+		"type": "GWSAMPLE_BASIC.VH_UnitWeight"
+	}
+}, {
+	"Msehi": "Msehi 10",
+	"Msehl": "Msehl 10",
+	"__metadata": {
+		"uri": "VH_UnitWeightSet('Msehi%2010')",
+		"type": "GWSAMPLE_BASIC.VH_UnitWeight"
+	}
+}]

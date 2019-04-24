@@ -1,0 +1,39 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.sap.fiori</groupId>
+	<artifactId></artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name></name>
+	<parent>
+		<groupId>com.sap.fiori</groupId>
+		<artifactId>fnf-parent-pom</artifactId>
+		<version>1.18.0</version>
+	</parent>
+	<dependencies>
+		<dependency>
+			<groupId>com.sap.suite.ui.generic.template</groupId>
+			<artifactId>sap.suite.ui.generic.template</artifactId>
+		</dependency>
+	</dependencies>
+	<!-- 
+        YOU NEED TO SPECIFY the translationDeveloper and the translationCollection 
+        For Fiori On-Premise apps: Use FIORI_ as the prefix followed by your
+        app name. Please use a meaningful short version of the app name and 
+        not the GIT project name.The string must not exceed 32 character
+    -->
+	<!--<build>
+		<plugins>
+			<plugin>
+				<groupId>com.sap.ldi</groupId>
+				<artifactId>translation-plugin</artifactId>
+				<configuration>
+					<translationDomain>BC</translationDomain>
+					<translationDeveloper>DXXXXXX</translationDeveloper>
+					<translationCollection>FIORI_XXXAPPNAMEXXX</translationCollection>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>-->
+</project>

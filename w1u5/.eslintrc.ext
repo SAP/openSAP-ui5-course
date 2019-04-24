@@ -1,0 +1,1179 @@
+{
+	"rulesExt": {
+		"accessor-pairs": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/accessor-pairs"
+		},
+		"array-bracket-spacing": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/array-bracket-spacing"
+		},
+		"array-callback-return": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/array-callback-return"
+		},
+		"arrow-body-style": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/arrow-body-style"
+		},
+		"arrow-parens": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/arrow-parens"
+		},
+		"arrow-spacing": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/arrow-spacing"
+		},
+		"block-scoped-var": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/block-scoped-var"
+		},
+		"block-spacing": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/block-spacing"
+		},
+		"brace-style": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/brace-style"
+		},
+		"callback-return": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/callback-return"
+		},
+		"camelcase": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/camelcase"
+		},
+		"class-methods-use-this": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/class-methods-use-this"
+		},
+		"comma-dangle": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/comma-dangle"
+		},
+		"comma-spacing": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/comma-spacing"
+		},
+		"comma-style": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/comma-style"
+		},
+		"complexity": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/complexity"
+		},
+		"computed-property-spacing": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/computed-property-spacing"
+		},
+		"consistent-return": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/consistent-return"
+		},
+		"consistent-this": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/consistent-this"
+		},
+		"constructor-super": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/constructor-super"
+		},
+		"curly": {
+			"severity": "error",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/curly"
+		},
+		"default-case": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/default-case"
+		},
+		"dot-location": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/dot-location"
+		},
+		"dot-notation": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/dot-notation"
+		},
+		"eol-last": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/eol-last"
+		},
+		"eqeqeq": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/eqeqeq"
+		},
+		"func-call-spacing": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/func-call-spacing"
+		},
+		"func-name-matching": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/func-name-matching"
+		},
+		"func-names": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/func-names"
+		},
+		"func-style": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/func-style"
+		},
+		"generator-star-spacing": {
+			"severity": "info",
+			"category": "ECMAScript 6",
+			"helpUrl": "http://eslint.org/docs/rules/generator-star-spacing"
+		},
+		"global-require": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/global-require"
+		},
+		"guard-for-in": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/guard-for-in"
+		},
+		"handle-callback-err": {
+			"severity": "warning",
+			"category": "Node.js",
+			"helpUrl": "http://eslint.org/docs/rules/handle-callback-err"
+		},
+		"id-blacklist": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/id-blacklist"
+		},
+		"id-length": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/id-length"
+		},
+		"id-match": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/id-match"
+		},
+		"indent": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/indent"
+		},
+		"init-declarations": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/init-declarations"
+		},
+		"jsx-quotes": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/jsx-quotes"
+		},
+		"key-spacing": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/key-spacing"
+		},
+		"keyword-spacing": {
+			"severity": "info",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/keyword-spacing"
+		},
+		"line-comment-position": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/line-comment-position"
+		},
+		"linebreak-style": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/linebreak-style"
+		},
+		"lines-around-comment": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/lines-around-comment"
+		},
+		"lines-around-directive": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/lines-around-directive"
+		},
+		"max-depth": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/max-depth"
+		},
+		"max-len": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/max-len"
+		},
+		"max-lines": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/max-lines"
+		},
+		"max-nested-callbacks": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/max-nested-callbacks"
+		},
+		"max-params": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/max-params"
+		},
+		"max-statements": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/max-statements"
+		},
+		"max-statements-per-line": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/max-statements-per-line"
+		},
+		"multiline-ternary": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/multiline-ternary"
+		},
+		"new-cap": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/new-cap"
+		},
+		"new-parens": {
+			"severity": "error",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/new-parens"
+		},
+		"newline-after-var": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/newline-after-var"
+		},
+		"newline-before-return": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/newline-before-return"
+		},
+		"newline-per-chained-call": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/newline-per-chained-call"
+		},
+		"no-alert": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/no-alert"
+		},
+		"no-array-constructor": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/no-array-constructor"
+		},
+		"no-bitwise": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/no-bitwise"
+		},
+		"no-caller": {
+			"severity": "error",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/no-caller"
+		},
+		"no-case-declarations": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-case-declarations"
+		},
+		"no-catch-shadow": {
+			"severity": "warning",
+			"category": "Variable",
+			"helpUrl": "http://eslint.org/docs/rules/no-catch-shadow"
+		},
+		"no-class-assign": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-class-assign"
+		},
+		"no-cond-assign": {
+			"severity": "warning",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-cond-assign"
+		},
+		"no-confusing-arrow": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-confusing-arrow"
+		},
+		"no-console": {
+			"severity": "warning",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-console"
+		},
+		"no-const-assign": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-const-assign"
+		},
+		"no-constant-condition": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-constant-condition"
+		},
+		"no-continue": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/no-continue"
+		},
+		"no-control-regex": {
+			"severity": "warning",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-control-regex"
+		},
+		"no-debugger": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-debugger"
+		},
+		"no-delete-var": {
+			"severity": "warning",
+			"category": "Variable",
+			"helpUrl": "http://eslint.org/docs/rules/no-delete-var"
+		},
+		"no-div-regex": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/no-div-regex"
+		},
+		"no-dupe-args": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-dupe-args"
+		},
+		"no-dupe-class-members": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-dupe-class-members"
+		},
+		"no-dupe-keys": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-dupe-keys"
+		},
+		"no-duplicate-case": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-duplicate-case"
+		},
+		"no-duplicate-imports": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-duplicate-imports"
+		},
+		"no-else-return": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/no-else-return"
+		},
+		"no-empty": {
+			"severity": "error",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/no-empty"
+		},
+		"no-empty-character-class": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-empty-character-class"
+		},
+		"no-empty-function": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/class"
+		},
+		"no-empty-pattern": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-empty-pattern"
+		},
+		"no-eq-null": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/no-eq-null"
+		},
+		"no-eval": {
+			"severity": "error",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/no-eval"
+		},
+		"no-ex-assign": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-ex-assign"
+		},
+		"no-extend-native": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/no-extend-native"
+		},
+		"no-extra-bind": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/no-extra-bind"
+		},
+		"no-extra-boolean-cast": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-extra-boolean-cast"
+		},
+		"no-extra-label": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-extra-label"
+		},
+		"no-extra-parens": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/no-extra-parens"
+		},
+		"no-extra-semi": {
+			"severity": "error",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/no-extra-semi"
+		},
+		"no-fallthrough": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/no-fallthrough"
+		},
+		"no-floating-decimal": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/no-floating-decimal"
+		},
+		"no-func-assign": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-func-assign"
+		},
+		"no-global-assign": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-global-assign"
+		},
+		"no-implicit-coercion": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-implicit-coercion"
+		},
+		"no-implicit-globals": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-implicit-globals"
+		},
+		"no-implied-eval": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/no-implied-eval"
+		},
+		"no-inline-comments": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/no-inline-comments"
+		},
+		"no-inner-declarations": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-inner-declarations"
+		},
+		"no-invalid-regexp": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-invalid-regexp"
+		},
+		"no-invalid-this": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-invalid-this"
+		},
+		"no-irregular-whitespace": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-irregular-whitespace"
+		},
+		"no-iterator": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/no-iterator"
+		},
+		"no-label-var": {
+			"severity": "warning",
+			"category": "Variable",
+			"helpUrl": "http://eslint.org/docs/rules/no-label-var"
+		},
+		"no-labels": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/no-labels"
+		},
+		"no-lone-blocks": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/no-lone-blocks"
+		},
+		"no-lonely-if": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/no-lonely-if"
+		},
+		"no-loop-func": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/no-loop-func"
+		},
+		"no-magic-numbers": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-magic-numbers"
+		},
+		"no-mixed-operators": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-mixed-operators"
+		},
+		"no-mixed-requires": {
+			"severity": "warning",
+			"category": "Node.js",
+			"helpUrl": "http://eslint.org/docs/rules/no-mixed-requires"
+		},
+		"no-mixed-spaces-and-tabs": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/no-mixed-spaces-and-tabs"
+		},
+		"no-multi-spaces": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/no-multi-spaces"
+		},
+		"no-multi-str": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/no-multi-str"
+		},
+		"no-multiple-empty-lines": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/no-multiple-empty-lines"
+		},
+		"no-native-reassign": {
+			"severity": "error",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/no-native-reassign"
+		},
+		"no-negated-condition": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-negated-condition"
+		},
+		"no-negated-in-lhs": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-negated-in-lhs"
+		},
+		"no-nested-ternary": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/no-nested-ternary"
+		},
+		"no-new": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/no-new"
+		},
+		"no-new-func": {
+			"severity": "error",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/no-new-func"
+		},
+		"no-new-object": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/no-new-object"
+		},
+		"no-new-require": {
+			"severity": "warning",
+			"category": "Node.js",
+			"helpUrl": "http://eslint.org/docs/rules/no-new-require"
+		},
+		"no-new-symbol": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-new-symbol"
+		},
+		"no-new-wrappers": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/no-new-wrappers"
+		},
+		"no-obj-calls": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-obj-calls"
+		},
+		"no-octal": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/no-octal"
+		},
+		"no-octal-escape": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/no-octal-escape"
+		},
+		"no-param-reassign": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/no-param-reassign"
+		},
+		"no-path-concat": {
+			"severity": "warning",
+			"category": "Node.js",
+			"helpUrl": "http://eslint.org/docs/rules/no-path-concat"
+		},
+		"no-plusplus": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/no-plusplus"
+		},
+		"no-process-env": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/no-process-env"
+		},
+		"no-process-exit": {
+			"severity": "warning",
+			"category": "Node.js",
+			"helpUrl": "http://eslint.org/docs/rules/no-process-exit"
+		},
+		"no-proto": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/no-proto"
+		},
+		"no-prototype-builtins": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-prototype-builtins"
+		},
+		"no-redeclare": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/no-redeclare"
+		},
+		"no-regex-spaces": {
+			"severity": "warning",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-regex-spaces"
+		},
+		"no-restricted-globals": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-restricted-globals"
+		},
+		"no-restricted-imports": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-restricted-imports"
+		},
+		"no-restricted-modules": {
+			"severity": "warning",
+			"category": "Node.js",
+			"helpUrl": "http://eslint.org/docs/rules/no-restricted-modules"
+		},
+		"no-restricted-properties": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-restricted-properties"
+		},
+		"no-restricted-syntax": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-restricted-syntax"
+		},
+		"no-return-assign": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/no-return-assign"
+		},
+		"no-return-await": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-return-await"
+		},
+		"no-script-url": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/no-script-url"
+		},
+		"no-self-assign": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-self-assign"
+		},
+		"no-self-compare": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/no-self-compare"
+		},
+		"no-sequences": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/no-sequences"
+		},
+		"no-shadow": {
+			"severity": "warning",
+			"category": "Variable",
+			"helpUrl": "http://eslint.org/docs/rules/no-shadow"
+		},
+		"no-shadow-restricted-names": {
+			"severity": "warning",
+			"category": "Variable",
+			"helpUrl": "http://eslint.org/docs/rules/no-shadow-restricted-names"
+		},
+		"no-spaced-func": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/no-spaced-func"
+		},
+		"no-sparse-arrays": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-sparse-arrays"
+		},
+		"no-sync": {
+			"severity": "warning",
+			"category": "Node.js",
+			"helpUrl": "http://eslint.org/docs/rules/no-sync"
+		},
+		"no-tabs": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-tabs"
+		},
+		"no-template-curly-in-string": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-template-curly-in-string"
+		},
+		"no-ternary": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/no-ternary"
+		},
+		"no-this-before-super": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-this-before-super"
+		},
+		"no-throw-literal": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/no-throw-literal"
+		},
+		"no-trailing-spaces": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/no-trailing-spaces"
+		},
+		"no-undef": {
+			"severity": "error",
+			"category": "Variable",
+			"helpUrl": "http://eslint.org/docs/rules/no-undef"
+		},
+		"no-undef-init": {
+			"severity": "warning",
+			"category": "Variable",
+			"helpUrl": "http://eslint.org/docs/rules/no-undef-init"
+		},
+		"no-undefined": {
+			"severity": "error",
+			"category": "Variable",
+			"helpUrl": "http://eslint.org/docs/rules/no-undefined"
+		},
+		"no-underscore-dangle": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/no-underscore-dangle"
+		},
+		"no-unexpected-multiline": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-unexpected-multiline"
+		},
+		"no-unmodified-loop-condition": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-unmodified-loop-condition"
+		},
+		"no-unneeded-ternary": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/no-unneeded-ternary"
+		},
+		"no-unreachable": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-unreachable"
+		},
+		"no-unsafe-finally": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-unsafe-finally"
+		},
+		"no-unsafe-negation": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-unsafe-negation"
+		},
+		"no-unused-expressions": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/no-unused-expressions"
+		},
+		"no-unused-labels": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-unused-labels"
+		},
+		"no-unused-vars": {
+			"severity": "warning",
+			"category": "Variable",
+			"helpUrl": "http://eslint.org/docs/rules/no-unused-vars"
+		},
+		"no-use-before-define": {
+			"severity": "warning",
+			"category": "Variable",
+			"helpUrl": "http://eslint.org/docs/rules/no-use-before-define"
+		},
+		"no-useless-call": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-useless-call"
+		},
+		"no-useless-computed-key": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-useless-computed-key"
+		},
+		"no-useless-concat": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-useless-concat"
+		},
+		"no-useless-constructor": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-useless-constructor"
+		},
+		"no-useless-escape": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-useless-escape"
+		},
+		"no-useless-rename": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-useless-rename"
+		},
+		"no-useless-return": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-useless-return"
+		},
+		"no-var": {
+			"severity": "warning",
+			"category": "ECMAScript 6",
+			"helpUrl": "http://eslint.org/docs/rules/no-var"
+		},
+		"no-void": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/no-void"
+		},
+		"no-warning-comments": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/no-warning-comments"
+		},
+		"no-whitespace-before-property": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/no-whitespace-before-property"
+		},
+		"no-with": {
+			"severity": "error",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/no-with"
+		},
+		"object-curly-newline": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/object-curly-newline"
+		},
+		"object-curly-spacing": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/object-curly-spacing"
+		},
+		"object-property-newline": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/object-property-newline"
+		},
+		"object-shorthand": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/object-shorthand"
+		},
+		"one-var": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/one-var"
+		},
+		"one-var-declaration-per-line": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/one-var-declaration-per-line"
+		},
+		"operator-assignment": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/operator-assignment"
+		},
+		"operator-linebreak": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/operator-linebreak"
+		},
+		"padded-blocks": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/padded-blocks"
+		},
+		"prefer-arrow-callback": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/prefer-arrow-callback"
+		},
+		"prefer-const": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/prefer-const"
+		},
+		"prefer-numeric-literals": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/prefer-numeric-literals"
+		},
+		"prefer-reflect": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/prefer-reflect"
+		},
+		"prefer-rest-params": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/prefer-rest-params"
+		},
+		"prefer-spread": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/prefer-spread"
+		},
+		"prefer-template": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/prefer-template"
+		},
+		"quote-props": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/quote-props"
+		},
+		"quotes": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/quotes"
+		},
+		"radix": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/radix"
+		},
+		"require-jsdoc": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/require-jsdoc"
+		},
+		"require-yield": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/require-yield"
+		},
+		"rest-spread-spacing": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/rest-spread-spacing"
+		},
+		"semi": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/semi"
+		},
+		"semi-spacing": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/semi-spacing"
+		},
+		"sort-imports": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/sort-imports"
+		},
+		"sort-keys": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/sort-keys"
+		},
+		"sort-vars": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/sort-vars"
+		},
+		"space-before-blocks": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/space-before-blocks"
+		},
+		"space-before-function-paren": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/space-before-function-paren"
+		},
+		"space-in-parens": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/space-in-parens"
+		},
+		"space-infix-ops": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/space-infix-ops"
+		},
+		"space-unary-ops": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/space-unary-ops"
+		},
+		"spaced-comment": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/spaced-comment"
+		},
+		"strict": {
+			"severity": "warning",
+			"category": "Strict Mode",
+			"helpUrl": "http://eslint.org/docs/rules/strict"
+		},
+		"symbol-description": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/symbol-description"
+		},
+		"template-curly-spacing": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/template-curly-spacing"
+		},
+		"unicode-bom": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/unicode-bom"
+		},
+		"use-isnan": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/use-isnan"
+		},
+		"valid-jsdoc": {
+			"severity": "warning",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/valid-jsdoc"
+		},
+		"valid-typeof": {
+			"severity": "warning",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/valid-typeof"
+		},
+		"vars-on-top": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/vars-on-top"
+		},
+		"wrap-iife": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/wrap-iife"
+		},
+		"wrap-regex": {
+			"severity": "info",
+			"category": "Stylistic Issue",
+			"helpUrl": "http://eslint.org/docs/rules/wrap-regex"
+		},
+		"yield-star-spacing": {
+			"severity": "error",
+			"category": "Possible Error",
+			"helpUrl": "http://eslint.org/docs/rules/yield-star-spacing"
+		},
+		"yoda": {
+			"severity": "warning",
+			"category": "Best Practice",
+			"helpUrl": "http://eslint.org/docs/rules/yoda"
+		}
+	}
+}

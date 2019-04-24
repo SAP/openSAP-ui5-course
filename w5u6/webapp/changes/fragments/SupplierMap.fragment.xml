@@ -1,0 +1,18 @@
+<!-- Use stable and unique id's!-->
+<core:FragmentDefinition xmlns:core='sap.ui.core' xmlns:uxap='sap.uxap' xmlns:vbm='sap.ui.vbm' xmlns:form='sap.ui.layout.form' xmlns='sap.m' >
+    <uxap:ObjectPageSection
+        id="supplierSection"
+        title="{i18n>SUPPLIER}">
+        <uxap:ObjectPageSubSection id="supplierSubSection">
+            <VBox id="supplierAddress">
+                <form:SimpleForm id="supplierAddressForm">
+                    <Label id="supplierAddressLabel" text="{i18n>ADDRESS}"></Label>
+                    <Text id="supplierFormattedAddress" text="{to_Address/FormattedAddress}"></Text>
+                </form:SimpleForm>
+                <!-- https://sapui5.hana.ondemand.com/test-resources/sap/ui/vbm/bestpractices.html -->
+                <vbm:GeoMap id="supplierMap" initialZoom="15">
+                </vbm:GeoMap>
+            </VBox>
+        </uxap:ObjectPageSubSection>
+    </uxap:ObjectPageSection>
+</core:FragmentDefinition>

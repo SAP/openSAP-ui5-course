@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<head>
+	<meta charset="UTF-8">
+	<title>openSAP - Evolved Web Apps with SAPUI5</title>
+	<link rel="stylesheet" type="text/css" href="../../resources/sap/ui/core/themes/sap_belize/library.css">
+	<script id="sap-ui-bootstrap"
+		data-sap-ui-libs="sap.m"
+		src="../../resources/sap-ui-core.js"
+		data-sap-ui-theme="sap_belize">
+	</script>
+	<script>
+		// check javascript
+		document.addEventListener("DOMContentLoaded", function() {
+			document.getElementById("web").innerHTML = "Ready!";
+		});
+		// check ui5
+		sap.ui.getCore().attachInit(function() {
+			new sap.m.Title({
+				text: "Ready!"
+			}).placeAt("ui5");
+			document.getElementById("go").style.display = "block";
+		});
+	</script>
+</head>
+<body class="sapUiBody sapUiSmallMargin sapUiForceWidthAuto">
+	<h1>Evolved Web Apps With SAPUI5</h1>
+	<hr/>
+	<h2>Pre-flight Check</h2>
+	<ul>
+		<li><p><strong>Web Page:</strong></p>
+			<p id="web"></p></li>
+		<li><p><strong>SAPUI5:</strong></p>
+			<p id="ui5"></p></li>
+		<li><p><strong>Backend System:</strong></p>
+			<iframe id="es5" src="/ES5/sap/opu/odata/iwbep/GWSAMPLE_BASIC/VH_CountrySet('DE')?$format=xml" style="border:none; display: block"></iframe>
+		</li>
+	</ul>
+	<h2><span id="go" style="display: none; color: forestgreen">&rarr; All systems go – ready for take-off!</span></h2>
+</body>
+</html>

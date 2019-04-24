@@ -1,0 +1,13 @@
+{
+  "name": "movies",
+  "version": "0.0.1",
+  "description": "",
+  "private": true,
+  "devDependencies": {
+    "@sap/grunt-sapui5-bestpractice-build": "1.3.64",
+    "@sap/grunt-sapui5-bestpractice-test": "2.0.0"
+  },
+  "scripts": {
+    "test": "grunt unit_and_integration_tests"
+  }
+}

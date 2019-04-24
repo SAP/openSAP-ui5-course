@@ -1,0 +1,39 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout">
+	<Panel
+		headerText="{i18n>OrderPreparationTitle}"
+		expandable="true"
+		expanded="true"
+		id="orderPreparations">
+		<l:HorizontalLayout allowWrapping="true">
+			<Label text="{i18n>PackItemsTitle}" class="sapUiSmallMargin"/>
+			<Switch
+				id="packItemsSwitch"
+				state="{$this>/switchStateItems}"
+				type="AcceptReject"/>
+		</l:HorizontalLayout>
+		<l:HorizontalLayout allowWrapping="true">
+			<Label text="{i18n>PrintInvoiceTitle}" class="sapUiSmallMargin"/>
+			<Switch
+				id="printInvoiceSwitch"
+				state="{$this>/switchStateInvoice}"
+				type="AcceptReject"/>
+		</l:HorizontalLayout>
+		<l:HorizontalLayout allowWrapping="true">
+			<Label text="{i18n>AddSampleTitle}" class="sapUiSmallMargin"/>
+			<Switch
+				id="addSampleSwitch"
+				state="{$this>/switchStateSample}"
+				type="AcceptReject"/>
+		</l:HorizontalLayout>
+		<Button
+			id="confirm"
+			text="{i18n>ConfirmPreparations}"
+			type="Emphasized"
+			class="sapUiSmallMarginBegin"
+			press=".onConfirm"
+			enabled="{= ${$this>/switchStateItems} &amp;&amp; ${$this>/switchStateInvoice} &amp;&amp; ${$this>/switchStateSample}}"/>
+	</Panel>
+</core:FragmentDefinition>

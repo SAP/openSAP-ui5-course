@@ -1,0 +1,71 @@
+[{
+	"Sex": "Sex 1",
+	"Shorttext": "Shorttext 1",
+	"__metadata": {
+		"uri": "VH_SexSet('Sex%201')",
+		"type": "GWSAMPLE_BASIC.VH_Sex"
+	}
+}, {
+	"Sex": "Sex 2",
+	"Shorttext": "Shorttext 2",
+	"__metadata": {
+		"uri": "VH_SexSet('Sex%202')",
+		"type": "GWSAMPLE_BASIC.VH_Sex"
+	}
+}, {
+	"Sex": "Sex 3",
+	"Shorttext": "Shorttext 3",
+	"__metadata": {
+		"uri": "VH_SexSet('Sex%203')",
+		"type": "GWSAMPLE_BASIC.VH_Sex"
+	}
+}, {
+	"Sex": "Sex 4",
+	"Shorttext": "Shorttext 4",
+	"__metadata": {
+		"uri": "VH_SexSet('Sex%204')",
+		"type": "GWSAMPLE_BASIC.VH_Sex"
+	}
+}, {
+	"Sex": "Sex 5",
+	"Shorttext": "Shorttext 5",
+	"__metadata": {
+		"uri": "VH_SexSet('Sex%205')",
+		"type": "GWSAMPLE_BASIC.VH_Sex"
+	}
+}, {
+	"Sex": "Sex 6",
+	"Shorttext": "Shorttext 6",
+	"__metadata": {
+		"uri": "VH_SexSet('Sex%206')",
+		"type": "GWSAMPLE_BASIC.VH_Sex"
+	}
+}, {
+	"Sex": "Sex 7",
+	"Shorttext": "Shorttext 7",
+	"__metadata": {
+		"uri": "VH_SexSet('Sex%207')",
+		"type": "GWSAMPLE_BASIC.VH_Sex"
+	}
+}, {
+	"Sex": "Sex 8",
+	"Shorttext": "Shorttext 8",
+	"__metadata": {
+		"uri": "VH_SexSet('Sex%208')",
+		"type": "GWSAMPLE_BASIC.VH_Sex"
+	}
+}, {
+	"Sex": "Sex 9",
+	"Shorttext": "Shorttext 9",
+	"__metadata": {
+		"uri": "VH_SexSet('Sex%209')",
+		"type": "GWSAMPLE_BASIC.VH_Sex"
+	}
+}, {
+	"Sex": "Sex 10",
+	"Shorttext": "Shorttext 10",
+	"__metadata": {
+		"uri": "VH_SexSet('Sex%2010')",
+		"type": "GWSAMPLE_BASIC.VH_Sex"
+	}
+}]

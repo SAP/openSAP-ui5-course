@@ -1,0 +1,67 @@
+<mvc:View
+	controllerName="opensap.movies.controller.App"
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form">
+	<Shell>
+		<App id="app">
+			<pages>
+				<Page title="{i18n>title}">
+					<content>
+						<Image
+							src="images/MoviesHeader.png"
+							width="100%"
+							tooltip="Movie illustration"
+							press="sap.m.MessageToast.show('Do you feel like going to the movies?')"/>
+							<f:SimpleForm
+								id="form"
+								editable="true"
+								layout="ColumnLayout"
+								title="Find Movies"
+								columnsM="2"
+								columnsL="3"
+								columnsXL="3">
+								<f:content>
+									<Label
+										text="City"
+										labelFor="city"/>
+									<SearchField
+										id="city"
+										width="100%"
+										showSearchButton="false"
+										placeholder="Enter City"/>
+									<Label
+										text="Genre"
+										labelFor="genre"/>
+									<Select
+										id="genre"
+										width="100%">
+
+										<core:ListItem icon="sap-icon://video" key="" text="All"/>
+										<core:ListItem icon="sap-icon://physical-activity" key="Action" text="Action"/>
+										<core:ListItem icon="sap-icon://electrocardiogram" key="Horror" text="Horror"/>
+										<core:ListItem icon="sap-icon://paper-plane" key="SienceFiction" text="Science Fiction"/>
+									</Select>
+									<Label/>
+									<Button
+										type="Emphasized"
+										text="Find Movies"
+										class="sapUiSmallMarginTop"
+										press=".onPress('for movies!')"/>
+								</f:content>
+						</f:SimpleForm>
+					</content>	
+					<footer>
+						<Toolbar>
+							<ToolbarSpacer/>
+							<Link emphasized="true" target="_blank" href="https://www.imdb.com/" text="Explore the IMDb Movie Database"/>
+							<ToolbarSpacer/>
+						</Toolbar>
+					</footer>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

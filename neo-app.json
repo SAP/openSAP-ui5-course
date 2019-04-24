@@ -209,24 +209,6 @@
 			"description": "SAPUI5 Test Resources"
 		},
 		{
-			"path": "/w2u6/webapp/resources",
-			"target": {
-				"type": "service",
-				"name": "sapui5",
-				"entryPath": "/resources"
-			},
-			"description": "SAPUI5 Resources"
-		},
-		{
-			"path": "/w2u6/webapp/test-resources",
-			"target": {
-				"type": "service",
-				"name": "sapui5",
-				"entryPath": "/test-resources"
-			},
-			"description": "SAPUI5 Test Resources"
-		},
-		{
 			"path": "/w3u1/webapp/resources",
 			"target": {
 				"type": "service",
@@ -309,24 +291,6 @@
 		},
 		{
 			"path": "/w3u5/webapp/test-resources",
-			"target": {
-				"type": "service",
-				"name": "sapui5",
-				"entryPath": "/test-resources"
-			},
-			"description": "SAPUI5 Test Resources"
-		},
-		{
-			"path": "/w3u6/webapp/resources",
-			"target": {
-				"type": "service",
-				"name": "sapui5",
-				"entryPath": "/resources"
-			},
-			"description": "SAPUI5 Resources"
-		},
-		{
-			"path": "/w3u6/webapp/test-resources",
 			"target": {
 				"type": "service",
 				"name": "sapui5",
@@ -425,7 +389,7 @@
 			"description": "SAPUI5 Test Resources"
 		},
 		{
-			"path": "/w4u6/webapp/resources",
+			"path": "/w5u1/webapp/resources",
 			"target": {
 				"type": "service",
 				"name": "sapui5",
@@ -434,7 +398,7 @@
 			"description": "SAPUI5 Resources"
 		},
 		{
-			"path": "/w4u6/webapp/test-resources",
+			"path": "/w5u1/webapp/test-resources",
 			"target": {
 				"type": "service",
 				"name": "sapui5",
@@ -443,7 +407,7 @@
 			"description": "SAPUI5 Test Resources"
 		},
 		{
-			"path": "/w2u7bonus/webapp/resources",
+			"path": "/w5u2/webapp/resources",
 			"target": {
 				"type": "service",
 				"name": "sapui5",
@@ -452,7 +416,7 @@
 			"description": "SAPUI5 Resources"
 		},
 		{
-			"path": "/w2u7bonus/webapp/test-resources",
+			"path": "/w5u2/webapp/test-resources",
 			"target": {
 				"type": "service",
 				"name": "sapui5",
@@ -461,7 +425,7 @@
 			"description": "SAPUI5 Test Resources"
 		},
 		{
-			"path": "/w4u7bonus/webapp/resources",
+			"path": "/w5u3/webapp/resources",
 			"target": {
 				"type": "service",
 				"name": "sapui5",
@@ -470,7 +434,7 @@
 			"description": "SAPUI5 Resources"
 		},
 		{
-			"path": "/w4u7bonus/webapp/test-resources",
+			"path": "/w5u3/webapp/test-resources",
 			"target": {
 				"type": "service",
 				"name": "sapui5",
@@ -479,7 +443,7 @@
 			"description": "SAPUI5 Test Resources"
 		},
 		{
-			"path": "/demo/odatav4/webapp/resources",
+			"path": "/w5u4/webapp/resources",
 			"target": {
 				"type": "service",
 				"name": "sapui5",
@@ -488,7 +452,43 @@
 			"description": "SAPUI5 Resources"
 		},
 		{
-			"path": "/demo/odatav4/webapp/test-resources",
+			"path": "/w5u4/webapp/test-resources",
+			"target": {
+				"type": "service",
+				"name": "sapui5",
+				"entryPath": "/test-resources"
+			},
+			"description": "SAPUI5 Test Resources"
+		},
+		{
+			"path": "/w5u5/webapp/resources",
+			"target": {
+				"type": "service",
+				"name": "sapui5",
+				"entryPath": "/resources"
+			},
+			"description": "SAPUI5 Resources"
+		},
+		{
+			"path": "/w5u5/webapp/test-resources",
+			"target": {
+				"type": "service",
+				"name": "sapui5",
+				"entryPath": "/test-resources"
+			},
+			"description": "SAPUI5 Test Resources"
+		},
+		{
+			"path": "/w5u6/webapp/resources",
+			"target": {
+				"type": "service",
+				"name": "sapui5",
+				"entryPath": "/resources"
+			},
+			"description": "SAPUI5 Resources"
+		},
+		{
+			"path": "/w5u6/webapp/test-resources",
 			"target": {
 				"type": "service",
 				"name": "sapui5",

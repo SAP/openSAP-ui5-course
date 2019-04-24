@@ -1,0 +1,321 @@
+[{
+	"Address": {
+		"City": "City 1",
+		"PostalCode": "PostalCode 1",
+		"Street": "Street 1",
+		"Building": "Building 1",
+		"Country": "Country 1",
+		"AddressType": "AddressType 1"
+	},
+	"ContactGuid": "00a4c48c-0dfc-4507-abc6-9b54a431b788",
+	"BusinessPartnerID": "BusinessPartnerID 1",
+	"Title": "Title 1",
+	"FirstName": "FirstName 1",
+	"MiddleName": "MiddleName 1",
+	"LastName": "LastName 1",
+	"Nickname": "Nickname 1",
+	"Initials": "Initials 1",
+	"Sex": "Sex 1",
+	"PhoneNumber": "PhoneNumber 1",
+	"FaxNumber": "FaxNumber 1",
+	"EmailAddress": "EmailAddress 1",
+	"Language": "Language 1",
+	"DateOfBirth": "/Date(1371467282000)/",
+	"__metadata": {
+		"uri": "ContactSet(guid'00a4c48c-0dfc-4507-abc6-9b54a431b788')",
+		"type": "GWSAMPLE_BASIC.Contact"
+	},
+	"ToBusinessPartner": {
+		"__deferred": {
+			"uri": "ContactSet(guid'00a4c48c-0dfc-4507-abc6-9b54a431b788')/ToBusinessPartner"
+		}
+	}
+}, {
+	"Address": {
+		"City": "City 2",
+		"PostalCode": "PostalCode 2",
+		"Street": "Street 2",
+		"Building": "Building 2",
+		"Country": "Country 2",
+		"AddressType": "AddressType 2"
+	},
+	"ContactGuid": "f3e90896-0a5e-4c86-86ea-cf9424f75486",
+	"BusinessPartnerID": "BusinessPartnerID 2",
+	"Title": "Title 2",
+	"FirstName": "FirstName 2",
+	"MiddleName": "MiddleName 2",
+	"LastName": "LastName 2",
+	"Nickname": "Nickname 2",
+	"Initials": "Initials 2",
+	"Sex": "Sex 2",
+	"PhoneNumber": "PhoneNumber 2",
+	"FaxNumber": "FaxNumber 2",
+	"EmailAddress": "EmailAddress 2",
+	"Language": "Language 2",
+	"DateOfBirth": "/Date(1437736082000)/",
+	"__metadata": {
+		"uri": "ContactSet(guid'f3e90896-0a5e-4c86-86ea-cf9424f75486')",
+		"type": "GWSAMPLE_BASIC.Contact"
+	},
+	"ToBusinessPartner": {
+		"__deferred": {
+			"uri": "ContactSet(guid'f3e90896-0a5e-4c86-86ea-cf9424f75486')/ToBusinessPartner"
+		}
+	}
+}, {
+	"Address": {
+		"City": "City 3",
+		"PostalCode": "PostalCode 3",
+		"Street": "Street 3",
+		"Building": "Building 3",
+		"Country": "Country 3",
+		"AddressType": "AddressType 3"
+	},
+	"ContactGuid": "3de340d6-7800-412b-9f0c-22f5003d8c86",
+	"BusinessPartnerID": "BusinessPartnerID 3",
+	"Title": "Title 3",
+	"FirstName": "FirstName 3",
+	"MiddleName": "MiddleName 3",
+	"LastName": "LastName 3",
+	"Nickname": "Nickname 3",
+	"Initials": "Initials 3",
+	"Sex": "Sex 3",
+	"PhoneNumber": "PhoneNumber 3",
+	"FaxNumber": "FaxNumber 3",
+	"EmailAddress": "EmailAddress 3",
+	"Language": "Language 3",
+	"DateOfBirth": "/Date(1225195682000)/",
+	"__metadata": {
+		"uri": "ContactSet(guid'3de340d6-7800-412b-9f0c-22f5003d8c86')",
+		"type": "GWSAMPLE_BASIC.Contact"
+	},
+	"ToBusinessPartner": {
+		"__deferred": {
+			"uri": "ContactSet(guid'3de340d6-7800-412b-9f0c-22f5003d8c86')/ToBusinessPartner"
+		}
+	}
+}, {
+	"Address": {
+		"City": "City 4",
+		"PostalCode": "PostalCode 4",
+		"Street": "Street 4",
+		"Building": "Building 4",
+		"Country": "Country 4",
+		"AddressType": "AddressType 4"
+	},
+	"ContactGuid": "bfdfa469-78cd-44b8-ac65-7530dd17c45c",
+	"BusinessPartnerID": "BusinessPartnerID 4",
+	"Title": "Title 4",
+	"FirstName": "FirstName 4",
+	"MiddleName": "MiddleName 4",
+	"LastName": "LastName 4",
+	"Nickname": "Nickname 4",
+	"Initials": "Initials 4",
+	"Sex": "Sex 4",
+	"PhoneNumber": "PhoneNumber 4",
+	"FaxNumber": "FaxNumber 4",
+	"EmailAddress": "EmailAddress 4",
+	"Language": "Language 4",
+	"DateOfBirth": "/Date(1197893282000)/",
+	"__metadata": {
+		"uri": "ContactSet(guid'bfdfa469-78cd-44b8-ac65-7530dd17c45c')",
+		"type": "GWSAMPLE_BASIC.Contact"
+	},
+	"ToBusinessPartner": {
+		"__deferred": {
+			"uri": "ContactSet(guid'bfdfa469-78cd-44b8-ac65-7530dd17c45c')/ToBusinessPartner"
+		}
+	}
+}, {
+	"Address": {
+		"City": "City 5",
+		"PostalCode": "PostalCode 5",
+		"Street": "Street 5",
+		"Building": "Building 5",
+		"Country": "Country 5",
+		"AddressType": "AddressType 5"
+	},
+	"ContactGuid": "32490678-e9b7-4be4-8e52-2f1af8f209cf",
+	"BusinessPartnerID": "BusinessPartnerID 5",
+	"Title": "Title 5",
+	"FirstName": "FirstName 5",
+	"MiddleName": "MiddleName 5",
+	"LastName": "LastName 5",
+	"Nickname": "Nickname 5",
+	"Initials": "Initials 5",
+	"Sex": "Sex 5",
+	"PhoneNumber": "PhoneNumber 5",
+	"FaxNumber": "FaxNumber 5",
+	"EmailAddress": "EmailAddress 5",
+	"Language": "Language 5",
+	"DateOfBirth": "/Date(1556708882000)/",
+	"__metadata": {
+		"uri": "ContactSet(guid'32490678-e9b7-4be4-8e52-2f1af8f209cf')",
+		"type": "GWSAMPLE_BASIC.Contact"
+	},
+	"ToBusinessPartner": {
+		"__deferred": {
+			"uri": "ContactSet(guid'32490678-e9b7-4be4-8e52-2f1af8f209cf')/ToBusinessPartner"
+		}
+	}
+}, {
+	"Address": {
+		"City": "City 6",
+		"PostalCode": "PostalCode 6",
+		"Street": "Street 6",
+		"Building": "Building 6",
+		"Country": "Country 6",
+		"AddressType": "AddressType 6"
+	},
+	"ContactGuid": "0c26fa31-ccf5-4b07-997f-010b4bd966bc",
+	"BusinessPartnerID": "BusinessPartnerID 6",
+	"Title": "Title 6",
+	"FirstName": "FirstName 6",
+	"MiddleName": "MiddleName 6",
+	"LastName": "LastName 6",
+	"Nickname": "Nickname 6",
+	"Initials": "Initials 6",
+	"Sex": "Sex 6",
+	"PhoneNumber": "PhoneNumber 6",
+	"FaxNumber": "FaxNumber 6",
+	"EmailAddress": "EmailAddress 6",
+	"Language": "Language 6",
+	"DateOfBirth": "/Date(1491736082000)/",
+	"__metadata": {
+		"uri": "ContactSet(guid'0c26fa31-ccf5-4b07-997f-010b4bd966bc')",
+		"type": "GWSAMPLE_BASIC.Contact"
+	},
+	"ToBusinessPartner": {
+		"__deferred": {
+			"uri": "ContactSet(guid'0c26fa31-ccf5-4b07-997f-010b4bd966bc')/ToBusinessPartner"
+		}
+	}
+}, {
+	"Address": {
+		"City": "City 7",
+		"PostalCode": "PostalCode 7",
+		"Street": "Street 7",
+		"Building": "Building 7",
+		"Country": "Country 7",
+		"AddressType": "AddressType 7"
+	},
+	"ContactGuid": "b14f718f-4ac1-4211-97d8-8ebd4145aa3b",
+	"BusinessPartnerID": "BusinessPartnerID 7",
+	"Title": "Title 7",
+	"FirstName": "FirstName 7",
+	"MiddleName": "MiddleName 7",
+	"LastName": "LastName 7",
+	"Nickname": "Nickname 7",
+	"Initials": "Initials 7",
+	"Sex": "Sex 7",
+	"PhoneNumber": "PhoneNumber 7",
+	"FaxNumber": "FaxNumber 7",
+	"EmailAddress": "EmailAddress 7",
+	"Language": "Language 7",
+	"DateOfBirth": "/Date(1197979682000)/",
+	"__metadata": {
+		"uri": "ContactSet(guid'b14f718f-4ac1-4211-97d8-8ebd4145aa3b')",
+		"type": "GWSAMPLE_BASIC.Contact"
+	},
+	"ToBusinessPartner": {
+		"__deferred": {
+			"uri": "ContactSet(guid'b14f718f-4ac1-4211-97d8-8ebd4145aa3b')/ToBusinessPartner"
+		}
+	}
+}, {
+	"Address": {
+		"City": "City 8",
+		"PostalCode": "PostalCode 8",
+		"Street": "Street 8",
+		"Building": "Building 8",
+		"Country": "Country 8",
+		"AddressType": "AddressType 8"
+	},
+	"ContactGuid": "9c3f90fb-1e3b-4083-a1c6-ca6e8a9a2fbe",
+	"BusinessPartnerID": "BusinessPartnerID 8",
+	"Title": "Title 8",
+	"FirstName": "FirstName 8",
+	"MiddleName": "MiddleName 8",
+	"LastName": "LastName 8",
+	"Nickname": "Nickname 8",
+	"Initials": "Initials 8",
+	"Sex": "Sex 8",
+	"PhoneNumber": "PhoneNumber 8",
+	"FaxNumber": "FaxNumber 8",
+	"EmailAddress": "EmailAddress 8",
+	"Language": "Language 8",
+	"DateOfBirth": "/Date(1091099282000)/",
+	"__metadata": {
+		"uri": "ContactSet(guid'9c3f90fb-1e3b-4083-a1c6-ca6e8a9a2fbe')",
+		"type": "GWSAMPLE_BASIC.Contact"
+	},
+	"ToBusinessPartner": {
+		"__deferred": {
+			"uri": "ContactSet(guid'9c3f90fb-1e3b-4083-a1c6-ca6e8a9a2fbe')/ToBusinessPartner"
+		}
+	}
+}, {
+	"Address": {
+		"City": "City 9",
+		"PostalCode": "PostalCode 9",
+		"Street": "Street 9",
+		"Building": "Building 9",
+		"Country": "Country 9",
+		"AddressType": "AddressType 9"
+	},
+	"ContactGuid": "0a4d4de6-e3c4-411c-9676-3879c2ae7dde",
+	"BusinessPartnerID": "BusinessPartnerID 9",
+	"Title": "Title 9",
+	"FirstName": "FirstName 9",
+	"MiddleName": "MiddleName 9",
+	"LastName": "LastName 9",
+	"Nickname": "Nickname 9",
+	"Initials": "Initials 9",
+	"Sex": "Sex 9",
+	"PhoneNumber": "PhoneNumber 9",
+	"FaxNumber": "FaxNumber 9",
+	"EmailAddress": "EmailAddress 9",
+	"Language": "Language 9",
+	"DateOfBirth": "/Date(1106050082000)/",
+	"__metadata": {
+		"uri": "ContactSet(guid'0a4d4de6-e3c4-411c-9676-3879c2ae7dde')",
+		"type": "GWSAMPLE_BASIC.Contact"
+	},
+	"ToBusinessPartner": {
+		"__deferred": {
+			"uri": "ContactSet(guid'0a4d4de6-e3c4-411c-9676-3879c2ae7dde')/ToBusinessPartner"
+		}
+	}
+}, {
+	"Address": {
+		"City": "City 10",
+		"PostalCode": "PostalCode 10",
+		"Street": "Street 10",
+		"Building": "Building 10",
+		"Country": "Country 10",
+		"AddressType": "AddressType 10"
+	},
+	"ContactGuid": "f340abaa-acf0-42f8-8432-04307c9e409e",
+	"BusinessPartnerID": "BusinessPartnerID 10",
+	"Title": "Title 10",
+	"FirstName": "FirstName 10",
+	"MiddleName": "MiddleName 10",
+	"LastName": "LastName 10",
+	"Nickname": "Nickname 10",
+	"Initials": "Initials 10",
+	"Sex": "Sex 10",
+	"PhoneNumber": "PhoneNumber 10",
+	"FaxNumber": "FaxNumber 10",
+	"EmailAddress": "EmailAddress 10",
+	"Language": "Language 10",
+	"DateOfBirth": "/Date(1438600082000)/",
+	"__metadata": {
+		"uri": "ContactSet(guid'f340abaa-acf0-42f8-8432-04307c9e409e')",
+		"type": "GWSAMPLE_BASIC.Contact"
+	},
+	"ToBusinessPartner": {
+		"__deferred": {
+			"uri": "ContactSet(guid'f340abaa-acf0-42f8-8432-04307c9e409e')/ToBusinessPartner"
+		}
+	}
+}]
