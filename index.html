@@ -450,6 +450,10 @@
 
 				onSelectUnit: function (oEvent) {
 					var sURL = oEvent.getParameter("listItem").getBindingContext().getProperty("url");
+					if (document.location.host === "sap.github.io") {
+						// show file on GitHub as the app is not running there
+						sURL = "https://github.com/SAP/openSAP-ui5-course/blob/master/" + sURL;
+					}
 					mobileLibrary.URLHelper.redirect(sURL, true);
 				}
 			});
