@@ -13,8 +13,9 @@ sap.ui.require([
 	"sap/ui/test/matchers/BindingPath",
 	"sap/ui/test/matchers/I18NText",
 	"sap/m/Button",
-	"sap/ui/core/Icon"
-], function (Opa, Opa5, Press, EnterText, AggregationFilled, PropertyStrictEquals, Properties, Ancestor, BindingPath, I18NText, Button, Icon) {
+	"sap/ui/core/Icon",
+	"sap/base/i18n/ResourceBundle"
+], function (Opa, Opa5, Press, EnterText, AggregationFilled, PropertyStrictEquals, Properties, Ancestor, BindingPath, Button, Icon, ResourceBundle) {
 	"use strict";
 
 	// reduce global timeout to 5s
@@ -153,8 +154,44 @@ sap.ui.require([
 							"text": "Week 2 Unit 5"
 						},
 						{
+							"key": "w3u1",
+							"text": "Week 3 Unit 1"
+						},
+						{
+							"key": "w3u1c",
+							"text": "Week 3 Unit 1 Challenge"
+						},
+						{
+							"key": "w3u2",
+							"text": "Week 3 Unit 2"
+						},
+						{
 							"key": "w3u3",
 							"text": "Week 3 Unit 3"
+						},
+						{
+							"key": "w3u4",
+							"text": "Week 3 Unit 4"
+						},
+						{
+							"key": "w3u4c",
+							"text": "Week 3 Unit 4 Challenge"
+						},
+						{
+							"key": "w3u5",
+							"text": "Week 3 Unit 5"
+						},
+						{
+							"key": "w4u1",
+							"text": "Week 4 Unit 1"
+						},
+						{
+							"key": "w4u2",
+							"text": "Week 4 Unit 2"
+						},
+						{
+							"key": "w4u2c",
+							"text": "Week 4 Unit 2 Challenge"
 						},
 						{
 							"key": "w5u1",
@@ -175,8 +212,19 @@ sap.ui.require([
 						{
 							"key": "w5u3",
 							"text": "Week 5 Unit 3"
+						},
+						{
+							"key": "w5u6a",
+							"text": "Week 5 Unit 6 - Button"
+						},
+						{
+							"key": "w5u6b",
+							"text": "Week 5 Unit 6 - Map"
+						},
+						{
+							"key": "w5u6c",
+							"text": "Week 5 Unit 6 Challenge"
 						}
-
 					]
 				};
 				oModel.setData(mData);
@@ -210,14 +258,14 @@ sap.ui.require([
 						this._oValidateButton.setSrc(sPath + "neutral.png");
 					}.bind(this),
 					customHeader:
-							new sap.m.Text({text: "Validating..."}).addEventDelegate({
-								onAfterRendering: function (oEvent) {
-									var $Control = oEvent.srcControl.$();
-									$Control.css("max-width", "25rem");
-									$Control.css("min-width", "25rem");
-									$Control.css("font-size", "1.1rem");
-								}
-							}).addStyleClass("sapUiSmallMarginBeginEnd sapUiSmallMarginTopBottom"),
+						new sap.m.Text({text: "Validating..."}).addEventDelegate({
+							onAfterRendering: function (oEvent) {
+								var $Control = oEvent.srcControl.$();
+								$Control.css("max-width", "25rem");
+								$Control.css("min-width", "25rem");
+								$Control.css("font-size", "1.1rem");
+							}
+						}).addStyleClass("sapUiSmallMarginBeginEnd sapUiSmallMarginTopBottom"),
 					content: [
 						oSelect,
 						new sap.m.Slider({
@@ -530,20 +578,17 @@ sap.ui.require([
 					assert.testName = testName;
 
 					callback.call(this, config.arrangements, config.actions, config.assertions, assert);
-				//	fnReopenPopover();
 
 					var promise = Opa.emptyQueue();
 					promise.done(function () {
 						Opa.assert = undefined;
 						Opa5.assert = undefined;
-				//		fnReopenPopover();
 						fnRemoveTestBusy(assert.testName);
 					});
 
 					promise.fail(function () {
 						Opa.assert = undefined;
 						Opa5.assert = undefined;
-					//	fnReopenPopover();
 						bSomeTestFailed = true;
 						fnShowResult("Sorry, you are not on course anymore!", false);
 						if(sCookieKey.search("opt") > 0 ) {
@@ -580,11 +625,10 @@ sap.ui.require([
 							controlType: "sap.m.Image",
 							matchers: new Properties ({
 								src:"images/MoviesHeader.png"
-								}
-							),
+							}),
 
 							success: function () {
-									assert.ok("The image has the correct path.");
+								assert.ok("The image has the correct path.");
 							},
 							error: function(){
 								assert.notOk("Could not find the correct image in the app.");
@@ -595,7 +639,7 @@ sap.ui.require([
 						When.waitFor({
 							controlType: "sap.m.Page",
 							success: function (aPage) {
-								if (aPage[0].getTitle() == "Watch Movies") {
+								if (aPage[0].getTitle() === "Watch Movies") {
 									assert.ok("The page title was set to 'Watch Movies'.");
 								} else {
 									assert.notOk("The page title was not set to 'Watch Movies'.");
@@ -654,22 +698,22 @@ sap.ui.require([
 						When.waitFor({
 							controlType: "sap.m.Button",
 							success: function (aButtons) {
-									this.waitFor({
-										id: aButtons[0].getId(),
-										actions: new Press(),
-										success: function () {
-											return this.waitFor({
-												pollingInterval: 100,
-												check: function() {
-													return !!document.getElementsByClassName("sapMMessageToast").length;
-												},
-												success: function() {
-													assert.ok(" The message toast by pressing the find movies button was displayed");
-												},
-												errorMessage: "The message toast by pressing the find movies button was not displayed"
-											});
-										}
-									});
+								this.waitFor({
+									id: aButtons[0].getId(),
+									actions: new Press(),
+									success: function () {
+										return this.waitFor({
+											pollingInterval: 100,
+											check: function() {
+												return !!document.getElementsByClassName("sapMMessageToast").length;
+											},
+											success: function() {
+												assert.ok(" The message toast by pressing the find movies button was displayed");
+											},
+											errorMessage: "The message toast by pressing the find movies button was not displayed"
+										});
+									}
+								});
 							},
 							error: function () {
 								assert.notOk("Could not find a button");
@@ -680,7 +724,7 @@ sap.ui.require([
 						When.waitFor({
 							controlType: "sap.m.SearchField",
 							success: function () {
-									assert.ok("The SearchField for the city was found");
+								assert.ok("The SearchField for the city was found");
 							},
 							error: function () {
 								assert.notOk("Could not find a SearchField in the app");
@@ -800,7 +844,7 @@ sap.ui.require([
 									return false;
 								} else {
 									if (oElement.getProperty("text") === "Action") {
-											return oElement.getAppointments().every(fnIsFilteredOnCity);
+										return oElement.getAppointments().every(fnIsFilteredOnCity);
 									} else {
 										return false;
 									}
@@ -1062,6 +1106,182 @@ sap.ui.require([
 						});
 					})
 				},
+				"w3u1": function() {
+					// test template generation by checking binding paths
+					function testDataBinding(sCaption, sControlType, sBindingPath) {
+						opaTest(sCaption, function (Given, When, Then, assert) {
+							When.waitFor({
+								controlType: sControlType,
+								check : function (aLists) {
+									return aLists.some(function(oList) {
+										return oList.getBindingPath("items") == sBindingPath;
+									});
+								},
+								success: function () {
+									assert.ok("Correct binding");
+								},
+								error: function () {
+									assert.notOk("Incorrect binding");
+								}
+							});
+						});
+					}
+					testDataBinding("Master List", "sap.m.List", "/SalesOrderSet");
+					testDataBinding("Detail Table", "sap.m.Table", "ToLineItems");
+					// test translation by checking some texts in the properties file
+					var oBundle;
+					var pResourceBundle = ResourceBundle.create({
+						url: "i18n/i18n.properties",
+						async: true
+					}).then(function(_oBundle) {
+						oBundle = _oBundle
+					});
+					function testI18nKey(sCaption, aKeys, sValue) {
+						opaTest(sCaption, function (Given, When, Then, assert) {
+							When.iWaitForPromise(pResourceBundle);
+							Then.waitFor({
+								check: function () {
+									return aKeys.every(function(sKey) {
+										return oBundle.getText(sKey).toLowerCase().indexOf(sValue) > -1;
+									});
+								},
+								success: function () {
+									assert.ok("The text is correct.");
+								},
+								error: function () {
+									assert.notOk("The text is not correct.");
+								}
+							});
+						});
+					}
+					testI18nKey("SalesOrderSet", ["masterTitleCount", "masterSearchTooltip", "noObjectFoundText", "notAvailableViewTitle"], "order");
+					testI18nKey("SalesOrderSetPlural", ["masterListNoDataText", "masterListNoDataWithFilterOrSearchText"], "orders");
+					testI18nKey("ToLineItemsPlural", ["detailLineItemTableNoDataText"], "product");
+					testI18nKey("LastColumnName", ["detailLineItemTableUnitNumberColumn"], "price");
+					testI18nKey("CustomerName", ["masterSort1"], "customer");
+				},
+				"w3u1c": function() {
+					opaTest("Add a logo", function (Given, When, Then, assert) {
+						When.waitFor({
+							controlType: "sap.f.Avatar",
+							check: function(aAvatars) {
+								return aAvatars.some(function(oAvatar) {
+									return !!oAvatar.getSrc();
+								});
+							},
+							success: function () {
+								assert.ok("sap.f.Avatar found");
+							},
+							error: function () {
+								assert.notOk("sap.f.Avatar not found");
+							}
+						});
+					});
+					opaTest("Add title and claim", function (Given, When, Then, assert) {
+						When.waitFor({
+							controlType: "sap.m.ObjectIdentifier",
+							check: function(oIdentifier) {
+								return oIdentifier.some(function(oIdentifier) {
+									return oIdentifier.getTitle() && oIdentifier.getText();
+								});
+							},
+							success: function () {
+								assert.ok("sap.m.ObjectIdentifier found");
+							},
+							error: function () {
+								assert.notOk("sap.m.ObjectIdentifier not found");
+							}
+						});
+					});
+				},
+				"w3u2": function () {
+					opaTest("Check for CreatedAt ObjectAttribute", function (Given, When, Then, assert) {
+						Then.waitFor({
+							controlType: "sap.m.ObjectAttribute",
+							matchers: function (oObjectAttribute) {
+								return oObjectAttribute.getBindingPath("text") === "CreatedAt";
+							},
+							success: function () {
+								assert.ok("CreatedAt is correctly added to the master list");
+							},
+							error: function () {
+								assert.notOk("CreatedAt is not added to the master list");
+							}
+						});
+					});
+					opaTest("Check for BusinessPartnerID ObjectAttribute", function (Given, When, Then, assert) {
+						Then.waitFor({
+							controlType: "sap.m.ObjectAttribute",
+							matchers: function (oObjectAttribute) {
+								return oObjectAttribute.getBindingPath("text") === "ToBusinessPartner/BusinessPartnerID";
+							},
+							success: function () {
+								assert.ok("BusinessPartnerID is correclty added to the master list");
+							},
+							error: function () {
+								assert.notOk("BusinessPartnerID is not added to the master list");
+							}
+						});
+					});
+					opaTest("Check for firstStatus aggregation", function (Given, When, Then, assert) {
+						Then.waitFor({
+							controlType: "sap.m.ObjectListItem",
+							matchers: new AggregationFilled({
+								name: "firstStatus"
+							}),
+							success: function () {
+								assert.ok("firstStatus aggregation of the ObjectListItem control found");
+							},
+							error: function () {
+								assert.notOk("firstStatus aggregation of the ObjectListItem control not found");
+							}
+						})
+					});
+					opaTest("Check for Country & City ObjectStatus", function (Given, When, Then, assert) {
+						Then.waitFor({
+							controlType: "sap.m.ObjectStatus",
+							matchers: function (oObjectStatus) {
+								return oObjectStatus.getBindingPath("title") === "ToBusinessPartner/Address/Country"
+									&& oObjectStatus.getBindingPath("text") === "ToBusinessPartner/Address/City";
+							},
+							success: function () {
+								assert.ok("Country & City information correctly rendered using firstStatus aggregation");
+							},
+							error: function () {
+								assert.notOk("firstStatus aggregation missing OR Country and City binding path is incorrect");
+							}
+						});
+					});
+					opaTest("Check for Markers aggregation", function (Given, When, Then, assert) {
+						Then.waitFor({
+							controlType: "sap.m.ObjectListItem",
+							matchers: new AggregationFilled({
+								name: "markers"
+							}),
+							success: function () {
+								assert.ok("markers aggragation of the ObjectListItem control found");
+							},
+							error: function () {
+								assert.notOk("markers aggregation of the ObjectListItem control not found");
+							}
+						});
+					});
+					opaTest("Check for ObjectMarker control", function (Given, When, Then, assert) {
+						Then.waitFor({
+							controlType: "sap.m.ObjectMarker",
+							matchers: function (oObjectMarker) {
+								var sType = oObjectMarker.getType();
+								return sType === "Flagged" || sType === "Favorite";
+							},
+							success: function () {
+								assert.ok("ObjectMarker control is added to the master list");
+							},
+							error: function () {
+								assert.notOk("ObjectMarker control is not added to the master list");
+							}
+						});
+					});
+				},
 				"w3u3": function () {
 					opaTest("Select a Customer", function (Given, When, Then, assert) {
 						When.waitFor({
@@ -1124,7 +1344,7 @@ sap.ui.require([
 									controlType: "sap.m.List",
 									matchers : new sap.ui.test.matchers.Ancestor(aPages[0]),
 									success: function () {
-											assert.ok("Product List was found");
+										assert.ok("Product List was found");
 									},
 									error: function () {
 										assert.notOk("Product List could not be found");
@@ -1133,6 +1353,1295 @@ sap.ui.require([
 							},
 							error: function () {
 								assert.notOk("No List could be found");
+							}
+						});
+					});
+				},
+				"w3u4": function () {
+					opaTest("Sticky property", function (Given, When, Then, assert) {
+						When.waitFor({
+							controlType: "sap.m.List",
+							actions: function (oList) {
+								oList.getItems()[0].firePress();
+							},
+							success: function () {
+								When.waitFor({
+									controlType: "sap.m.Table",
+									check: function (aStatus) {
+										return aStatus.some(function (oStatus) {
+											return oStatus.getProperty("sticky")[0] === "ColumnHeaders" && oStatus.getProperty("sticky")[1] === "HeaderToolbar";
+										});
+									},
+									success: function () {
+										assert.ok("Sticky property set with value 'ColumnHeaders,HeaderToolbar'");
+									},
+									error: function () {
+										assert.notOk("Sticky property not found or different value to it is set");
+									}
+								});
+							},
+							error: function () {
+								assert.notOk("Couldn't access the needed environment.");
+							}
+						});
+					});
+					opaTest("Floating footer", function (Given, When, Then, assert) {
+						When.waitFor({
+							controlType: "sap.m.List",
+							actions: function (oList) {
+								oList.getItems()[0].firePress();
+							},
+							success: function () {
+								When.waitFor({
+									controlType: "sap.f.semantic.SemanticPage",
+									matchers: [new PropertyStrictEquals({name: "showFooter", value: true}),
+										new AggregationFilled({name: "positiveAction"}),
+										new AggregationFilled({name: "negativeAction"}),
+										new AggregationFilled({name: "footerCustomActions"})
+									],
+									success: function () {
+										assert.ok("Floating footer found with a positive, negative and a custom action");
+									},
+									error: function () {
+										assert.notOk("Floating footer not found or different set of actions is set");
+									}
+								});
+							},
+							error: function () {
+								assert.notOk("Couldn't access the needed environment.");
+							}
+						});
+					});
+					opaTest("ObjectPage included", function (Given, When, Then, assert) {
+						When.waitFor({
+							controlType: "sap.m.List",
+							actions: function (oList) {
+								oList.getItems()[0].firePress();
+							},
+							success: function () {
+								return When.waitFor({
+									controlType: "sap.m.Table",
+									actions: function (oTable) {
+										oTable.fireSelectionChange({
+											listItem : oTable.getItems()[0],
+											listItems : oTable.getItems()
+										})
+									},
+									success: function () {
+										return When.waitFor({
+											controlType: "sap.uxap.ObjectPageLayout",
+											matchers: [
+												new AggregationFilled({name: "headerTitle"}),
+												new AggregationFilled({name: "headerContent"}),
+												new AggregationFilled({name: "sections"})
+											],
+											success: function () {
+												assert.ok("Object page layout found");
+											},
+											error: function () {
+												assert.notOk("Object page layout not found");
+											}
+										});
+									},
+									error: function () {
+										assert.notOk("Couldn't access the needed environment.");
+									}
+								});
+							},
+							error: function () {
+								assert.notOk("Couldn't access the needed environment.");
+							}
+						});
+					});
+					opaTest("InfoLabel - text property", function (Given, When, Then, assert) {
+						When.waitFor({
+							controlType: "sap.m.List",
+							actions: function (oList) {
+								oList.getItems()[0].firePress();
+							},
+							success: function () {
+								When.waitFor({
+									controlType: "sap.tnt.InfoLabel",
+									check: function (aInfoLabel) {
+										return aInfoLabel.some(function (oInfoLabel) {
+											return oInfoLabel.getBindingPath("text") === "LifecycleStatusDescription";
+										});
+									},
+									success: function () {
+										assert.ok("The InfoLabel was found with correct text property set");
+									},
+									error: function () {
+										assert.notOk("InfoLabel not found or different value for the text property is set");
+									}
+								});
+							},
+							error: function () {
+								assert.notOk("Couldn't access the needed environment.");
+							}
+						});
+					});
+					opaTest("InfoLabel - colorScheme property", function (Given, When, Then, assert) {
+						When.waitFor({
+							controlType: "sap.m.List",
+							actions: function (oList) {
+								oList.getItems()[0].firePress();
+							},
+							success: function () {
+								When.waitFor({
+									controlType: "sap.tnt.InfoLabel",
+									check: function (aInfoLabel) {
+										return aInfoLabel.some(function (oInfoLabel) {
+											return oInfoLabel.getBindingPath("colorScheme") === "LifecycleStatusDescription";
+										});
+									},
+									success: function () {
+										assert.ok("The InfoLabel was found with correct colorScheme property set");
+									},
+									error: function () {
+										assert.notOk("InfoLabel not found or different value for the colorScheme property is set");
+									}
+								});
+							},
+							error: function () {
+								assert.notOk("Couldn't access the needed environment.");
+							}
+						});
+					});
+					opaTest("InfoLabel - colorScheme formatter", function (Given, When, Then, assert) {
+						When.waitFor({
+							controlType: "sap.m.List",
+							actions: function (oList) {
+								oList.getItems()[0].firePress();
+							},
+							success: function () {
+								When.waitFor({
+									controlType: "sap.tnt.InfoLabel",
+									check: function (aInfoLabel) {
+										return aInfoLabel.some(function (oInfoLabel) {
+											return typeof oInfoLabel.getColorScheme() === "number";
+										});
+									},
+									success: function () {
+										assert.ok("The returned value of the formatter function is a number");
+									},
+									error: function () {
+										assert.notOk("The returned value of the formatter function is not a number as expected");
+									}
+								});
+							},
+							error: function () {
+								assert.notOk("Couldn't access the needed environment.");
+							}
+						});
+					});
+					opaTest("StatusIndicator - value property", function (Given, When, Then, assert) {
+						When.waitFor({
+							controlType: "sap.m.List",
+							actions: function (oList) {
+								oList.getItems()[0].firePress();
+							},
+							success: function () {
+								When.waitFor({
+									controlType: "sap.suite.ui.commons.statusindicator.StatusIndicator",
+									check: function (aStatus) {
+										return aStatus.some(function (oStatus) {
+											return oStatus.getBindingPath("value") === "DeliveryDate";
+										});
+									},
+									success: function () {
+										assert.ok("The StatusIndicator was found with correctly bound to model value property");
+									},
+									error: function () {
+										assert.notOk("StatusIndicator not found or the value property is not bound as expected");
+									}
+								});
+							},
+							error: function () {
+								assert.notOk("Couldn't access the needed environment.");
+							}
+						});
+					});
+					opaTest("StatusIndicator - groups aggregation", function (Given, When, Then, assert) {
+						When.waitFor({
+							controlType: "sap.m.List",
+							actions: function (oList) {
+								oList.getItems()[0].firePress();
+							},
+							success: function () {
+								When.waitFor({
+									controlType: "sap.suite.ui.commons.statusindicator.StatusIndicator",
+									check: function (aStatus) {
+										return aStatus.some(function (oStatus) {
+											return oStatus.getAggregation("groups").length;
+										});
+									},
+									success: function () {
+										assert.ok("The StatusIndicator was found with groups aggregation set");
+									},
+									error: function () {
+										assert.notOk("StatusIndicator was not found or there isn't a group aggregation set");
+									}
+								});
+							},
+							error: function () {
+								assert.notOk("Couldn't access the needed environment.");
+							}
+						});
+					});
+					opaTest("StatusIndicator - propertyThresholds aggregation", function (Given, When, Then, assert) {
+						When.waitFor({
+							controlType: "sap.m.List",
+							actions: function (oList) {
+								oList.getItems()[0].firePress();
+							},
+							success: function () {
+								When.waitFor({
+									controlType: "sap.suite.ui.commons.statusindicator.StatusIndicator",
+									check: function (aStatus) {
+										return aStatus.some(function (oStatus) {
+											return oStatus.getAggregation("propertyThresholds").length;
+										});
+									},
+									success: function () {
+										assert.ok("The StatusIndicator was found with propertyThresholds aggregation set");
+									},
+									error: function () {
+										assert.notOk("StatusIndicator was not found or there isn't a propertyThresholds aggregation set");
+									}
+								});
+							},
+							error: function () {
+								assert.notOk("Couldn't access the needed environment.");
+							}
+						});
+					});
+				},
+				"w3u4c": function () {
+					opaTest("Controls used", function (Given, When, Then, assert) {
+						When.waitFor({
+							controlType: "sap.m.List",
+							actions: function (oList) {
+								oList.getItems()[0].firePress();
+							},
+							success: function () {
+								return When.waitFor({
+									controlType: "sap.m.Table",
+									actions: function (oTable) {
+										oTable.fireSelectionChange({
+											listItem : oTable.getItems()[0],
+											listItems : oTable.getItems()
+										})
+									},
+									success: function () {
+										return 	When.waitFor({
+											controlType: "sap.uxap.ObjectPageLayout",
+											check: function (aOPL) {
+												var iNumberLabels = 0,
+													iNumberObjectNumbers = 0,
+													sControlName;
+
+												return aOPL.some(function (oOPL) {
+													return oOPL.getSections().some(function (oSection) {
+														return oSection.getSubSections().some(function (oSubSection) {
+															return oSubSection.getBlocks().some(function (oBlock) {
+																oBlock.getContent().forEach(function(oControl) {
+																	sControlName = oControl.getMetadata().getName();
+																	if (sControlName === "sap.m.Label") {
+																		iNumberLabels += 1;
+																		return;
+																	}
+																	if (sControlName === "sap.m.ObjectNumber") {
+																		iNumberObjectNumbers += 1;
+																		return;
+																	}
+																});
+																return iNumberLabels === 4 && iNumberObjectNumbers === 4;
+															});
+														});
+													});
+												});
+											},
+											success: function () {
+												assert.ok("Correct controls are used");
+											},
+											error: function () {
+												assert.notOk("Different control than expected found");
+											}
+										});
+									},
+									error: function () {
+										assert.notOk("Couldn't access the needed environment.");
+									}
+								});
+							},
+							error: function () {
+								assert.notOk("Couldn't access the needed environment.");
+							}
+						});
+					});
+					opaTest("Visual representaion", function (Given, When, Then, assert) {
+						When.waitFor({
+							controlType: "sap.m.List",
+							actions: function (oList) {
+								oList.getItems()[0].firePress();
+							},
+							success: function () {
+								return When.waitFor({
+									controlType: "sap.m.Table",
+									actions: function (oTable) {
+										oTable.fireSelectionChange({
+											listItem : oTable.getItems()[0],
+											listItems : oTable.getItems()
+										})
+									},
+									success: function () {
+										return 	When.waitFor({
+											controlType: "sap.uxap.ObjectPageLayout",
+											check: function (aOPL) {
+												return aOPL.some(function (oOPL) {
+													return oOPL.getSections().some(function (oSection) {
+														return oSection.getSubSections().some(function (oSubSection) {
+															return oSubSection.getBlocks().some(function (oBlock) {
+																return oBlock.getMetadata().getName() === "sap.ui.layout.form.SimpleForm";
+															});
+														});
+													});
+												});
+											},
+											success: function () {
+												assert.ok("Correct controls are used");
+											},
+											error: function () {
+												assert.notOk("Different control than expected found");
+											}
+										});
+									},
+									error: function () {
+										assert.notOk("Couldn't access the needed environment.");
+									}
+								});
+							},
+							error: function () {
+								assert.notOk("Couldn't access the needed environment.");
+							}
+						});
+					});
+				},
+				"w3u5": function() {
+					// check structure
+					function checkStructure(sId, sType) {
+						opaTest("Check OrderPreparationsControl structure - Control '" + sType + "' with ID '" + sId + "'", function (Given, When, Then, assert) {
+							When.waitFor({
+								id: "container-orders---detail--orderPreparations",
+								check: function(oOrderPreparations) {
+									return oOrderPreparations.byId(sId).isA(sType);
+								},
+								success: function () {
+									assert.ok("found");
+								},
+								error: function () {
+									assert.notOk("not found");
+								}
+							});
+						});
+					}
+					checkStructure("packItemsSwitch", "sap.m.Switch");
+					checkStructure("printInvoiceSwitch", "sap.m.Switch");
+					checkStructure("addSampleSwitch", "sap.m.Switch");
+					checkStructure("confirm", "sap.m.Button");
+
+					// check metadata
+					function checkMetadata(fnCheck, sUut) {
+						opaTest("Check OrderPreparationsControl metadata - " + sUut, function (Given, When, Then, assert) {
+							When.waitFor({
+								id: "container-orders---detail--orderPreparations",
+								check: fnCheck,
+								success: function () {
+									assert.ok("found");
+								},
+								error: function () {
+									assert.notOk("not found");
+								}
+							});
+						});
+					}
+					checkMetadata(function(oOrderPreparations) {
+						var aPropertyNames = Object.keys(oOrderPreparations.getMetadata().getAllProperties());
+						return aPropertyNames.indexOf("switchStateItems") > -1;
+					}, "Property 'switchStateItems'");
+					checkMetadata(function(oOrderPreparations) {
+						var aPropertyNames = Object.keys(oOrderPreparations.getMetadata().getAllProperties());
+						return aPropertyNames.indexOf("switchStateInvoice") > -1;
+					}, "Property 'switchStateInvoice'");
+					checkMetadata(function(oOrderPreparations) {
+						var aPropertyNames = Object.keys(oOrderPreparations.getMetadata().getAllProperties());
+						return aPropertyNames.indexOf("switchStateSample") > -1;
+					}, "Property 'switchStateSample'");
+					checkMetadata(function(oOrderPreparations) {
+						var aEventNames = Object.keys(oOrderPreparations.getMetadata().getAllEvents());
+						return aEventNames.indexOf("confirm") > -1;
+					}, "Event 'confirm'");
+					checkMetadata(function(oOrderPreparations) {
+						var aMethodNames = oOrderPreparations.getMetadata().getPublicMethods();
+						return aMethodNames.indexOf("reset") > -1;
+					}, "Method 'reset'");
+					checkMetadata(function(oOrderPreparations) {
+						return typeof oOrderPreparations._resetSwitches == "function";
+					}, "Method '_resetSwitches'");
+				},
+				"w4u1": function () {
+					opaTest("Toolbarspacer and button for opening the create view", function (Given, When, Then, assert) {
+						When.waitFor({
+							controlType: "sap.m.List",
+							actions: function (oList) {
+								oList.getItems()[0].firePress();
+							},
+							success: function () {
+								When.waitFor({
+									controlType: "sap.m.Table",
+									check: function (aTable) {
+										var oTableContent = aTable[0].getHeaderToolbar().getContent(),
+											bToolbarSpacer = oTableContent.some(function (oControl) {
+												return oControl.getMetadata().getName() === "sap.m.ToolbarSpacer";
+											}),
+											bButton = oTableContent.some(function (oControl) {
+												return oControl.getMetadata().getName() === "sap.m.Button";
+											});
+										return bToolbarSpacer && bButton;
+									},
+									success: function () {
+										assert.ok("Toolbarspacer and button found");
+									},
+									error: function () {
+										assert.notOk("Toolbarspacer or button notfound");
+									}
+								});
+							},
+							error: function () {
+								assert.notOk("Couldn't access the needed environment.");
+							}
+						});
+					});
+					opaTest("Loading create view", function (Given, When, Then, assert) {
+						When.waitFor({
+							controlType: "sap.m.List",
+							actions: function (oList) {
+								oList.getItems()[0].firePress();
+							},
+							success: function () {
+								return When.waitFor({
+									controlType: "sap.m.Table",
+									actions: function (oTable) {
+										oTable.getHeaderToolbar().getContent()[2].firePress();
+									},
+									success: function () {
+										When.waitFor({
+											controlType: "sap.uxap.ObjectPageLayout",
+											success: function () {
+												assert.ok("ObjectPageLayout found in create view");
+											},
+											error: function () {
+												assert.notOk("ObjectPageLayout not found in create view");
+											}
+										});
+									},
+									error: function () {
+										assert.notOk("Couldn't access the needed environment.");
+									}
+								});
+							},
+							error: function () {
+								assert.notOk("Couldn't access the needed environment.");
+							}
+						});
+					});
+					opaTest("First ObjectPage section", function (Given, When, Then, assert) {
+						When.waitFor({
+							controlType: "sap.m.List",
+							actions: function (oList) {
+								oList.getItems()[0].firePress();
+							},
+							success: function () {
+								return When.waitFor({
+									controlType: "sap.m.Table",
+									actions: function (oTable) {
+										oTable.getHeaderToolbar().getContent()[2].firePress();
+									},
+									success: function () {
+										When.waitFor({
+											controlType: "sap.uxap.ObjectPageLayout",
+											matchers: [
+												new AggregationFilled({name: "sections"})
+											],
+											check: function (aOPL) {
+												var iNumberLabels ,
+													iNumberInputs,
+													iNumberTextArea,
+													sControlName;
+
+												return aOPL.some(function (oOPL) {
+													return oOPL.getSections().some(function (oSection) {
+														iNumberLabels = 0;
+														iNumberInputs = 0;
+														iNumberTextArea = 0;
+
+														return oSection.getSubSections().some(function (oSubSection) {
+															return oSubSection.getBlocks().some(function (oBlock) {
+																oBlock.getContent().forEach(function(oControl) {
+																	sControlName = oControl.getMetadata().getName();
+																	if (sControlName === "sap.m.Label") {
+																		iNumberLabels += 1;
+																		return;
+																	}
+																	if (sControlName === "sap.m.Input") {
+																		iNumberInputs += 1;
+																		return;
+																	}
+																	if (sControlName === "sap.m.TextArea") {
+																		iNumberTextArea += 1;
+																		return;
+																	}
+																});
+																return iNumberLabels === 3 && iNumberInputs === 2 && iNumberTextArea === 1;
+															});
+														});
+													});
+												});
+											},
+											success: function () {
+												assert.ok("Section and corresponcing controls in it found");
+											},
+											error: function () {
+												assert.notOk("No section found or different controls in it than expected set");
+											}
+										});
+									},
+									error: function () {
+										assert.notOk("Couldn't access the needed environment.");
+									}
+								});
+							},
+							error: function () {
+								assert.notOk("Couldn't access the needed environment.");
+							}
+						});
+					});
+					opaTest("Second ObjectPage section", function (Given, When, Then, assert) {
+						When.waitFor({
+							controlType: "sap.m.List",
+							actions: function (oList) {
+								oList.getItems()[0].firePress();
+							},
+							success: function () {
+								return When.waitFor({
+									controlType: "sap.m.Table",
+									actions: function (oTable) {
+										oTable.getHeaderToolbar().getContent()[2].firePress();
+									},
+									success: function () {
+										When.waitFor({
+											controlType: "sap.uxap.ObjectPageLayout",
+											matchers: [
+												new AggregationFilled({name: "sections"})
+											],
+											check: function (aOPL) {
+												var iNumberLabels,
+													iNumberDatePicker,
+													sControlName;
+
+												return aOPL.some(function (oOPL) {
+													return oOPL.getSections().some(function (oSection) {
+														iNumberLabels = 0;
+														iNumberDatePicker = 0;
+
+														return oSection.getSubSections().some(function (oSubSection) {
+															return oSubSection.getBlocks().some(function (oBlock) {
+																oBlock.getContent().forEach(function(oControl) {
+																	sControlName = oControl.getMetadata().getName();
+																	if (sControlName === "sap.m.Label") {
+																		iNumberLabels += 1;
+																		return;
+																	}
+																	if (sControlName === "sap.m.DatePicker") {
+																		iNumberDatePicker += 1;
+																		return;
+																	}
+																});
+																return iNumberLabels === 1 && iNumberDatePicker === 1;
+															});
+														});
+													});
+												});
+											},
+											success: function () {
+												assert.ok("Section and corresponcing controls in it found");
+											},
+											error: function () {
+												assert.notOk("No section found or different controls than expected in it set");
+											}
+										});
+									},
+									error: function () {
+										assert.notOk("Couldn't access the needed environment.");
+									}
+								});
+							},
+							error: function () {
+								assert.notOk("Couldn't access the needed environment.");
+							}
+						});
+					});
+					opaTest("Validation of TextArea (Note)", function (Given, When, Then, assert) {
+						When.waitFor({
+							controlType: "sap.m.List",
+							actions: function (oList) {
+								oList.getItems()[0].firePress();
+							},
+							success: function () {
+								return When.waitFor({
+									controlType: "sap.m.Table",
+									actions: function (oTable) {
+										oTable.getHeaderToolbar().getContent()[2].firePress();
+									},
+									success: function () {
+										When.waitFor({
+											controlType: "sap.m.TextArea",
+											check: function (aTextArea) {
+												var oTextArea = aTextArea[0];
+												return oTextArea.getBindingPath("value") === "Note" &&  oTextArea.getBinding("value").getType().getMetadata().getName() === "sap.ui.model.type.String";
+											},
+											success: function () {
+												assert.ok("Validation set correctly");
+											},
+											error: function () {
+												assert.notOk("Validation set differently than expected");
+											}
+										});
+									},
+									error: function () {
+										assert.notOk("Couldn't access the needed environment.");
+									}
+								});
+							},
+							error: function () {
+								assert.notOk("Couldn't access the needed environment.");
+							}
+						});
+					});
+					opaTest("Validation of Input (ProductID))", function (Given, When, Then, assert) {
+						When.waitFor({
+							controlType: "sap.m.List",
+							actions: function (oList) {
+								oList.getItems()[0].firePress();
+							},
+							success: function () {
+								return When.waitFor({
+									controlType: "sap.m.Table",
+									actions: function (oTable) {
+										oTable.getHeaderToolbar().getContent()[2].firePress();
+									},
+									success: function () {
+										When.waitFor({
+											controlType: "sap.m.Input",
+											check: function (aInput) {
+												var oInput = aInput[0];
+												return oInput.getBindingPath("value") === "ProductID" && oInput.getBinding("value").getType().getMetadata().getName() === "sap.ui.model.type.String";
+											},
+											success: function () {
+												assert.ok("Validation set correctly");
+											},
+											error: function () {
+												assert.notOk("Validation set differently than expected");
+											}
+										});
+									},
+									error: function () {
+										assert.notOk("Couldn't access the needed environment.");
+									}
+								});
+							},
+							error: function () {
+								assert.notOk("Couldn't access the needed environment.");
+							}
+						});
+					});
+					opaTest("Validation of Input (Quantity))", function (Given, When, Then, assert) {
+						When.waitFor({
+							controlType: "sap.m.List",
+							actions: function (oList) {
+								oList.getItems()[0].firePress();
+							},
+							success: function () {
+								return When.waitFor({
+									controlType: "sap.m.Table",
+									actions: function (oTable) {
+										oTable.getHeaderToolbar().getContent()[2].firePress();
+									},
+									success: function () {
+										When.waitFor({
+											controlType: "sap.m.Input",
+											check: function (aInput) {
+												return aInput[1].getBindingPath("value") === "Quantity";
+											},
+											success: function () {
+												assert.ok("Validation set correctly");
+											},
+											error: function () {
+												assert.notOk("Validation set differently than expected");
+											}
+										});
+									},
+									error: function () {
+										assert.notOk("Couldn't access the needed environment.");
+									}
+								});
+							},
+							error: function () {
+								assert.notOk("Couldn't access the needed environment.");
+							}
+						});
+					});
+					opaTest("Validation of DatePicker (DeliveryDate)", function (Given, When, Then, assert) {
+						When.waitFor({
+							controlType: "sap.m.List",
+							actions: function (oList) {
+								oList.getItems()[0].firePress();
+							},
+							success: function () {
+								return When.waitFor({
+									controlType: "sap.m.Table",
+									actions: function (oTable) {
+										oTable.getHeaderToolbar().getContent()[2].firePress();
+									},
+									success: function () {
+										When.waitFor({
+											controlType: "sap.m.DatePicker",
+											check: function (aDP) {
+												var oDP = aDP[0];
+												return oDP.getBindingPath("value") === "DeliveryDate" && oDP.getBinding("value").getType().getMetadata().getName() === "sap.ui.model.type.DateTime";
+											},
+											success: function () {
+												assert.ok("Validation set correctly");
+											},
+											error: function () {
+												assert.notOk("Validation set differently than expected");
+											}
+										});
+									},
+									error: function () {
+										assert.notOk("Couldn't access the needed environment.");
+									}
+								});
+							},
+							error: function () {
+								assert.notOk("Couldn't access the needed environment.");
+							}
+						});
+					});
+					opaTest("ObjectPage footer", function (Given, When, Then, assert) {
+						When.waitFor({
+							controlType: "sap.m.List",
+							actions: function (oList) {
+								oList.getItems()[0].firePress();
+							},
+							success: function () {
+								return When.waitFor({
+									controlType: "sap.m.Table",
+									actions: function (oTable) {
+										oTable.getHeaderToolbar().getContent()[2].firePress();
+									},
+									success: function () {
+										When.waitFor({
+											controlType: "sap.uxap.ObjectPageLayout",
+											matchers: [
+												new AggregationFilled({name: "footer"})
+											],
+											check: function (aOPL) {
+												var iNumberButtons = 0,
+													iNumberToolbarSpacer = 0,
+													sControlName;
+
+												return aOPL.some(function (oOPL) {
+													oOPL.getFooter().getContent().forEach(function(oControl) {
+														sControlName = oControl.getMetadata().getName();
+														if (sControlName === "sap.m.Button") {
+															iNumberButtons += 1;
+															return;
+														}
+														if (sControlName === "sap.m.ToolbarSpacer") {
+															iNumberToolbarSpacer += 1;
+															return;
+														}
+													});
+													return iNumberButtons >= 2 && iNumberToolbarSpacer >= 1;
+												});
+											},
+											success: function () {
+												assert.ok("Footer and corresponding controls in it found");
+											},
+											error: function () {
+												assert.notOk("No footer found or different controls than expected in it set");
+											}
+										});
+									},
+									error: function () {
+										assert.notOk("Couldn't access the needed environment.");
+									}
+								});
+							},
+							error: function () {
+								assert.notOk("Couldn't access the needed environment.");
+							}
+						});
+					});
+					opaTest("Canceling a creation of an entry", function (Given, When, Then, assert) {
+						When.waitFor({
+							controlType: "sap.m.List",
+							actions: function (oList) {
+								oList.getItems()[0].firePress();
+							},
+							success: function () {
+								return When.waitFor({
+									controlType: "sap.m.Table",
+									actions: function (oTable) {
+										oTable.getHeaderToolbar().getContent()[2].firePress();
+									},
+									success: function () {
+										When.waitFor({
+											controlType: "sap.uxap.ObjectPageLayout",
+											check: function (aOPL) {
+												return aOPL.some(function (oOPL) {
+													return oOPL.getFooter().getContent()[3].firePress();
+												});
+											},
+											success: function () {
+												return this.waitFor({
+													controlType: "sap.f.FlexibleColumnLayout",
+													matchers: new PropertyStrictEquals({name: "layout", value: "TwoColumnsMidExpanded"}),
+													success: function () {
+														assert.ok("Two Column FCL Layout triggered");
+													},
+													error: function () {
+														assert.notOk("Different than expected FCL layout found");
+													}
+												});
+											},
+											error: function () {
+												assert.notOk("No MessagePopover found");
+											}
+										});
+									},
+									error: function () {
+										assert.notOk("Couldn't access the needed environment.");
+									}
+								});
+							},
+							error: function () {
+								assert.notOk("Couldn't access the needed environment.");
+							}
+						});
+					});
+					opaTest("MessagePopover button", function (Given, When, Then, assert) {
+						When.waitFor({
+							controlType: "sap.m.List",
+							actions: function (oList) {
+								oList.getItems()[0].firePress();
+							},
+							success: function () {
+								return When.waitFor({
+									controlType: "sap.m.Table",
+									actions: function (oTable) {
+										oTable.getHeaderToolbar().getContent()[2].firePress();
+									},
+									success: function () {
+										When.waitFor({
+											controlType: "sap.uxap.ObjectPageLayout",
+											check: function (aOPL) {
+												var iNumberButtons = 0;
+												return aOPL.some(function (oOPL) {
+													oOPL.getFooter().getContent().forEach(function (oControl) {
+														if (oControl.getMetadata().getName() === "sap.m.Button") {
+															iNumberButtons += 1;
+														}
+													});
+													return iNumberButtons >= 3;
+												});
+											},
+											success: function () {
+												assert.ok("MessagePopover button found");
+											},
+											error: function () {
+												assert.notOk("MessagePopover button not found");
+											}
+										});
+									},
+									error: function () {
+										assert.notOk("Couldn't access the needed environment.");
+									}
+								});
+							},
+							error: function () {
+								assert.notOk("Couldn't access the needed environment.");
+							}
+						});
+					});
+					opaTest("MessagePopover in dependents aggregation", function (Given, When, Then, assert) {
+						When.waitFor({
+							controlType: "sap.m.List",
+							actions: function (oList) {
+								oList.getItems()[0].firePress();
+							},
+							success: function () {
+								return When.waitFor({
+									controlType: "sap.m.Table",
+									actions: function (oTable) {
+										oTable.getHeaderToolbar().getContent()[2].firePress();
+									},
+									success: function () {
+										When.waitFor({
+											controlType: "sap.uxap.ObjectPageLayout",
+											matchers: [
+												new AggregationFilled({name: "dependents"})
+											],
+											check: function (aOPL) {
+												return aOPL.some(function (oOPL) {
+													return oOPL.getDependents().some(function (oControl) {
+														return oControl.getMetadata().getName() === "sap.m.MessagePopover";
+													});
+												});
+											},
+											success: function () {
+												assert.ok("MessagePopover in the ObjectPageLayout as dependents aggregation found");
+											},
+											error: function () {
+												assert.notOk("No MessagePopover found");
+											}
+										});
+									},
+									error: function () {
+										assert.notOk("Couldn't access the needed environment.");
+									}
+								});
+							},
+							error: function () {
+								assert.notOk("Couldn't access the needed environment.");
+							}
+						});
+					});
+					opaTest("Creation of an entry", function (Given, When, Then, assert) {
+						When.waitFor({
+							controlType: "sap.m.List",
+							actions: function (oList) {
+								oList.getItems()[0].firePress();
+							},
+							success: function () {
+								return When.waitFor({
+									controlType: "sap.m.Table",
+									actions: function (oTable) {
+										oTable.getHeaderToolbar().getContent()[2].firePress();
+									},
+									success: function () {
+										When.waitFor({
+											controlType: "sap.m.Table",
+											success: function (aTables) {
+												var iItemsLength = aTables[0].getItems().length;
+												return this.waitFor({
+													controlType: "sap.uxap.ObjectPageLayout",
+													actions: function (oOPL) {
+														return oOPL.getSections().some(function (oSection) {
+															return oSection.getSubSections().some(function (oSubSection) {
+																return oSubSection.getBlocks().some(function (oBlock) {
+																	return oBlock.getContent()[1].setValue("HT-1000");
+																});
+															});
+														});
+													},
+													success: function (aOPL) {
+														return this.waitFor({
+															id: aOPL[0].getFooter().getContent()[2].getId(),
+															actions: new Press(),
+															success: function () {
+																return this.waitFor({
+																	controlType: "sap.m.Table",
+																	check: function (aTables) {
+																		return aTables[0].getItems().length > iItemsLength;
+																	},
+																	success: function () {
+																		assert.ok("Item was deleted successfully");
+																	},
+																	error: function () {
+																		assert.ok("Failed to delete the item");
+																	}
+																});
+															},
+															error: function () {
+																assert.notOk("OK button of MessageBox not found");
+															}
+														});
+													},
+													error: function () {
+														assert.notOk("No MessagePopover found");
+													}
+												});
+											},
+											error: function () {
+												assert.notOk("No MessagePopover found");
+											}
+										});
+									},
+									error: function () {
+										assert.notOk("Couldn't access the needed environment.");
+									}
+								});
+							},
+							error: function () {
+								assert.notOk("Couldn't access the needed environment.");
+							}
+						});
+					});
+				},
+				"w4u2": function () {
+					opaTest("Select a Customer", function (Given, When, Then, assert) {
+						When.waitFor({
+							controlType: "sap.m.ObjectListItem",
+							check: function (aObjectListItems) {
+								return aObjectListItems.find(function (oItem) {
+									return parseInt(oItem.getProperty("number"), 10) > 0;
+								});
+							},
+							actions: new Press(),
+							success: function () {
+								assert.ok("Customer was selected");
+							},
+							error: function () {
+								assert.notOk("Customer could not be found");
+							}
+						});
+					});
+					opaTest("Check if items are draggable", function (Given, When, Then, assert) {
+						Then.waitFor({
+							controlType: "sap.m.Table",
+							check: function (aTables) {
+								var aTableDragDropConfig = aTables[0].getDragDropConfig();
+								return aTableDragDropConfig.length && aTableDragDropConfig[0].getSourceAggregation() === "items";
+							},
+							success: function () {
+								assert.ok("Items in the table are draggable");
+							},
+							error: function () {
+								assert.notOk("Items in the table are not draggable");
+							}
+						});
+					});
+					opaTest("Check if DeleteButton is droppable", function (Given, When, Then, assert) {
+						Then.waitFor({
+							controlType: "sap.m.Button",
+							check: function (aButtons) {
+								return aButtons.find(function (oButton) {
+									return oButton.getMetadata().getDragDropInfo().droppable === true;
+								});
+							},
+							success: function () {
+								assert.ok("DeleteButton control is droppable");
+							},
+							error: function () {
+								assert.notOk("DeleteButton control is not droppable");
+							}
+						});
+					});
+					opaTest("Check if DeleteButton has drop event listener", function (Given, When, Then, assert) {
+						Then.waitFor({
+							controlType: "sap.m.Button",
+							check: function (aButtons) {
+								var oDeleteButton = aButtons.find(function (oButton) {
+									return oButton.getMetadata().getDragDropInfo().droppable === true;
+								});
+								var aDeleteButtonDragDropConfig = oDeleteButton.getDragDropConfig();
+								return aDeleteButtonDragDropConfig.length && aDeleteButtonDragDropConfig[0].hasListeners("drop")
+							},
+							success: function () {
+								assert.ok("DeleteButton control has a drop event listener");
+							},
+							error: function () {
+								assert.notOk("DeleteButton control does not have a drop event listener");
+							}
+						});
+					});
+					opaTest("Drag table item and drop on the DeleteButton", function (Given, When, Then, assert) {
+						Then.waitFor({
+							controlType: "sap.m.ColumnListItem",
+							success: function (aItems) {
+								var oItem = aItems[0],
+									oTable = aItems[0].getParent(),
+									oDeleteButton = oTable.getHeaderToolbar().getContent().filter(function (oControl) {
+										return oControl.getMetadata().getDragDropInfo().droppable === true;
+									})[0];
+								// simulate drag and drop event
+								var oDragStartEvent = new DragEvent("dragstart", {bubbles: true, cancelable: true});
+								oItem.getDomRef().dispatchEvent(oDragStartEvent);
+								var oDragEnterEvent = new DragEvent("dragenter", {bubbles: true, cancelable: true});
+								oDeleteButton.getDomRef().dispatchEvent(oDragEnterEvent);
+								var oDropEvent = new DragEvent("drop", {bubbles: true, cancelable: true});
+								oDeleteButton.getDomRef().dispatchEvent(oDropEvent);
+								return this.waitFor({
+									controlType: "sap.m.Dialog",
+									check: function (aDialog) {
+										return aDialog[0].getType() === "Message";
+									},
+									success: function (aDialog) {
+										assert.ok("Delete confirmation MessageBox opened");
+										// to close the MessageBox, deletion on item is tested later
+										aDialog[0].getButtons()[1].firePress();
+									},
+									error: function () {
+										assert.notOk("Delete confirmation MessageBox not open");
+									}
+								});
+							},
+							error: function () {
+								assert.notOk("sap.m.ColumnListItem control not found");
+							}
+						});
+					});
+					opaTest("Check if DeleteButton has press event listener", function (Given, When, Then, assert) {
+						Then.waitFor({
+							controlType: "sap.m.Button",
+							check: function (aButtons) {
+								var oDeleteButton = aButtons.find(function (oButton) {
+									return oButton.getMetadata().getDragDropInfo().droppable === true;
+								});
+								return oDeleteButton.hasListeners("press");
+							},
+							success: function () {
+								assert.ok("DeleteButton control has a press event listener");
+							},
+							error: function () {
+								assert.notOk("DeleteButton control does not have a press event listener");
+							}
+						});
+					});
+					opaTest("Check if MessageBox opens after delete action", function (Given, When, Then, assert) {
+						Then.waitFor({
+							controlType: "sap.m.Button",
+							success: function (aButtons) {
+								var oDeleteButton = aButtons.find(function (oButton) {
+									return oButton.getMetadata().getDragDropInfo().droppable === true;
+								});
+								return this.waitFor({
+									id: oDeleteButton.getId(),
+									actions: new Press(),
+									success: function () {
+										return this.waitFor({
+											controlType: "sap.m.Dialog",
+											check: function (aDialog) {
+												return aDialog[0].getType() === "Message";
+											},
+											success: function () {
+												assert.ok("Delete confirmation MessageBox opened");
+											},
+											error: function () {
+												assert.notOk("Delete confirmation MessageBox not open");
+											}
+										});
+									},
+									error: function () {
+										assert.notOk("Delete confirmation MessageBox not opened");
+									}
+								});
+							},
+							error: function () {
+								assert.notOk("DeleteButton control not found");
+							}
+						});
+					});
+					opaTest("Check if the item in the table is deleted", function (Given, When, Then, assert) {
+						Then.waitFor({
+							controlType: "sap.m.Table",
+							success: function (aTables) {
+								var iItemsLength = aTables[0].getItems().length;
+								return this.waitFor({
+									controlType: "sap.m.Dialog",
+									success: function (aDialog) {
+										return this.waitFor({
+											id: aDialog[0].getButtons()[0].getId(),
+											actions: new Press(),
+											success: function () {
+												return this.waitFor({
+													controlType: "sap.m.Table",
+													check: function (aTables) {
+														return aTables[0].getItems().length < iItemsLength;
+													},
+													success: function () {
+														assert.ok("Item was deleted successfully");
+													},
+													error: function () {
+														assert.ok("Failed to delete the item");
+													}
+												});
+											},
+											error: function () {
+												assert.notOk("OK button of MessageBox not found");
+											}
+										});
+									},
+									error: function () {
+										assert.notOk("MessageBox not found");
+									}
+								});
+							},
+							error: function () {
+								assert.notOk("Table not found");
+							}
+						});
+					});
+				},
+				"w4u2c": function () {
+					opaTest("Select a Customer", function (Given, When, Then, assert) {
+						When.waitFor({
+							controlType: "sap.m.ObjectListItem",
+							check: function (aObjectListItems) {
+								return aObjectListItems.find(function (oItem) {
+									return parseInt(oItem.getProperty("number"), 10) > 0;
+								});
+							},
+							actions: new Press(),
+							success: function () {
+								assert.ok("Customer was selected");
+							},
+							error: function () {
+								assert.notOk("Customer could not be found");
+							}
+						});
+					});
+					opaTest("Check if items within the Table are draggable and droppable", function (Given, When, Then, assert) {
+						Then.waitFor({
+							controlType: "sap.m.Table",
+							check: function (aTables) {
+								var aTableDragDropConfig = aTables[0].getDragDropConfig();
+								return aTableDragDropConfig.length
+									&& aTableDragDropConfig[0].getSourceAggregation() === "items"
+									&& aTableDragDropConfig[0].getTargetAggregation() === "items";
+							},
+							success: function () {
+								assert.ok("Items within the table are draggable and droppable");
+							},
+							error: function () {
+								assert.notOk("Items within the table are not draggable and droppable");
+							}
+						});
+					});
+					opaTest("Check if Table has a drop event listener", function (Given, When, Then, assert) {
+						Then.waitFor({
+							controlType: "sap.m.Table",
+							check: function (aTables) {
+								var aTableDragDropConfig = aTables[0].getDragDropConfig();
+								return aTableDragDropConfig.length && aTableDragDropConfig[0].hasListeners("drop");
+							},
+							success: function () {
+								assert.ok("Table control has a drop event listener");
+							},
+							error: function () {
+								assert.notOk("Table control does not have a drop event listener");
 							}
 						});
 					});
@@ -1174,6 +2683,17 @@ sap.ui.require([
 					});
 				},
 				"w5u2": function () {
+					opaTest("Ensure being on the List Report", function (Given, When, Then, assert) {
+						When.waitFor({
+							id: "SalesOrders::sap.suite.ui.generic.template.ListReport.view.ListReport::SalesOrderSet",
+							success: function () {
+								assert.ok("You are on the List Report");
+							},
+							error: function () {
+								assert.notOk("Have you navigated to the List Report of the SalesOrders application from Week 5? Did you use the project name SalesOrders?");
+							}
+						});
+					});
 					opaTest("Analyzing filter bar", function (Given, When, Then, assert) {
 						When.waitFor({
 							id: "SalesOrders::sap.suite.ui.generic.template.ListReport.view.ListReport::SalesOrderSet--listReportFilter-filterItem-___INTERNAL_-SalesOrderID",
@@ -1241,6 +2761,28 @@ sap.ui.require([
 					});
 				},
 				"w5u2a": function () {
+					opaTest("Ensure being on the Object Page ", function (Given, When, Then, assert) {
+						When.waitFor({
+							id: "SalesOrders::sap.suite.ui.generic.template.ObjectPage.view.Details::SalesOrderSet",
+							success: function () {
+								assert.ok("You are on the Object Page");
+							},
+							error: function () {
+								assert.notOk("Have you navigated to the Object Page of the of the SalesOrders application from Week 5? Did you use the project name SalesOrders?");
+							}
+						});
+					});
+					opaTest("Ensure being on the Object Page ", function (Given, When, Then, assert) {
+						When.waitFor({
+							id: "SalesOrders::sap.suite.ui.generic.template.ObjectPage.view.Details::SalesOrderSet",
+							success: function () {
+								assert.ok("You are on the Object Page");
+							},
+							error: function () {
+								assert.notOk("Have you navigated to the Object Page of the of the SalesOrders application from Week 5? Did you use the project name SalesOrders?");
+							}
+						});
+					});
 					opaTest("Analyzing Object Page sections - Customer Information", function (Given, When, Then, assert) {
 						When.waitFor({
 							id: "SalesOrders::sap.suite.ui.generic.template.ObjectPage.view.Details::SalesOrderSet--com.sap.vocabularies.UI.v1.FieldGroup::SalesOrderCustomer::CustomerName::Field-text",
@@ -1254,7 +2796,6 @@ sap.ui.require([
 							}
 						});
 					});
-
 					opaTest("Analyzing Object Page sections - Sales Order Items", function (Given, When, Then, assert) {
 						When.waitFor({
 							id: "SalesOrders::sap.suite.ui.generic.template.ObjectPage.view.Details::SalesOrderSet--ToLineItems::com.sap.vocabularies.UI.v1.LineItem::Table-ProductID",
@@ -1270,6 +2811,17 @@ sap.ui.require([
 					});
 				},
 				"w5u2c": function () {
+					opaTest("Ensure being on the Object Page", function (Given, When, Then, assert) {
+						When.waitFor({
+							id: "SalesOrders::sap.suite.ui.generic.template.ObjectPage.view.Details::SalesOrderSet",
+							success: function () {
+								assert.ok("You are on the Object Page");
+							},
+							error: function () {
+								assert.notOk("Have you navigated to the Object Page of the of the SalesOrders application from Week 5? Did you use the project name SalesOrders?");
+							}
+						});
+					});
 					opaTest("Analyzing Object Page header", function (Given, When, Then, assert) {
 						When.waitFor({
 							id: "SalesOrders::sap.suite.ui.generic.template.ObjectPage.view.Details::SalesOrderSet--header::headerEditable::com.sap.vocabularies.UI.v1.DataPoint::ProgressIndicatorVBox",
@@ -1284,10 +2836,10 @@ sap.ui.require([
 					});
 				},
 				"w5u3": function () {
-					opaTest("Ensure being on the List Report ", function (Given, When, Then, assert) {
+					opaTest("Ensure being on the List Report", function (Given, When, Then, assert) {
 						When.waitFor({
 							id: "SalesOrders::sap.suite.ui.generic.template.ListReport.view.ListReport::SalesOrderSet",
-							success: function (oTable) {
+							success: function () {
 								assert.ok("You are on the List Report");
 							},
 							error: function () {
@@ -1301,11 +2853,182 @@ sap.ui.require([
 							matchers: new Properties({
 								useExportToExcel: true
 							}),
-							success: function (oTable) {
+							success: function () {
 								assert.ok("Smart table's Export to Spreadsheet feature is switched on");
 							},
 							error: function () {
 								assert.notOk("Could not find the Smart table's Export to Spreadsheet button. Did you create the property change?");
+							}
+						});
+					});
+				},
+				"w5u6a": function () {
+					opaTest("Ensure being on the List Report ", function (Given, When, Then, assert) {
+						When.waitFor({
+							id: "nw.epm.refapps.st.prod.manage::sap.suite.ui.generic.template.ListReport.view.ListReport::SEPMRA_C_PD_Product",
+							success: function () {
+								assert.ok("You are on the List Report");
+							},
+							error: function () {
+								assert.notOk("Have you navigated to the List Report of the opensap.manage.products adaptation project? Did you use the project name opensap.manage.products?");
+							}
+						});
+					});
+					opaTest("Share by Email button ", function (Given, When, Then, assert) {
+						When.waitFor({
+							id: "nw.epm.refapps.st.prod.manage::sap.suite.ui.generic.template.ListReport.view.ListReport::SEPMRA_C_PD_Product--customer.opensap.manage.products.shareByEmail",
+							matchers: function(oButton){
+								//button should have translated text, so the text property should be replaced by something different than its i18n key.
+								var sText = oButton.getText();
+								return sText !== "SHARE_BY_EMAIL";
+							},
+							success: function () {
+								assert.ok("Share by Email button got added");
+							},
+							error: function () {
+								assert.notOk("Could not find the Share by Email button. Did you create the add fragment change? Does the button has the ID 'shareByEmail'? Did you provide the translated text?");
+							}
+						});
+					});
+					opaTest("Having a controller extension ", function (Given, When, Then, assert) {
+						When.waitFor({
+							id: "nw.epm.refapps.st.prod.manage::sap.suite.ui.generic.template.ListReport.view.ListReport::SEPMRA_C_PD_Product",
+							success: function (oView) {
+								var oController = oView.getController();
+								assert.strictEqual(!!oController.extension.customer.opensap.manage.products.ListReport, true, "You have a controller extension");
+							},
+							error: function () {
+								assert.notOk("No controller extension found with the assumed namespace. Did you create a controller extension? Is it called customer.opensap.manage.products.ListReport?");
+							}
+						});
+					});
+				},
+				"w5u6b": function () {
+					opaTest("Ensure being on the Object Page ", function (Given, When, Then, assert) {
+						When.waitFor({
+							id: "nw.epm.refapps.st.prod.manage::sap.suite.ui.generic.template.ObjectPage.view.Details::SEPMRA_C_PD_Product",
+							success: function () {
+								assert.ok("You are on the Object Page");
+							},
+							error: function () {
+								assert.notOk("Have you navigated to the Object Page of the opensap.manage.products adaptation project? Did you use the project name opensap.manage.products?");
+							}
+						});
+					});
+					opaTest("Find the Supplier Section ", function (Given, When, Then, assert) {
+						When.waitFor({
+							id: "nw.epm.refapps.st.prod.manage::sap.suite.ui.generic.template.ObjectPage.view.Details::SEPMRA_C_PD_Product--customer.opensap.manage.products.supplierSection",
+							success: function () {
+								assert.ok("Supplier Section got added");
+							},
+							error: function () {
+								assert.notOk("Could not find the Supplier Section. Did you create the add fragment change? Does the section has the ID 'supplierSection'?");
+							}
+						});
+					});
+					opaTest("Find the Map ", function (Given, When, Then, assert) {
+						When.waitFor({
+							id: "nw.epm.refapps.st.prod.manage::sap.suite.ui.generic.template.ObjectPage.view.Details::SEPMRA_C_PD_Product--customer.opensap.manage.products.supplierMap",
+							success: function () {
+								assert.ok("Supplier Map got added");
+							},
+							error: function () {
+								assert.notOk("Could not find the Supplier Map . Did you create the add fragment change? Does the map has the ID 'supplierMap'?");
+							}
+						});
+					});
+					opaTest("Having a controller extension ", function (Given, When, Then, assert) {
+						When.waitFor({
+							id: "nw.epm.refapps.st.prod.manage::sap.suite.ui.generic.template.ObjectPage.view.Details::SEPMRA_C_PD_Product",
+							success: function (oView) {
+								var oController = oView.getController();
+								assert.strictEqual(!!oController.extension.customer.opensap.manage.products.ObjectPage, true, "You have a controller extension");
+							},
+							error: function () {
+								assert.notOk("No controller extension found with the assumed namespace. Did you create a controller extension? Is it called customer.opensap.manage.products.ObjectPage?");
+							}
+						});
+					});
+					opaTest("Map Configuration", function (Given, When, Then, assert) {
+						When.waitFor({
+							id: "nw.epm.refapps.st.prod.manage::sap.suite.ui.generic.template.ObjectPage.view.Details::SEPMRA_C_PD_Product--customer.opensap.manage.products.supplierMap",
+							matchers: function(oMap){
+								return oMap.getMapConfiguration() && oMap.getMapConfiguration().MapProvider[0].name === "OSM";
+							},
+							success: function () {
+								assert.ok("Map got configured to use OpenStreetMap as map provider");
+							},
+							error: function () {
+								assert.notOk("Could not find the correct map configuration. Please check the sample solution's controller extension code");
+							}
+						});
+					});
+					opaTest("Map Binding", function (Given, When, Then, assert) {
+						When.waitFor({
+							id: "nw.epm.refapps.st.prod.manage::sap.suite.ui.generic.template.ObjectPage.view.Details::SEPMRA_C_PD_Product--customer.opensap.manage.products.supplierMap",
+							matchers: function(oMap){
+								return oMap.isBound("initialPosition");
+							},
+							success: function () {
+								assert.ok("'initialPosition' property is bound");
+							},
+							error: function () {
+								assert.notOk("Could not find a binding for 'initialPosition' property. Please check the sample solution's controller extension code");
+							}
+						});
+					});
+				},
+				"w5u6c": function () {
+					opaTest("Ensure being on the List Report ", function (Given, When, Then, assert) {
+						When.waitFor({
+							id: "nw.epm.refapps.st.prod.manage::sap.suite.ui.generic.template.ListReport.view.ListReport::SEPMRA_C_PD_Product",
+							success: function () {
+								assert.ok("You are on the List Report");
+							},
+							error: function () {
+								assert.notOk("Have you navigated to the List Report of the opensap.manage.products adaptation project? Did you use the project name opensap.manage.products?");
+							}
+						});
+					});
+					opaTest("Find Dimension Filter ", function (Given, When, Then, assert) {
+						When.waitFor({
+							id: "nw.epm.refapps.st.prod.manage::sap.suite.ui.generic.template.ListReport.view.ListReport::SEPMRA_C_PD_Product--listReportFilter",
+							matchers: function(oFilterBar){
+								var aControlConfigurations = oFilterBar.getControlConfiguration();
+								//there shouuld be a new control configuration that has the ID prefix for add fragment changes
+								return aControlConfigurations.some(function(oControlConfiguration){
+									return oControlConfiguration.getId().indexOf("customer.opensap.manage.products") !== -1;
+								});
+							},
+							success: function () {
+								assert.ok("Dimension Filter found");
+							},
+							error: function () {
+								assert.notOk("Could not find the Dimension Filter in the Smart Filterbar. Did you create the add a fragment to the control configuration aggregation?");
+							}
+						});
+					});
+					opaTest("Checking the controller extension ", function (Given, When, Then, assert) {
+						When.waitFor({
+							id: "nw.epm.refapps.st.prod.manage::sap.suite.ui.generic.template.ListReport.view.ListReport::SEPMRA_C_PD_Product",
+							matchers: function (oView) {
+								var oController = oView.getController();
+								//internal (illegal) access to the controller extension instance
+								var mOverrides = oController._sapui_Extensions
+									&& oController._sapui_Extensions["customer.opensap.manage.products.ListReport"]
+									&& oController._sapui_Extensions["customer.opensap.manage.products.ListReport"].extension.getMetadata().getOverrides();
+								var bHasOverridenMethod = !!(
+									mOverrides
+									&& mOverrides.templateBaseExtension
+									&& mOverrides.templateBaseExtension.addFilters
+								);
+								return bHasOverridenMethod;
+							},
+							success: function () {
+								assert.ok("You have overridden the 'addFilters' method");
+							},
+							error: function () {
+								assert.notOk("Couldn't find an override for the 'addFilters' method in the controller extension. Did you create a controller extension? Is it called customer.opensap.manage.products.ListReport? Did you override the 'addFilters' method  from the 'templateBaseExtension'? ");
 							}
 						});
 					});
