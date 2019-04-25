@@ -100,12 +100,12 @@
 					]
 				},
 				{
-					"name": "info",
-					"pattern": "info",
+					"name": "Info",
+					"pattern": "Info",
 					"target": [
 						"master",
 						"object",
-						"info"
+						"Info"
 					]
 				}
 			],
@@ -130,11 +130,11 @@
 					"viewName": "NotFound",
 					"viewId": "notFound"
 				},
-				"info": {
+				"Info": {
 					"viewType": "XML",
 					"viewName": "Info",
 					"controlAggregation": "endColumnPages",
-					"viewId": "info"
+					"viewId": "Info"
 				}
 			}
 		}

@@ -55,7 +55,7 @@ sap.ui.define([
 			});
 
 			// navigate to the new item in display mode
-			this.getRouter().navTo("info", {
+			this.getRouter().navTo("Info", {
 				objectId : oContext.SalesOrderID,
 				itemPosition : oContext.ItemPosition
 			}, true);
