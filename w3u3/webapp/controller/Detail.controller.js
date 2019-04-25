@@ -29,7 +29,7 @@ sap.ui.define([
 			});
 
 			this.getRouter().getRoute("object").attachPatternMatched(this._onObjectMatched, this);
-			this.getRouter().getRoute("info").attachPatternMatched(this._onObjectMatched, this);
+			this.getRouter().getRoute("Info").attachPatternMatched(this._onObjectMatched, this);
 
 			this.setModel(oViewModel, "detailView");
 
