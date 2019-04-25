@@ -262,7 +262,7 @@ sap.ui.define([
 		_confirmDelete : function (sPath, sTitle) {
 			var oResourceBundle = this.getResourceBundle();
 			sap.ui.require(["sap/m/MessageBox"], function (MessageBox) {
-				MessageBox.confirm(oResourceBundle.getText("deleteConfirmationMessage") + " " + sTitle, {
+				MessageBox.confirm(oResourceBundle.getText("deleteConfirmationMessage", [sTitle]), {
 					title: oResourceBundle.getText("confirmTitle"),
 					onClose: function (sAction) {
 						if (sAction === "OK") {
@@ -297,13 +297,13 @@ sap.ui.define([
 				iDroppedIndex = oList.indexOfItem(oDroppedItem),
 				// get the new dropped item index
 				iNewDroppedIndex = iDroppedIndex + (sDropPosition === "Before" ? 0 : 1) + (iDraggedIndex < iDroppedIndex ? -1 : 0);
-				
+
 			// remove the dragged item
 			oList.removeItem(oDraggedItem);
 			// insert the dragged item on the new drop index
 			oList.insertItem(oDraggedItem, iNewDroppedIndex);
 		},
-		
+
 		/**
 		 * Move up the selected item
 		 * This is an alternative to reorder the list item
