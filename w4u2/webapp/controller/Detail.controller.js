@@ -262,7 +262,7 @@ sap.ui.define([
 		_confirmDelete : function (sPath, sTitle) {
 			var oResourceBundle = this.getResourceBundle();
 			sap.ui.require(["sap/m/MessageBox"], function (MessageBox) {
-				MessageBox.confirm(oResourceBundle.getText("deleteConfirmationMessage") + " " + sTitle, {
+				MessageBox.confirm(oResourceBundle.getText("deleteConfirmationMessage", [sTitle]), {
 					title: oResourceBundle.getText("confirmTitle"),
 					onClose: function (sAction) {
 						if (sAction === "OK") {
