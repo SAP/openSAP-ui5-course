@@ -180,6 +180,10 @@ sap.ui.require([
 							"text": "Week 2 Bonus"
 						},
 						{
+							"key": "w2u7bonusEnh",
+							"text": "Week 2 Bonus Enhanced"
+						},
+						{
 							"key": "w3u1",
 							"text": "Week 3 Unit 1"
 						},
@@ -1039,9 +1043,26 @@ sap.ui.require([
 						When.waitFor({
 							controlType: "sap.m.Button",
 							success: function (aButtons) {
+								const VALIDATE_BUTTON_ID = "validate";
+
+								function sortButtons(aButtons){
+									for(let i = 0; i < aButtons.length; i++){
+    										if (aButtons[i].getId() === VALIDATE_BUTTON_ID) {
+        										let tmp = aButtons[0];
+        										aButtons[0] = aButtons[i];
+        										aButtons[i] = tmp;
+											break;
+    										}
+									}
+
+									return aButtons;
+								}
+
+								aButtons = sortButtons(aButtons);
+								
 								var oButton = aButtons[0];
 
-								if (oButton && oButton.getId() === "validate") {
+								if (oButton && oButton.getId() === VALIDATE_BUTTON_ID) {
 									oButton = aButtons[1];
 
 									this.waitFor({
@@ -2080,6 +2101,138 @@ sap.ui.require([
 					});
 				},
 
+				"w2u7bonusEnh": function () {
+					opensap.reuse.onMyApp.goToLayoutTab();
+
+					opaTest("Find the location panel", function (Given, When, Then, assert) {
+						Then.waitFor({
+							controlType: "sap.m.IconTabBar",
+							success: function (aIconTabBars) {
+								var oIconTabBar = aIconTabBars[0];
+
+								assert.ok("Found an sap.m.IconTabBar");
+								this.waitFor({
+									controlType: "sap.m.Panel",
+									matchers: [
+										new PropertyStrictEquals({name: "headerText", value: "Location"}),
+										new Ancestor(oIconTabBar)
+									],
+									success: function () {
+										assert.ok("Found a panel with the title 'Location'");
+									},
+									error: function () {
+										assert.notOk("Could not find a panel with the title 'Location'");
+									}
+								});
+							},
+							error: function () {
+								assert.notOk("Did not find an sap.m.IconTabBar");
+							}
+						});
+					});
+
+					opaTest("Find an image in the panel", function (Given, When, Then, assert) {
+						Then.waitFor({
+							controlType: "sap.m.Panel",
+							matchers: [
+								new PropertyStrictEquals({name: "headerText", value: "Location"})
+							],
+							success: function (aPanels) {
+								var oPanel = aPanels[0];
+
+								assert.ok("Found a panel with the title 'Location'");
+
+								this.waitFor({
+									controlType: "sap.m.Image",
+									matchers: new Ancestor(oPanel),
+									success: function (aImages) {
+										var oImage = aImages[0];
+
+										assert.ok("Location image found");
+
+										if (oImage.getSrc().search("static-maps.yandex.ru") >= 0) {
+											assert.ok("Image URL contains the 'staticmap' API");
+										} else {
+											assert.notOk("Image URL does not contain the 'staticmap' API");
+										}
+
+										if (oImage.getSrc().search("&pt=") >= 0) {
+											assert.ok("Image URL contains the 'pt' parameter");
+										} else {
+											assert.notOk("Image URL does not contain the 'pt' parameter");
+										}
+									},
+									error: function () {
+										assert.notOk("Did not find an image");
+									}
+								});
+							},
+							error: function () {
+								assert.notOk("Could not find a panel with the title 'Location'");
+							}
+						});
+					});
+
+					opaTest("Check the location formatter", function (Given, When, Then, assert) {
+						Then.waitFor({
+							controlType: "sap.ui.core.mvc.View",
+							success: function (aViews) {
+								var oView = aViews[0],
+									fnFormatter = oView.getController().formatMapUrl || oView.getController().formatter.formatMapUrl;
+
+								if (fnFormatter) {
+									assert.ok("Found a formatter with the name 'formatMapUrl'");
+								} else {
+									assert.notOk("Did not find a formatter with the name 'formatMapUrl'");
+								}
+
+								if (fnFormatter) {
+									this.waitFor({
+										controlType: "sap.m.Image",
+										success: function (aImages) {
+											var oImage = aImages[0],
+												sResult;
+
+											sResult = fnFormatter.apply(oImage, ["Address", "can", "be", "in", "any", "format"]);
+
+											if (sResult.search("static-maps.yandex.ru") >= 0) {
+												assert.ok("Image URL contains the 'staticmap' API");
+											} else {
+												assert.notOk("Image URL does not contain the 'staticmap' API");
+											}
+
+											if (sResult.search("&pt=") >= 0) {
+												assert.ok("Image URL contains the 'pt' parameter");
+											} else {
+												assert.notOk("Image URL does not contain the 'pt' parameter");
+											}
+
+											if (sResult.search("Address") >= 0) {
+												assert.ok("Image URL contains parts of the address");
+											} else {
+												// try object syntax
+												sResult = fnFormatter.apply(oImage, [{Street: "Address", Name: "can", City: "be", ZIPCode: "in", Country: "any", HouseNumber: "format"}]);
+												if (sResult.search("Address") >= 0) {
+													assert.ok("Image URL contains parts of the address");
+												} else {
+													assert.notOk("Image URL does not contain parts of the address");
+												}
+											}
+										},
+										error: function () {
+											assert.notOk("Could not find an image");
+										}
+									});
+								} else {
+									assert.notOk("Did not find a formatter with the name 'formatMapUrl'");
+								}
+							},
+							error: function () {
+								assert.notOk("Could not find a view");
+							}
+						});
+					});
+				},
 				/*** week 3 tests ***/
 
 				"w3u1" : function () {
