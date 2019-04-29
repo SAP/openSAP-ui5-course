@@ -15,7 +15,7 @@ sap.ui.require([
 	"sap/m/Button",
 	"sap/ui/core/Icon",
 	"sap/base/i18n/ResourceBundle"
-], function (Opa, Opa5, Press, EnterText, AggregationFilled, PropertyStrictEquals, Properties, Ancestor, BindingPath, Button, Icon, ResourceBundle) {
+], function (Opa, Opa5, Press, EnterText, AggregationFilled, PropertyStrictEquals, Properties, Ancestor, BindingPath, I18NText, Button, Icon, ResourceBundle) {
 	"use strict";
 
 	// reduce global timeout to 5s
@@ -899,7 +899,7 @@ sap.ui.require([
 
 					opaTest("The detail page should display a title", function (Given, When, Then, assert) {
 						Then.waitFor({
-							viewName: "opensap.movies.view.App",
+							viewName: "opensap.movies.view.Detail",
 							controlType : "sap.m.Page",
 							matchers: function (oPage) {
 								return oPage.getTitle().indexOf("Cine Castle") >= 0;
@@ -913,7 +913,7 @@ sap.ui.require([
 
 					opaTest("The detail page should display an image", function (Given, When, Then, assert) {
 						Then.waitFor({
-							viewName: "opensap.movies.view.App",
+							viewName: "opensap.movies.view.Detail",
 							controlType : "sap.m.Image",
 							matchers: new PropertyStrictEquals({name: "src", value: "images/CinemaHamburg.png"}),
 							success: function () {
@@ -925,7 +925,7 @@ sap.ui.require([
 
 					opaTest("The detail page should display an icon", function (Given, When, Then, assert) {
 						Then.waitFor({
-							viewName: "opensap.movies.view.App",
+							viewName: "opensap.movies.view.Detail",
 							controlType : "sap.ui.core.Icon",
 							matchers: new PropertyStrictEquals({name: "src", value: "sap-icon://activate"}),
 							success: function () {
@@ -997,7 +997,7 @@ sap.ui.require([
 
 					opaTest("The home page should appear", function (Given, When, Then, assert) {
 						Then.waitFor({
-							viewName: "opensap.movies.view.App",
+							viewName: "opensap.movies.view.Home",
 							controlType : "sap.m.Page",
 							success: function () {
 								assert.ok("The home page appears");
