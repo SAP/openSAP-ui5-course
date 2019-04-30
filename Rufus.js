@@ -683,9 +683,9 @@ sap.ui.require([
 						When.waitFor({
 							controlType: "sap.m.Select",
 							success: function (aSelect) {
-								if(aSelect[0].getItems().length >0){
+								if(aSelect[0].getItems().length > 0){
 									assert.ok("The select contains a list of genres");
-								}else {
+								} else {
 									assert.notOk ("The select was found,pressed but the list has no entries");
 								}
 							},
@@ -694,30 +694,25 @@ sap.ui.require([
 							}
 						});
 					});
+					
 					opaTest("Press the Find Movies Button ", function (Given, When, Then, assert) {
-						When.waitFor({
+											When.waitFor({
 							controlType: "sap.m.Button",
-							success: function (aButtons) {
-								this.waitFor({
-									id: aButtons[0].getId(),
-									actions: new Press(),
-									success: function () {
-										return this.waitFor({
-											pollingInterval: 100,
-											check: function() {
-												return !!document.getElementsByClassName("sapMMessageToast").length;
-											},
-											success: function() {
-												assert.ok(" The message toast by pressing the find movies button was displayed");
-											},
-											errorMessage: "The message toast by pressing the find movies button was not displayed"
-										});
-									}
+							matchers: new Properties({text: /Find Movie[s]?/}),
+							actions: new Press(),
+							success: function () {
+								return this.waitFor({
+									pollingInterval: 100,
+									check: function() {
+										return !!document.getElementsByClassName("sapMMessageToast").length;
+									},
+									success: function() {
+										assert.ok(" The message toast by pressing the find movies button was displayed");
+									},
+									errorMessage: "The message toast by pressing the find movies button was not displayed"
 								});
 							},
-							error: function () {
-								assert.notOk("Could not find a button");
-							}
+							errorMessage: "The button 'Find Movies' was not found or couldn't be pressed"
 						});
 					});
 					opaTest("Looking for a SearchField", function (Given, When, Then, assert) {
@@ -820,13 +815,16 @@ sap.ui.require([
 						When.waitFor({
 							controlType: "sap.m.Select",
 							actions: function (oSelect) {
-								oSelect.setSelectedKey("Action");
+								// exclude validator select
+								if (oSelect.getItems()[0].getKey() !== "w0u0") { 
+									oSelect.setSelectedKey("Action");
+								}
 							},
 							errorMessage: "The select genre was not found"
 						});
 						When.waitFor({
 							controlType: "sap.m.Button",
-							matchers: new PropertyStrictEquals({name: "text", value: "Find Movies"}),
+							matchers: new Properties({text: /Find Movie[s]?/}),
 							actions: new Press(),
 							errorMessage: "The button 'Find Movies' was not found or couldn't be pressed"
 						});
@@ -1075,7 +1073,6 @@ sap.ui.require([
 							success: function (aButtons) {
 								if (aButtons[0].getId() === "__button0") {
 									this.waitFor({
-
 										id: aButtons[0].getId(),
 										actions: new Press(),
 										success: function () {
