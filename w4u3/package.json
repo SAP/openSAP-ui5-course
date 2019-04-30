@@ -15,6 +15,7 @@
 		"@openui5/sap.m": "^1.60",
 		"@openui5/sap.f": "^1.60",
 		"@openui5/sap.uxap": "^1.60",
+		"@openui5/sap.tnt": "^1.60",
 		"@openui5/themelib_sap_belize": "^1.60"
 	},
 	"devDependencies": {

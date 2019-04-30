@@ -10,7 +10,8 @@
     "karma-ci": "karma start karma-ci.conf.js",
     "watch": "npm run karma",
     "test": "npm run lint && rimraf coverage && npm run karma-ci",
-    "build": "rimraf dist && ui5 build --a"
+    "build": "rimraf dist && ui5 build --a",
+    "localproxy": "lcp --proxyUrl https://USERNAME:PASSWORT@sapes5.sapdevcenter.com/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/"
   },
   "dependencies": {
     "@openui5/sap.ui.core": "^1.60",
@@ -18,6 +19,7 @@
     "@openui5/sap.m": "^1.60",
     "@openui5/sap.f": "^1.60",
     "@openui5/sap.uxap": "^1.60",
+    "@openui5/sap.tnt": "^1.60",
     "@openui5/themelib_sap_belize": "^1.60"
   },
   "devDependencies": {
