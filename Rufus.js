@@ -915,7 +915,7 @@ sap.ui.require([
 						Then.waitFor({
 							viewName: "opensap.movies.view.Detail",
 							controlType : "sap.m.Image",
-							matchers: new PropertyStrictEquals({name: "src", value: "images/CinemaHamburg.png"}),
+							matchers: new Properties({src: /images\/CinemaHamburg.png$/}),
 							success: function () {
 								assert.ok("The page showed the right image");
 							},
@@ -997,8 +997,8 @@ sap.ui.require([
 
 					opaTest("The home page should appear", function (Given, When, Then, assert) {
 						Then.waitFor({
-							viewName: "opensap.movies.view.Home",
 							controlType : "sap.m.Page",
+							matchers: new Properties({title: "Watch Movies"}),
 							success: function () {
 								assert.ok("The home page appears");
 							},
