@@ -2566,12 +2566,12 @@ sap.ui.require([
 														});
 													},
 													error: function () {
-														assert.notOk("No MessagePopover found");
+														assert.notOk("No ObjectPageLayout found");
 													}
 												});
 											},
 											error: function () {
-												assert.notOk("No MessagePopover found");
+												assert.notOk("No Table found");
 											}
 										});
 									},
