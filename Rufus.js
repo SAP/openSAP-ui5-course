@@ -1067,43 +1067,230 @@ sap.ui.require([
 					});
 				},
 				"w2u5": function () {
-					opaTest("Press the Find Movies Button ", function (Given, When, Then, assert) {
+					// check page 1
+					opaTest("Should be on the home page", function (Given, When, Then, assert) {
+						Then.waitFor({
+							controlType: "sap.m.App",
+							success: function () {
+								assert.ok("The app showed the home page");
+							},
+							errorMessage: "Couldn't find the home page"
+						});
+					});
+
+					opaTest("The home page should have a landmark aggregation", function (Given, When, Then, assert) {
 						When.waitFor({
-							controlType: "sap.m.Button",
-							success: function (aButtons) {
-								if (aButtons[0].getId() === "__button0") {
-									this.waitFor({
-										id: aButtons[0].getId(),
-										actions: new Press(),
-										success: function () {
-											assert.ok("Button was pressed");
-										},
-										error: function () {
-											assert.notOk("Button could not be pressed");
-										}
-									});
-								} else {
-									assert.notOk("Could not find a button");
-								}
+							controlType: "sap.m.Page",
+							matchers: new AggregationFilled({name: "landmarkInfo"}),
+							success: function () {
+								assert.ok("Landmark aggregation on page is filled");
 							},
 							error: function () {
-								assert.notOk("Could not find a button");
+								assert.notOk("Could not find landmark aggregation on this page");
 							}
 						});
 					});
-					opaTest("Check for the MessageToast ", function (Given, When, Then, assert) {
-						Then.waitFor({
-							check: function () {
-								return !!$(".sapMMessageToast").length;
-							},
-							success: function () {
-								assert.ok("MessageToast is displayed");
+
+					opaTest("The home page should be assigned to a landmark role", function (Given, When, Then, assert) {
+						When.waitFor({
+							controlType: "sap.m.Page",
+							matchers: new AggregationFilled({name: "landmarkInfo"}),
+							success: function (aPages) {
+								aPages.forEach(function (oPage) {
+									var oLandmarkInfo = oPage.getLandmarkInfo();
+									if(oLandmarkInfo.getRootRole() === "Main") {
+										assert.ok("Root container has role 'Main'");
+									} else {
+										assert.notOk("Page does not have the role 'Main'");
+									}
+								});
 							},
 							error: function () {
-								assert.notOk("Could not find a MessageToast");
+								assert.notOk("Could not find landmark aggregation on page");
 							}
 						});
-					})
+					});
+					opaTest("The content container of the home page should be assigned to a landmark role", function (Given, When, Then, assert) {
+						When.waitFor({
+							controlType: "sap.m.Page",
+							matchers: new AggregationFilled({name: "landmarkInfo"}),
+							success: function (aPages) {
+								aPages.forEach(function (oPage) {
+									var oLandmarkInfo = oPage.getLandmarkInfo();
+									if(oLandmarkInfo.getContentRole() === "Region") {
+										assert.ok("Content container has role 'Region'");
+									} else {
+										assert.notOk("Content container does not have the role 'Region'");
+									}
+								});
+							},
+							error: function () {
+								assert.notOk("Could not find landmark aggregation on page");
+							}
+						});
+					});
+					opaTest("The footer container of the home page should be assigned to a landmark role", function (Given, When, Then, assert) {
+						When.waitFor({
+							controlType: "sap.m.Page",
+							matchers: new AggregationFilled({name: "landmarkInfo"}),
+							success: function (aPages) {
+								aPages.forEach(function (oPage) {
+									var oLandmarkInfo = oPage.getLandmarkInfo();
+									if(oLandmarkInfo.getFooterRole() === "ContentInfo") {
+										assert.ok("Footer container has role 'ContentInfo'");
+									} else {
+										assert.notOk("Footer container does not have the role 'ContentInfo'");
+									}
+								});
+							},
+							error: function () {
+								assert.notOk("Could not find landmark aggregation on page");
+							}
+						});
+					});
+					opaTest("The header container of the home page should be assigned to a landmark role", function (Given, When, Then, assert) {
+						When.waitFor({
+							controlType: "sap.m.Page",
+							matchers: new AggregationFilled({name: "landmarkInfo"}),
+							success: function (aPages) {
+								aPages.forEach(function (oPage) {
+									var oLandmarkInfo = oPage.getLandmarkInfo();
+									if(oLandmarkInfo.getHeaderRole() === "Region") {
+										assert.ok("Header container has role 'Region'");
+									} else {
+										assert.notOk("Header container does not have the role 'Region'");
+									}
+								});
+							},
+							error: function () {
+								assert.notOk("Could not find landmark aggregation on page");
+							}
+						});
+					});
+
+					// check page 2
+					var sPath = "/movies/0/appointments/0";
+					opaTest("Should press the first appointment", function (Given, When, Then, assert) {
+						When.waitFor({
+							controlType: "sap.ui.unified.CalendarAppointment",
+							matchers: new BindingPath({
+								modelName: "movies",
+								path: sPath
+							}),
+							actions: new Press(),
+							success: function () {
+								assert.ok("The appointment was clicked successfully");
+							},
+							errorMessage: "The appointment wasn't found or isn't clickable"
+						});
+					});
+
+					opaTest("Should navigate to the corresponding detail page", function (Given, When, Then, assert) {
+						Then.waitFor({
+							viewName: "opensap.movies.view.Detail",
+							controlType: "sap.m.Page",
+							matchers: function (oPage) {
+								return oPage.getBindingContext("movies") && oPage.getBindingContext("movies").getPath() === sPath;
+							},
+							success: function () {
+								assert.ok("The correct detail page was displayed");
+							},
+							errorMessage: "Detail view wasn't found or didn't match the user selection"
+						});
+					});
+
+					opaTest("The detail page should have a landmark aggregation", function (Given, When, Then, assert) {
+						When.waitFor({
+							controlType: "sap.m.Page",
+							matchers: new AggregationFilled({name: "landmarkInfo"}),
+							success: function () {
+								assert.ok("Landmark aggregation on page is filled");
+							},
+							error: function () {
+								assert.notOk("Could not find landmark aggregation on page");
+							}
+						});
+					});
+
+					opaTest("The detail page should be assigned to a landmark role", function (Given, When, Then, assert) {
+						When.waitFor({
+							controlType: "sap.m.Page",
+							matchers: new AggregationFilled({name: "landmarkInfo"}),
+							success: function (aPages) {
+								aPages.forEach(function (oPage) {
+									var oLandmarkInfo = oPage.getLandmarkInfo();
+									if(oLandmarkInfo.getRootRole() === "Main") {
+										assert.ok("Root container has role 'Main'");
+									} else {
+										assert.notOk("Page does not have the role 'Main'");
+									}
+								});
+							},
+							error: function () {
+								assert.notOk("Could not find landmark aggregation on page");
+							}
+						});
+					});
+					opaTest("The content container of the detail page should be assigned to a landmark role", function (Given, When, Then, assert) {
+						When.waitFor({
+							controlType: "sap.m.Page",
+							matchers: new AggregationFilled({name: "landmarkInfo"}),
+							success: function (aPages) {
+								aPages.forEach(function (oPage) {
+									var oLandmarkInfo = oPage.getLandmarkInfo();
+									if(oLandmarkInfo.getContentRole() === "Region") {
+										assert.ok("Content container has role 'Region'");
+									} else {
+										assert.notOk("Content container does not have the role 'Region'");
+									}
+								});
+							},
+							error: function () {
+								assert.notOk("Could not find landmark aggregation on page");
+							}
+						});
+					});
+					opaTest("The header container of the detail page should be assigned to a landmark role", function (Given, When, Then, assert) {
+						When.waitFor({
+							controlType: "sap.m.Page",
+							matchers: new AggregationFilled({name: "landmarkInfo"}),
+							success: function (aPages) {
+								aPages.forEach(function (oPage) {
+									var oLandmarkInfo = oPage.getLandmarkInfo();
+									if(oLandmarkInfo.getHeaderRole() === "Region") {
+										assert.ok("Header container has role 'Region'");
+									} else {
+										assert.notOk("Header container does not have the role 'Region'");
+									}
+								});
+							},
+							error: function () {
+								assert.notOk("Could not find landmark aggregation on page");
+							}
+						});
+					});
+
+					opaTest("Should press the browser back button", function (Given, When, Then, assert) {
+						When.waitFor({
+							actions: function () {
+								window.history.back();
+							},
+							success: function () {
+								assert.ok("Back button was pressed");
+							},
+							errorMessage: "Back button could not be pressed"
+						});
+					});
+
+					opaTest("The home page should appear", function (Given, When, Then, assert) {
+						Then.waitFor({
+							controlType: "sap.m.App",
+							success: function () {
+								assert.ok("The home page appeared");
+							},
+							errorMessage: "The home page could not be displayed"
+						});
+					});
 				},
 				"w3u1": function() {
 					// test template generation by checking binding paths
@@ -2366,15 +2553,15 @@ sap.ui.require([
 																		return aTables[0].getItems().length > iItemsLength;
 																	},
 																	success: function () {
-																		assert.ok("Item was deleted successfully");
+																		assert.ok("Item was created successfully");
 																	},
 																	error: function () {
-																		assert.ok("Failed to delete the item");
+																		assert.ok("Failed to created the item");
 																	}
 																});
 															},
 															error: function () {
-																assert.notOk("OK button of MessageBox not found");
+																assert.notOk("Could not find the save button in the footer");
 															}
 														});
 													},
