@@ -812,7 +812,9 @@ sap.ui.require([
 					opaTest("User filters on city and genre", function (Given, When, Then, assert) {
 						When.waitFor({
 							controlType: "sap.m.SearchField",
-							actions: new EnterText({text: "Hamburg"}),
+							actions: function (oSearchField) {
+								oSearchField.setValue("Hamburg");
+							},
 							errorMessage: "The input city was not found"
 						});
 						When.waitFor({
