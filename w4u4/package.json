@@ -7,7 +7,7 @@
 		"start": "ui5 serve",
 		"karma": "karma start",
 		"karma-ci": "karma start karma-ci.conf.js",
-		"watch": "start-server-and-test start http://localhost:8080 karma"
+		"watch": "npm run karma"
 	},
 	"dependencies": {
 		"@openui5/sap.ui.core": "^1.60",
@@ -19,11 +19,9 @@
 	},
 	"devDependencies": {
 		"@ui5/cli": "^1.2.0",
-		"karma": "^4.0.0",
+		"karma": "^4.0.1",
 		"karma-chrome-launcher": "^2.2.0",
 		"karma-coverage": "^1.1.2",
-		"karma-ui5": "^1.0.0",
-		"start-server-and-test": "^1.4.1",
-		"chrome-headless-launcher": "^0.1.5"
+		"karma-ui5": "^1.0.0"
 	}
 }

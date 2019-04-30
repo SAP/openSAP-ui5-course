@@ -8,8 +8,8 @@
     "lint": "eslint webapp",
     "karma": "karma start",
     "karma-ci": "karma start karma-ci.conf.js",
-    "watch": "start-server-and-test start http://localhost:8080 karma",
-    "test": "npm run lint && rimraf coverage && start-server-and-test start http://localhost:8080 karma-ci",
+    "watch": "npm run karma",
+    "test": "npm run lint && rimraf coverage && npm run karma-ci",
     "build": "rimraf dist && ui5 build --a"
   },
   "dependencies": {
@@ -23,13 +23,11 @@
   "devDependencies": {
     "@ui5/cli": "^1.2.0",
     "eslint": "^4.19.1",
-    "karma": "^4.0.0",
+    "karma": "^4.0.1",
     "karma-chrome-launcher": "^2.2.0",
     "karma-coverage": "^1.1.2",
     "karma-ui5": "^1.0.0",
-    "rimraf": "^2.6.2",
-    "start-server-and-test": "^1.4.1",
-    "chrome-headless-launcher": "^0.1.5"
+    "rimraf": "^2.6.2"
   }
 }
 
