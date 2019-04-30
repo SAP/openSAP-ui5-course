@@ -624,7 +624,7 @@ sap.ui.require([
 						When.waitFor({
 							controlType: "sap.m.Image",
 							matchers: new Properties ({
-								src:"images/MoviesHeader.png"
+								src: /images\/MoviesHeader.png$/
 							}),
 
 							success: function () {
