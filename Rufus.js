@@ -694,9 +694,9 @@ sap.ui.require([
 							}
 						});
 					});
-					
+
 					opaTest("Press the Find Movies Button ", function (Given, When, Then, assert) {
-											When.waitFor({
+						When.waitFor({
 							controlType: "sap.m.Button",
 							matchers: new Properties({text: /Find Movie[s]?/}),
 							actions: new Press(),
@@ -816,7 +816,7 @@ sap.ui.require([
 							controlType: "sap.m.Select",
 							actions: function (oSelect) {
 								// exclude validator select
-								if (oSelect.getItems()[0].getKey() !== "w0u0") { 
+								if (oSelect.getItems()[0].getKey() !== "w0u0") {
 									oSelect.setSelectedKey("Action");
 								}
 							},
@@ -1528,7 +1528,7 @@ sap.ui.require([
 							success: function (aPages) {
 								Then.waitFor({
 									controlType: "sap.m.List",
-									matchers : new sap.ui.test.matchers.Ancestor(aPages[0]),
+									matchers : new Ancestor(aPages[0]),
 									success: function () {
 										assert.ok("Product List was found");
 									},
@@ -1996,15 +1996,15 @@ sap.ui.require([
 										return bToolbarSpacer && bButton;
 									},
 									success: function () {
-										assert.ok("Toolbarspacer and button found");
+										assert.ok("Toolbar spacer and button found");
 									},
 									error: function () {
-										assert.notOk("Toolbarspacer or button notfound");
+										assert.notOk("Toolbar spacer or button not found");
 									}
 								});
 							},
 							error: function () {
-								assert.notOk("Couldn't access the needed environment.");
+								assert.notOk("Couldn't find a list on the master view.");
 							}
 						});
 					});
@@ -2017,500 +2017,325 @@ sap.ui.require([
 							success: function () {
 								return When.waitFor({
 									controlType: "sap.m.Table",
-									actions: function (oTable) {
-										oTable.getHeaderToolbar().getContent()[2].firePress();
-									},
-									success: function () {
-										When.waitFor({
-											controlType: "sap.uxap.ObjectPageLayout",
+									success: function (aTables) {
+										return When.waitFor({
+											controlType: "sap.m.Button",
+											matchers : [
+												new Ancestor(aTables[0]),
+												new Properties({
+													icon: "sap-icon://add"
+												})
+											],
+											actions: new Press(),
 											success: function () {
-												assert.ok("ObjectPageLayout found in create view");
-											},
-											error: function () {
-												assert.notOk("ObjectPageLayout not found in create view");
+												When.waitFor({
+													controlType: "sap.uxap.ObjectPageLayout",
+													success: function () {
+														assert.ok("ObjectPageLayout found in create view");
+													},
+													error: function () {
+														assert.notOk("ObjectPageLayout not found in create view");
+													}
+												});
 											}
 										});
 									},
 									error: function () {
-										assert.notOk("Couldn't access the needed environment.");
+										assert.notOk("Couldn't find a table on the detail view.");
 									}
 								});
 							},
 							error: function () {
-								assert.notOk("Couldn't access the needed environment.");
+								assert.notOk("Couldn't find a list on the master view.");
 							}
 						});
 					});
 					opaTest("First ObjectPage section", function (Given, When, Then, assert) {
 						When.waitFor({
-							controlType: "sap.m.List",
-							actions: function (oList) {
-								oList.getItems()[0].firePress();
-							},
-							success: function () {
-								return When.waitFor({
-									controlType: "sap.m.Table",
-									actions: function (oTable) {
-										oTable.getHeaderToolbar().getContent()[2].firePress();
-									},
-									success: function () {
-										When.waitFor({
-											controlType: "sap.uxap.ObjectPageLayout",
-											matchers: [
-												new AggregationFilled({name: "sections"})
-											],
-											check: function (aOPL) {
-												var iNumberLabels ,
-													iNumberInputs,
-													iNumberTextArea,
-													sControlName;
+							controlType: "sap.uxap.ObjectPageLayout",
+							matchers: [
+								new AggregationFilled({name: "sections"})
+							],
+							check: function (aOPL) {
+								var iNumberLabels ,
+									iNumberInputs,
+									iNumberTextArea,
+									sControlName;
 
-												return aOPL.some(function (oOPL) {
-													return oOPL.getSections().some(function (oSection) {
-														iNumberLabels = 0;
-														iNumberInputs = 0;
-														iNumberTextArea = 0;
+								return aOPL.some(function (oOPL) {
+									return oOPL.getSections().some(function (oSection) {
+										iNumberLabels = 0;
+										iNumberInputs = 0;
+										iNumberTextArea = 0;
 
-														return oSection.getSubSections().some(function (oSubSection) {
-															return oSubSection.getBlocks().some(function (oBlock) {
-																oBlock.getContent().forEach(function(oControl) {
-																	sControlName = oControl.getMetadata().getName();
-																	if (sControlName === "sap.m.Label") {
-																		iNumberLabels += 1;
-																		return;
-																	}
-																	if (sControlName === "sap.m.Input") {
-																		iNumberInputs += 1;
-																		return;
-																	}
-																	if (sControlName === "sap.m.TextArea") {
-																		iNumberTextArea += 1;
-																		return;
-																	}
-																});
-																return iNumberLabels === 3 && iNumberInputs === 2 && iNumberTextArea === 1;
-															});
-														});
-													});
+										return oSection.getSubSections().some(function (oSubSection) {
+											return oSubSection.getBlocks().some(function (oBlock) {
+												oBlock.getContent().forEach(function(oControl) {
+													sControlName = oControl.getMetadata().getName();
+													if (sControlName === "sap.m.Label") {
+														iNumberLabels += 1;
+														return;
+													}
+													if (sControlName === "sap.m.Input") {
+														iNumberInputs += 1;
+														return;
+													}
+													if (sControlName === "sap.m.TextArea") {
+														iNumberTextArea += 1;
+														return;
+													}
 												});
-											},
-											success: function () {
-												assert.ok("Section and corresponcing controls in it found");
-											},
-											error: function () {
-												assert.notOk("No section found or different controls in it than expected set");
-											}
+												return iNumberLabels === 3 && iNumberInputs === 2 && iNumberTextArea === 1;
+											});
 										});
-									},
-									error: function () {
-										assert.notOk("Couldn't access the needed environment.");
-									}
+									});
 								});
 							},
+							success: function () {
+								assert.ok("Section and corresponcing controls in it found");
+							},
 							error: function () {
-								assert.notOk("Couldn't access the needed environment.");
+								assert.notOk("No section found or different controls in it than expected set");
 							}
 						});
 					});
 					opaTest("Second ObjectPage section", function (Given, When, Then, assert) {
 						When.waitFor({
-							controlType: "sap.m.List",
-							actions: function (oList) {
-								oList.getItems()[0].firePress();
-							},
-							success: function () {
-								return When.waitFor({
-									controlType: "sap.m.Table",
-									actions: function (oTable) {
-										oTable.getHeaderToolbar().getContent()[2].firePress();
-									},
-									success: function () {
-										When.waitFor({
-											controlType: "sap.uxap.ObjectPageLayout",
-											matchers: [
-												new AggregationFilled({name: "sections"})
-											],
-											check: function (aOPL) {
-												var iNumberLabels,
-													iNumberDatePicker,
-													sControlName;
+							controlType: "sap.uxap.ObjectPageLayout",
+							matchers: [
+								new AggregationFilled({name: "sections"})
+							],
+							check: function (aOPL) {
+								var iNumberLabels,
+									iNumberDatePicker,
+									sControlName;
 
-												return aOPL.some(function (oOPL) {
-													return oOPL.getSections().some(function (oSection) {
-														iNumberLabels = 0;
-														iNumberDatePicker = 0;
+								return aOPL.some(function (oOPL) {
+									return oOPL.getSections().some(function (oSection) {
+										iNumberLabels = 0;
+										iNumberDatePicker = 0;
 
-														return oSection.getSubSections().some(function (oSubSection) {
-															return oSubSection.getBlocks().some(function (oBlock) {
-																oBlock.getContent().forEach(function(oControl) {
-																	sControlName = oControl.getMetadata().getName();
-																	if (sControlName === "sap.m.Label") {
-																		iNumberLabels += 1;
-																		return;
-																	}
-																	if (sControlName === "sap.m.DatePicker") {
-																		iNumberDatePicker += 1;
-																		return;
-																	}
-																});
-																return iNumberLabels === 1 && iNumberDatePicker === 1;
-															});
-														});
-													});
+										return oSection.getSubSections().some(function (oSubSection) {
+											return oSubSection.getBlocks().some(function (oBlock) {
+												oBlock.getContent().forEach(function(oControl) {
+													sControlName = oControl.getMetadata().getName();
+													if (sControlName === "sap.m.Label") {
+														iNumberLabels += 1;
+														return;
+													}
+													if (sControlName === "sap.m.DatePicker") {
+														iNumberDatePicker += 1;
+														return;
+													}
 												});
-											},
-											success: function () {
-												assert.ok("Section and corresponcing controls in it found");
-											},
-											error: function () {
-												assert.notOk("No section found or different controls than expected in it set");
-											}
+												return iNumberLabels === 1 && iNumberDatePicker === 1;
+											});
 										});
-									},
-									error: function () {
-										assert.notOk("Couldn't access the needed environment.");
-									}
+									});
 								});
 							},
+							success: function () {
+								assert.ok("Section and corresponcing controls in it found");
+							},
 							error: function () {
-								assert.notOk("Couldn't access the needed environment.");
+								assert.notOk("No section found or different controls than expected in it set");
 							}
 						});
 					});
 					opaTest("Validation of TextArea (Note)", function (Given, When, Then, assert) {
 						When.waitFor({
-							controlType: "sap.m.List",
-							actions: function (oList) {
-								oList.getItems()[0].firePress();
-							},
-							success: function () {
-								return When.waitFor({
-									controlType: "sap.m.Table",
-									actions: function (oTable) {
-										oTable.getHeaderToolbar().getContent()[2].firePress();
+							controlType: "sap.uxap.ObjectPageLayout",
+							success: function (aOPL) {
+								When.waitFor({
+									controlType: "sap.m.TextArea",
+									matchers: new Ancestor (aOPL[0]),
+									check: function (aTextArea) {
+										var oTextArea = aTextArea[0];
+										return oTextArea.getBindingPath("value") === "Note" &&  oTextArea.getBinding("value").getType().getMetadata().getName() === "sap.ui.model.type.String";
 									},
 									success: function () {
-										When.waitFor({
-											controlType: "sap.m.TextArea",
-											check: function (aTextArea) {
-												var oTextArea = aTextArea[0];
-												return oTextArea.getBindingPath("value") === "Note" &&  oTextArea.getBinding("value").getType().getMetadata().getName() === "sap.ui.model.type.String";
-											},
-											success: function () {
-												assert.ok("Validation set correctly");
-											},
-											error: function () {
-												assert.notOk("Validation set differently than expected");
-											}
-										});
+										assert.ok("Validation on text area field is set correctly");
 									},
 									error: function () {
-										assert.notOk("Couldn't access the needed environment.");
+										assert.notOk("Validation on text area field is set differently than expected");
 									}
 								});
 							},
 							error: function () {
-								assert.notOk("Couldn't access the needed environment.");
+								assert.notOk("Couldn't find an object page layout in the create view.");
 							}
 						});
 					});
 					opaTest("Validation of Input (ProductID))", function (Given, When, Then, assert) {
 						When.waitFor({
-							controlType: "sap.m.List",
-							actions: function (oList) {
-								oList.getItems()[0].firePress();
-							},
-							success: function () {
-								return When.waitFor({
-									controlType: "sap.m.Table",
-									actions: function (oTable) {
-										oTable.getHeaderToolbar().getContent()[2].firePress();
+							controlType: "sap.uxap.ObjectPageLayout",
+							success: function (aOPL) {
+								When.waitFor({
+									controlType: "sap.m.Input",
+									matchers: new Ancestor (aOPL[0]),
+									check: function (aInput) {
+										var oInput = aInput[0];
+										return oInput.getBindingPath("value") === "ProductID" && oInput.getBinding("value").getType().getMetadata().getName() === "sap.ui.model.type.String";
 									},
 									success: function () {
-										When.waitFor({
-											controlType: "sap.m.Input",
-											check: function (aInput) {
-												var oInput = aInput[0];
-												return oInput.getBindingPath("value") === "ProductID" && oInput.getBinding("value").getType().getMetadata().getName() === "sap.ui.model.type.String";
-											},
-											success: function () {
-												assert.ok("Validation set correctly");
-											},
-											error: function () {
-												assert.notOk("Validation set differently than expected");
-											}
-										});
+										assert.ok("Validation on input field set correctly.");
 									},
 									error: function () {
-										assert.notOk("Couldn't access the needed environment.");
+										assert.notOk("Validation on input field set differently than expected.");
 									}
 								});
 							},
 							error: function () {
-								assert.notOk("Couldn't access the needed environment.");
+								assert.notOk("Couldn't find an object page layout in the create view.");
 							}
 						});
 					});
 					opaTest("Validation of Input (Quantity))", function (Given, When, Then, assert) {
 						When.waitFor({
-							controlType: "sap.m.List",
-							actions: function (oList) {
-								oList.getItems()[0].firePress();
-							},
-							success: function () {
-								return When.waitFor({
-									controlType: "sap.m.Table",
-									actions: function (oTable) {
-										oTable.getHeaderToolbar().getContent()[2].firePress();
+							controlType: "sap.uxap.ObjectPageLayout",
+							success: function (aOPL) {
+								When.waitFor({
+									controlType: "sap.m.Input",
+									matchers: new Ancestor (aOPL[0]),
+									check: function (aInput) {
+										return aInput[1].getBindingPath("value") === "Quantity";
 									},
 									success: function () {
-										When.waitFor({
-											controlType: "sap.m.Input",
-											check: function (aInput) {
-												return aInput[1].getBindingPath("value") === "Quantity";
-											},
-											success: function () {
-												assert.ok("Validation set correctly");
-											},
-											error: function () {
-												assert.notOk("Validation set differently than expected");
-											}
-										});
+										assert.ok("Quantity field is bound correctly");
 									},
 									error: function () {
-										assert.notOk("Couldn't access the needed environment.");
+										assert.notOk("Quantity field is not bound correctly");
 									}
 								});
 							},
 							error: function () {
-								assert.notOk("Couldn't access the needed environment.");
+								assert.notOk("Couldn't find an object page layout in the create view.");
 							}
 						});
 					});
 					opaTest("Validation of DatePicker (DeliveryDate)", function (Given, When, Then, assert) {
 						When.waitFor({
-							controlType: "sap.m.List",
-							actions: function (oList) {
-								oList.getItems()[0].firePress();
-							},
-							success: function () {
-								return When.waitFor({
-									controlType: "sap.m.Table",
-									actions: function (oTable) {
-										oTable.getHeaderToolbar().getContent()[2].firePress();
+							controlType: "sap.uxap.ObjectPageLayout",
+							success: function (aOPL) {
+								When.waitFor({
+									controlType: "sap.m.DatePicker",
+									matchers: new Ancestor (aOPL[0]),
+									check: function (aDP) {
+										var oDP = aDP[0];
+										return oDP.getBindingPath("value") === "DeliveryDate" && oDP.getBinding("value").getType().getMetadata().getName() === "sap.ui.model.type.DateTime";
 									},
 									success: function () {
-										When.waitFor({
-											controlType: "sap.m.DatePicker",
-											check: function (aDP) {
-												var oDP = aDP[0];
-												return oDP.getBindingPath("value") === "DeliveryDate" && oDP.getBinding("value").getType().getMetadata().getName() === "sap.ui.model.type.DateTime";
-											},
-											success: function () {
-												assert.ok("Validation set correctly");
-											},
-											error: function () {
-												assert.notOk("Validation set differently than expected");
-											}
-										});
+										assert.ok("Validation on date picker field is set correctly");
 									},
 									error: function () {
-										assert.notOk("Couldn't access the needed environment.");
+										assert.notOk("Validation on date picker field is set differently than expected");
 									}
 								});
 							},
 							error: function () {
-								assert.notOk("Couldn't access the needed environment.");
+								assert.notOk("Couldn't find an object page layout in the create view.");
 							}
 						});
 					});
 					opaTest("ObjectPage footer", function (Given, When, Then, assert) {
 						When.waitFor({
-							controlType: "sap.m.List",
-							actions: function (oList) {
-								oList.getItems()[0].firePress();
-							},
-							success: function () {
-								return When.waitFor({
-									controlType: "sap.m.Table",
-									actions: function (oTable) {
-										oTable.getHeaderToolbar().getContent()[2].firePress();
-									},
-									success: function () {
-										When.waitFor({
-											controlType: "sap.uxap.ObjectPageLayout",
-											matchers: [
-												new AggregationFilled({name: "footer"})
-											],
-											check: function (aOPL) {
-												var iNumberButtons = 0,
-													iNumberToolbarSpacer = 0,
-													sControlName;
+							controlType: "sap.uxap.ObjectPageLayout",
+							matchers: [
+								new AggregationFilled({name: "footer"})
+							],
+							check: function (aOPL) {
+								var iNumberButtons = 0,
+									iNumberToolbarSpacer = 0,
+									sControlName;
 
-												return aOPL.some(function (oOPL) {
-													oOPL.getFooter().getContent().forEach(function(oControl) {
-														sControlName = oControl.getMetadata().getName();
-														if (sControlName === "sap.m.Button") {
-															iNumberButtons += 1;
-															return;
-														}
-														if (sControlName === "sap.m.ToolbarSpacer") {
-															iNumberToolbarSpacer += 1;
-															return;
-														}
-													});
-													return iNumberButtons >= 2 && iNumberToolbarSpacer >= 1;
-												});
-											},
-											success: function () {
-												assert.ok("Footer and corresponding controls in it found");
-											},
-											error: function () {
-												assert.notOk("No footer found or different controls than expected in it set");
-											}
-										});
-									},
-									error: function () {
-										assert.notOk("Couldn't access the needed environment.");
-									}
+								return aOPL.some(function (oOPL) {
+									oOPL.getFooter().getContent().forEach(function(oControl) {
+										sControlName = oControl.getMetadata().getName();
+										if (sControlName === "sap.m.Button") {
+											iNumberButtons += 1;
+											return;
+										}
+										if (sControlName === "sap.m.ToolbarSpacer") {
+											iNumberToolbarSpacer += 1;
+											return;
+										}
+									});
+									return iNumberButtons >= 2 && iNumberToolbarSpacer >= 1;
 								});
 							},
+							success: function () {
+								assert.ok("Footer and corresponding controls in it found");
+							},
 							error: function () {
-								assert.notOk("Couldn't access the needed environment.");
+								assert.notOk("No footer found or different controls than expected in it set");
 							}
 						});
 					});
 					opaTest("Canceling a creation of an entry", function (Given, When, Then, assert) {
 						When.waitFor({
-							controlType: "sap.m.List",
-							actions: function (oList) {
-								oList.getItems()[0].firePress();
+							controlType: "sap.uxap.ObjectPageLayout",
+							check: function (aOPL) {
+								return aOPL.some(function (oOPL) {
+									return oOPL.getFooter().getContent()[3].firePress();
+								});
 							},
 							success: function () {
-								return When.waitFor({
-									controlType: "sap.m.Table",
-									actions: function (oTable) {
-										oTable.getHeaderToolbar().getContent()[2].firePress();
-									},
+								return this.waitFor({
+									controlType: "sap.f.FlexibleColumnLayout",
+									matchers: new PropertyStrictEquals({name: "layout", value: "TwoColumnsMidExpanded"}),
 									success: function () {
-										When.waitFor({
-											controlType: "sap.uxap.ObjectPageLayout",
-											check: function (aOPL) {
-												return aOPL.some(function (oOPL) {
-													return oOPL.getFooter().getContent()[3].firePress();
-												});
-											},
-											success: function () {
-												return this.waitFor({
-													controlType: "sap.f.FlexibleColumnLayout",
-													matchers: new PropertyStrictEquals({name: "layout", value: "TwoColumnsMidExpanded"}),
-													success: function () {
-														assert.ok("Two Column FCL Layout triggered");
-													},
-													error: function () {
-														assert.notOk("Different than expected FCL layout found");
-													}
-												});
-											},
-											error: function () {
-												assert.notOk("No MessagePopover found");
-											}
-										});
+										assert.ok("Two Column FCL Layout triggered");
 									},
 									error: function () {
-										assert.notOk("Couldn't access the needed environment.");
+										assert.notOk("Different than expected FCL layout found");
 									}
 								});
 							},
 							error: function () {
-								assert.notOk("Couldn't access the needed environment.");
+								assert.notOk("No MessagePopover found");
 							}
 						});
 					});
 					opaTest("MessagePopover button", function (Given, When, Then, assert) {
 						When.waitFor({
-							controlType: "sap.m.List",
-							actions: function (oList) {
-								oList.getItems()[0].firePress();
-							},
-							success: function () {
-								return When.waitFor({
-									controlType: "sap.m.Table",
-									actions: function (oTable) {
-										oTable.getHeaderToolbar().getContent()[2].firePress();
-									},
-									success: function () {
-										When.waitFor({
-											controlType: "sap.uxap.ObjectPageLayout",
-											check: function (aOPL) {
-												var iNumberButtons = 0;
-												return aOPL.some(function (oOPL) {
-													oOPL.getFooter().getContent().forEach(function (oControl) {
-														if (oControl.getMetadata().getName() === "sap.m.Button") {
-															iNumberButtons += 1;
-														}
-													});
-													return iNumberButtons >= 3;
-												});
-											},
-											success: function () {
-												assert.ok("MessagePopover button found");
-											},
-											error: function () {
-												assert.notOk("MessagePopover button not found");
-											}
-										});
-									},
-									error: function () {
-										assert.notOk("Couldn't access the needed environment.");
-									}
+							controlType: "sap.uxap.ObjectPageLayout",
+							check: function (aOPL) {
+								var iNumberButtons = 0;
+								return aOPL.some(function (oOPL) {
+									oOPL.getFooter().getContent().forEach(function (oControl) {
+										if (oControl.getMetadata().getName() === "sap.m.Button") {
+											iNumberButtons += 1;
+										}
+									});
+									return iNumberButtons >= 3;
 								});
 							},
+							success: function () {
+								assert.ok("MessagePopover button found");
+							},
 							error: function () {
-								assert.notOk("Couldn't access the needed environment.");
+								assert.notOk("MessagePopover button not found");
 							}
 						});
 					});
 					opaTest("MessagePopover in dependents aggregation", function (Given, When, Then, assert) {
 						When.waitFor({
-							controlType: "sap.m.List",
-							actions: function (oList) {
-								oList.getItems()[0].firePress();
-							},
-							success: function () {
-								return When.waitFor({
-									controlType: "sap.m.Table",
-									actions: function (oTable) {
-										oTable.getHeaderToolbar().getContent()[2].firePress();
-									},
-									success: function () {
-										When.waitFor({
-											controlType: "sap.uxap.ObjectPageLayout",
-											matchers: [
-												new AggregationFilled({name: "dependents"})
-											],
-											check: function (aOPL) {
-												return aOPL.some(function (oOPL) {
-													return oOPL.getDependents().some(function (oControl) {
-														return oControl.getMetadata().getName() === "sap.m.MessagePopover";
-													});
-												});
-											},
-											success: function () {
-												assert.ok("MessagePopover in the ObjectPageLayout as dependents aggregation found");
-											},
-											error: function () {
-												assert.notOk("No MessagePopover found");
-											}
-										});
-									},
-									error: function () {
-										assert.notOk("Couldn't access the needed environment.");
-									}
+							controlType: "sap.uxap.ObjectPageLayout",
+							matchers: [
+								new AggregationFilled({name: "dependents"})
+							],
+							check: function (aOPL) {
+								return aOPL.some(function (oOPL) {
+									return oOPL.getDependents().some(function (oControl) {
+										return oControl.getMetadata().getName() === "sap.m.MessagePopover";
+									});
 								});
 							},
+							success: function () {
+								assert.ok("MessagePopover in the ObjectPageLayout as dependents aggregation found");
+							},
 							error: function () {
-								assert.notOk("Couldn't access the needed environment.");
+								assert.notOk("No MessagePopover found");
 							}
 						});
 					});
@@ -2533,45 +2358,61 @@ sap.ui.require([
 												var iItemsLength = aTables[0].getItems().length;
 												return this.waitFor({
 													controlType: "sap.uxap.ObjectPageLayout",
-													actions: function (oOPL) {
-														return oOPL.getSections().some(function (oSection) {
-															return oSection.getSubSections().some(function (oSubSection) {
-																return oSubSection.getBlocks().some(function (oBlock) {
-																	return oBlock.getContent()[1].setValue("HT-1000");
-																});
-															});
-														});
-													},
 													success: function (aOPL) {
-														return this.waitFor({
-															id: aOPL[0].getFooter().getContent()[2].getId(),
-															actions: new Press(),
+														When.waitFor({
+															controlType: "sap.m.Input",
+															actions: function (oInput) {
+																if (oInput.getId().match("productName$")) {
+																	new EnterText({text: "HT-1000"}).executeOn(oInput);
+																}
+															},
+															matchers: new Ancestor (aOPL[0]),
 															success: function () {
 																return this.waitFor({
-																	controlType: "sap.m.Table",
-																	check: function (aTables) {
-																		return aTables[0].getItems().length > iItemsLength;
+																	controlType: "sap.uxap.ObjectPageLayout",
+																	check: function (aOPL) {
+																		return aOPL[0].getBindingContext().getObject().ProductID === "HT-1000";
 																	},
 																	success: function () {
-																		assert.ok("Item was created successfully");
+																		return this.waitFor({
+																			id: aOPL[0].getFooter().getContent()[2].getId(),
+																			actions: new Press(),
+																			success: function () {
+																				return this.waitFor({
+																					controlType: "sap.m.Table",
+																					check: function (aTables) {
+																						return aTables[0].getItems().length > iItemsLength;
+																					},
+																					success: function () {
+																						assert.ok("Item was created successfully");
+																					},
+																					error: function () {
+																						assert.ok("Failed to create the item");
+																					}
+																				});
+																			},
+																			error: function () {
+																				assert.notOk("Save button could not be pressed");
+																			}
+																		});
 																	},
 																	error: function () {
-																		assert.ok("Failed to created the item");
+																		assert.notOk("ProductID is not propagated to the model");
 																	}
 																});
 															},
 															error: function () {
-																assert.notOk("Could not find the save button in the footer");
+																assert.notOk("OK button of MessageBox not found");
 															}
 														});
 													},
 													error: function () {
-														assert.notOk("No ObjectPageLayout found");
+														assert.notOk("No MessagePopover found");
 													}
 												});
 											},
 											error: function () {
-												assert.notOk("No Table found");
+												assert.notOk("No MessagePopover found");
 											}
 										});
 									},
