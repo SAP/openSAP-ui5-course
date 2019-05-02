@@ -4,7 +4,7 @@ This repository contains the **solutions for both openSAP SAPUI5 courses**.
 
 |   Evolved Web Apps with SAPUI5 (ui52)  |   Developing Web Apps with SAPUI5 (ui51)  |
 |:---|:---|
-| To follow this course, stay on this page and please read on.   |  The solutions for our predecessor course *Developing Web Apps with SAPUI5* (ui51) have been moved to branch [ui51](https://github.com/SAP/openSAP-ui5-course/tree/ui51).  |
+| To find solutions and instructions for the new course, stay on this page and please read on.   |  The solutions for our predecessor course have been moved to branch [ui51](https://github.com/SAP/openSAP-ui5-course/tree/ui51).  |
 
 ### Evolved Web Apps with SAPUI5 (ui52)
 
