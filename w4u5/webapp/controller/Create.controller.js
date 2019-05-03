@@ -34,7 +34,8 @@ sap.ui.define([
 			// reset potential server-side messages
 			this._oMessageManager.removeAllMessages();
 
-			// set a dynamic date constraint in controller, as "today" cannot be defined declaratively in XMLView
+			// set a dynamic date constraint in controller, as "today" cannot be
+			// defined declaratively in XMLView
 			var oToday = new Date();
 			oToday.setHours(0, 0, 0, 0);
 			this.byId("deliveryDate").getBinding("value").getType().setConstraints({
@@ -45,9 +46,6 @@ sap.ui.define([
 		},
 
 		_onCreateSuccess: function (oContext) {
-			// unbind the view to not show this object again
-			this.getView().unbindObject();
-
 			// show success message
 			var sMessage = this.getResourceBundle().getText("newItemCreated", [oContext.ProductID]);
 			MessageToast.show(sMessage, {
@@ -67,9 +65,14 @@ sap.ui.define([
 		},
 
 		onCancel: function () {
+			var sObjectId = this.getView().getBindingContext().getProperty("SalesOrderID");
+
+			// discard the new context on cancel
+			this.getModel().deleteCreatedEntry(this.oContext);
+
 			// close the third column
 			this.getRouter().navTo("object", {
-				objectId : this.getView().getBindingContext().getProperty("SalesOrderID")
+				objectId : sObjectId
 			}, true);
 		},
 
