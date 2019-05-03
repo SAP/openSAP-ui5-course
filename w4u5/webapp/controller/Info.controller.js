@@ -12,7 +12,7 @@ sap.ui.define([
 		 * @memberOf opensap.orders.view.Info
 		 */
 		onInit: function () {
-			this.getRouter().getRoute("info").attachPatternMatched(this._onInfoMatched, this);
+			this.getRouter().getRoute("Info").attachPatternMatched(this._onInfoMatched, this);
 		},
 
 		/**

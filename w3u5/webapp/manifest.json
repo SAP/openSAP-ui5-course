@@ -107,11 +107,11 @@
 				},
 				{
 					"pattern": "SalesOrderSet/{objectId}/Item/{itemPosition}",
-					"name": "info",
+					"name": "Info",
 					"target": [
 						"master",
 						"object",
-						"info"
+						"Info"
 					]
 				}
 			],
@@ -136,11 +136,11 @@
 					"viewName": "NotFound",
 					"viewId": "notFound"
 				},
-				"info": {
+				"Info": {
 					"viewType": "XML",
 					"viewName": "Info",
 					"controlAggregation": "endColumnPages",
-					"viewId": "info"
+					"viewId": "Info"
 				}
 			}
 		}

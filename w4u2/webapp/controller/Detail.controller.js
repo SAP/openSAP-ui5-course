@@ -31,7 +31,7 @@ sap.ui.define([
 			});
 
 			this.getRouter().getRoute("object").attachPatternMatched(this._onObjectMatched, this);
-			this.getRouter().getRoute("info").attachPatternMatched(this._onObjectMatched, this);
+			this.getRouter().getRoute("Info").attachPatternMatched(this._onObjectMatched, this);
 			this.getRouter().getRoute("create").attachPatternMatched(this._onObjectMatched, this);
 
 			this.setModel(oViewModel, "detailView");
@@ -227,7 +227,7 @@ sap.ui.define([
 		 */
 		action: function (oEvent) {
 			var bReplace = !Device.system.phone;
-			this.getRouter().navTo("info", {
+			this.getRouter().navTo("Info", {
 				objectId : (oEvent.getParameter("listItem") || oEvent.getSource()).getBindingContext().getProperty("SalesOrderID"),
 				itemPosition : (oEvent.getParameter("listItem") || oEvent.getSource()).getBindingContext().getProperty("ItemPosition")
 			}, bReplace);
@@ -262,7 +262,7 @@ sap.ui.define([
 		_confirmDelete : function (sPath, sTitle) {
 			var oResourceBundle = this.getResourceBundle();
 			sap.ui.require(["sap/m/MessageBox"], function (MessageBox) {
-				MessageBox.confirm(oResourceBundle.getText("deleteConfirmationMessage") + " " + sTitle, {
+				MessageBox.confirm(oResourceBundle.getText("deleteConfirmationMessage", [sTitle]), {
 					title: oResourceBundle.getText("confirmTitle"),
 					onClose: function (sAction) {
 						if (sAction === "OK") {
