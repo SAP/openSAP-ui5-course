@@ -39,7 +39,7 @@
 						<core:ListItem icon="sap-icon://video" key="" text="{i18n>genreAll}"/>
 						<core:ListItem icon="sap-icon://physical-activity" key="Action" text="{i18n>genreAction}"/>
 						<core:ListItem icon="sap-icon://electrocardiogram" key="Horror" text="{i18n>genreHorror}"/>
-						<core:ListItem icon="sap-icon://paper-plane" key="SienceFiction" text="{i18n>genreScienceFiction}"/>
+						<core:ListItem icon="sap-icon://paper-plane" key="ScienceFiction" text="{i18n>genreScienceFiction}"/>
 					</Select>
 					<Label/>
 					<Button
