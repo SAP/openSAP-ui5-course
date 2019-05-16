@@ -42,7 +42,7 @@
 										<core:ListItem icon="sap-icon://video" key="" text="All"/>
 										<core:ListItem icon="sap-icon://physical-activity" key="Action" text="Action"/>
 										<core:ListItem icon="sap-icon://electrocardiogram" key="Horror" text="Horror"/>
-										<core:ListItem icon="sap-icon://paper-plane" key="SienceFiction" text="Science Fiction"/>
+										<core:ListItem icon="sap-icon://paper-plane" key="ScienceFiction" text="Science Fiction"/>
 									</Select>
 									<Label/>
 									<Button
