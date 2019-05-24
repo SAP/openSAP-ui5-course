@@ -33,7 +33,7 @@
 				busyIndicatorDelay="{detailView>/lineItemTableDelay}"
 				selectionChange="action"
 				xmlns:action="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
-				action:wiring="\{'selectionChange':\{'navigation':\{'routeName':'info'\}\}\}">
+				action:wiring="\{'selectionChange':\{'navigation':\{'routeName':'Info'\}\}\}">
 				<headerToolbar>
 					<Toolbar>
 						<Title
