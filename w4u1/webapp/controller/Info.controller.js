@@ -24,6 +24,7 @@ sap.ui.define([
 			var sObjectId = oEvent.getParameter("arguments").objectId,
 				sItemPosition = oEvent.getParameter("arguments").itemPosition;
 
+			this.getModel("appView").setProperty("/selectedItemId", sItemPosition);
 			this.getModel("appView").setProperty("/layout", "ThreeColumnsEndExpanded");
 			this.getModel().metadataLoaded().then(function () {
 				var sObjectPath = this.getModel().createKey("SalesOrderLineItemSet", {
