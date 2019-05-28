@@ -505,6 +505,14 @@
 			"description": "ES5 Demo Service"
 		},
 		{
+			"path": "/ES5",
+			"target": {
+				"type": "destination",
+				"name": "ES5"
+			},
+			"description": "SAP Gateway Demo System"
+		},
+		{
 			"path": "/destinations/odataorg",
 			"target": {
 				"type": "destination",
