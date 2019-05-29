@@ -26,10 +26,10 @@ sap.ui.define([], function () {
 		 */
 		deliveryStatus: function(sValue) {
 			switch(sValue) {
-				case "New": return 5;
-				case "In Progress": return 1;
-				case "Canceled": return 3;
-				case "Closed": return 7;
+				case "N": return 5;
+				case "P": return 1;
+				case "X": return 3;
+				case "C": return 7;
 				default: return 7;
 			}
 		},

@@ -21,7 +21,7 @@
 			<tnt:InfoLabel
 				text="{LifecycleStatusDescription}"
 				colorScheme="{
-					path: 'LifecycleStatusDescription',
+					path: 'LifecycleStatus',
 					formatter: '.formatter.deliveryStatus'
 				}"/>
 		</semantic:headerContent>
