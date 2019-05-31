@@ -190,6 +190,7 @@ sap.ui.define([
 		 */
 		onCloseDetailPress: function () {
 			this.getModel("appView").setProperty("/actionButtonsInfo/midColumn/fullScreen", false);
+			this.byId("lineItemsList").removeSelections(true);
 			// No item should be selected on master after detail page is closed
 			this.getOwnerComponent().oListSelector.clearMasterListSelection();
 			this.getRouter().navTo("master");
