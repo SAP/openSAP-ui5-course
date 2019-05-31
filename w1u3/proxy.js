@@ -1,8 +1,7 @@
 var cors_proxy = require('cors-anywhere');
 
 // Listen on a specific IP Address
-// 0.0.0.0 equals localhost
-var host = '0.0.0.0';
+var host = 'localhost';
 
 // Listen on a specific port, adjust if necessary
 var port = 8081;
