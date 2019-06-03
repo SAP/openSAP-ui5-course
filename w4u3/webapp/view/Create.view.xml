@@ -51,7 +51,8 @@
 										path: 'Quantity',
 										type: 'sap.ui.model.odata.type.Decimal',
 										constraints: {
-											minimum: '1'
+											minimum: '1',
+											nullable: false
 										},
 										formatOptions: {
 											source: {}
