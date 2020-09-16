@@ -1,5 +1,8 @@
 # openSAP-ui5-course
 
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP/openSAP-ui5-course)](https://api.reuse.software/info/github.com/SAP/openSAP-ui5-course)
+
+
 This repository contains the **solutions for both openSAP SAPUI5 courses**.
 
 |   Evolved Web Apps with SAPUI5 (ui52)  |   Developing Web Apps with SAPUI5 (ui51)  |
