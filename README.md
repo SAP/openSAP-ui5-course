@@ -98,4 +98,4 @@ Thank you,
 
 ## License
 
-All example code in this repository is licensed under the Apache Software License, Version 2.0 except as noted otherwise in the [LICENSE](https://github.com/SAP/openSAP-ui5-course/blob/master/LICENSE) file.
+All example code in this repository is licensed under the [Apache Software License, Version 2.0](https://github.com/SAP/openSAP-ui5-course/blob/master/LICENSE).
