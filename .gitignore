@@ -1,4 +1,5 @@
 # files to ignore for git
+node_modules
 .idea
 .che
 fioriHtmlRunner.html
